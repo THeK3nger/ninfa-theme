@@ -1,0 +1,11 @@
+<footer>
+    <div class="social">
+    {{ partialCached "social.html" . }}
+    </div>
+    <span>
+    &copy; <time datetime="{{ now }}">{{ now.Format "2006" }}</time>{{ .Site.Author.name }}. {{ i18n "generator" | safeHTML }}
+    </span>
+    {{- if .Site.Params.privacyPolicy}}
+    <a class="navabar-link py-2 flex-grow-1" href="{{ $.Site.BaseURL }}{{ .Site.Params.privacyPolicy }}">Privacy Policy</a>
+    {{- end }}
+</footer>

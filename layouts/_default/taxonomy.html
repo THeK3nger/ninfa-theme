@@ -1,0 +1,19 @@
+{{ define "main" }}
+
+<main>
+    <h1>{{ strings.FirstUpper .Data.Singular }} <span class="badge badge-primary font-monospace">{{ .Title }}</span></h1>
+	<div class="catalogue">
+		{{ range (.Paginate .Pages).Pages }}
+            {{- if eq .Type "link"}}
+            {{ .Render "summaryLink" }}
+            {{- else }}
+            {{ .Render "summary" }}
+            {{- end }}
+		{{ end }}
+	</div>
+	
+    {{ partial "elements/paginator-navbar.html" . }}
+
+</main>
+
+{{ end }}

@@ -1,0 +1,7 @@
+{{ if .Site.Params.plausibleBaseDomain }}
+{{ if .Site.Params.plausibleScriptPath }}
+<script defer data-domain="{{ .Site.Params.plausibleBaseDomain }}" src="{{ .Site.Params.plausibleScriptPath }}"></script>
+{{ else }}
+<script defer data-domain="{{ .Site.Params.plausibleBaseDomain }}" src="https://plausible.io/js/script.js"></script>
+{{ end }}
+{{ end }}

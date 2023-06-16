@@ -1,0 +1,141 @@
+body {
+    display: grid;
+    grid-template: [start] auto [content-end footer-start] 20px/10% 1fr 20%;
+    grid-template-areas: "margin content nav" "footer footer footer";
+    gap: 1rem;
+    background-color: var(--bg-color); 
+
+    font-family: var(--font-serif);
+}
+
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4 {
+    line-height: 1.1em;
+}
+
+.sidebar {
+    grid-column: 3;
+    grid-row: 1;
+
+    display: flex;
+    flex-direction: column;
+    margin-block-start: 1rem;
+}
+
+.logo {
+    align-self: center;
+}
+
+.container-main {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+footer {
+    grid-column: 1 / 4;
+    grid-row: 2;
+    grid-area: footer;
+    display: flex;
+    justify-content: space-evenly;
+
+    font-family: var(--font-san-serif);
+    font-size: small;
+}
+
+.social {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.social-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-block-start: 1rem;
+    filter: grayscale(100%) opacity(0.5);
+}
+
+.navbar {
+    list-style-type: none;
+
+    li {
+        font-family: var(--font-mono);
+
+        a {
+            text-decoration: none;
+            color: black;
+
+            :hover {
+                color: var(--accent-color);
+            }
+        }
+    }
+}
+
+main {
+    font-size: 1.2rem;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+article > section {
+  hyphens: auto;
+}
+
+.highlight {
+    overflow-x: scroll;
+    font-size: 0.8em;
+    line-height: 1.5em;
+    margin-bottom: 0px !important;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 25px 0;
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+    font-size: 0.8em;
+    line-height: 1.5em;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+
+    thead {
+        background-color: var(--primary-color);
+        color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    th, td {
+        padding: 12px 15px;
+        text-align: left;
+    }
+
+    tbody { 
+        tr {
+            border-bottom: 1px solid #dddddd;
+        }
+    
+        tr:nth-of-type(even) {
+            background-color: var(--bg-color-darker);
+        }
+    
+        tr:last-of-type {
+            border-bottom: 2px solid var(--primary-color);
+        }
+    }
+}

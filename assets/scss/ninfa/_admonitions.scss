@@ -1,0 +1,13 @@
+.alert {
+
+    margin-left: -2rem;
+
+    &-info {
+        background-color: var(--info-color);
+        padding: 1rem;
+
+        h4 {
+            margin-block-end: 0.25rem;
+        }
+    }
+}

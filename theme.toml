@@ -1,0 +1,15 @@
+# theme.toml template for a Hugo theme
+# See https://github.com/gohugoio/hugoThemes#themetoml for an example
+
+name = "Ninfa"
+license = "MIT"
+licenselink = "https://github.com/THeK3nger/ninfa-theme/blob/master/LICENSE"
+description = "Custom theme for personal blogs with a classical-modern look."
+homepage = "https://github.com/THeK3nger/ninfa-theme"
+tags = ["minimal", "clean", "responsive", "simple", "personal", "blog", "starter", "light", "typography"]
+features = ["pagination"]
+min_version = "0.100"
+
+[author]
+  name = "Davide Aversa"
+  homepage = "https://www.davideaversa.it"

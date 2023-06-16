@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en" }}">
+    {{ partial "head.html" . }}
+    <body>
+        {{ partialCached "navbar.html" . }}
+
+        <div class="social-column">
+            {{ partialCached "social.html" . }}
+        </div>
+        
+        <div class="container-main">
+        {{ block "main" . }}{{ end }}
+        </div>
+
+        {{ partialCached "footer.html" . }}
+    </body>
+</html>

@@ -1,0 +1,65 @@
+{{ define "main" }}
+
+{{ $img := partial "elements/get-header.html" (dict "context" . "sizes" "1280x300") }}
+{{ $altText := .Params.header_alt | default ( printf "%s%s" "Header image for " .Title) }}
+
+<main>
+    {{ partial "single/reading-status-bar.html" }}
+	<article class="post">
+        {{- if eq .Type "page" }}
+        <h1 class="post-title">{{ .Title }}</h1>
+        {{- if .Params.header -}}
+        <img src="{{ .Params.header }}" alt="{{ .Params.header_alt }}" />
+        {{- end -}}
+        {{- else -}}
+        <header>
+            {{ partial "single/post-info.html" . }}
+            <h1 class="post-title">{{ .Title }}</h1>
+            <div class="post-header-image">
+                <img src="{{ $img.Permalink }}" alt="{{ $altText }}" />
+            </div>
+        </header>
+        {{- end -}}
+
+        <section class="post-body">
+		{{ .Content }}
+        </section>
+
+		{{ partial "single/footer.html" . }}
+    </article>
+
+    {{ partial "elements/related.html" . }}
+
+    {{- if ne .Params.comments false }}
+        {{ template "_internal/disqus.html" . }}
+    {{- end }}
+    
+    <nav class="pagination">
+        <ul>
+            {{ if .PrevPage }}
+            <li class="page-item"><a class="page-link" aria-label="Previous" href="{{ .PrevPage.RelPermalink }}">&#8592;</a></li>
+            {{ else }}
+            <li class="page-item"><a class="page-link invisible" href="#">&#8592;</a></li>
+            {{ end }}
+            <li class="page-item"><a class="page-link top" href="#">Top</a></li>
+            {{ if .NextPage }}
+            <li class="page-item"><a class="page-link" aria-label="Next" href="{{ .NextPage.RelPermalink }}">&#8594;</a></li>
+            {{ else }}
+            <li class="page-item"><a class="page-link invisible" href="#">&#8594;</a></li>
+            {{ end }}
+        </ul>
+    </nav>
+</main>
+<script>
+    let processScroll = () => {
+        let docElem = document.documentElement; 
+        let docArticle = document.getElementsByTagName("main");
+        let scrollTop = docElem['scrollTop'] || docArticle['scrollTop'];
+        let scrollBottom = (docElem['scrollHeight'] || docArticle['scrollHeight']) - window.innerHeight - 100;
+        let scrollPercent = scrollTop / scrollBottom * 100 + '%';
+        document.getElementById("progress-bar").style.setProperty("--scrollAmount", scrollPercent); 
+      }
+      
+      document.addEventListener('scroll', processScroll);
+</script>
+{{ end }}

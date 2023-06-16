@@ -1,0 +1,13 @@
+<section class="post-info">
+    {{- if .Params.Categories }}
+    <div class="post-categories">
+        {{ range $category := .Params.Categories}}
+            <a href='{{ "/categories/" | relLangURL }}{{ $category | urlize }}'><span>{{ $category }}</span></a>
+        {{ end }}
+    </div>
+    {{- end }}
+    {{- if .PublishDate }}
+    <time datetime="{{ .PublishDate }}">{{ i18n "publishdate" . }}</time>
+    {{- end }}
+    <!-- <span>Reading time: {{ .ReadingTime }} minutes.</span> -->
+</section>

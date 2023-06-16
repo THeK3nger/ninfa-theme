@@ -1,0 +1,15 @@
+<!-- 
+This is a placeholder partial for the post footer. Create a file called
+layouts/partials/single/footer.html in your own site to overwrite this
+placeholder.
+-->
+<footer>
+    <div class="post-line"></div>
+    {{- if .Params.Tags }}
+    <div class="post-tags">
+        {{ range $tag := .Params.Tags }}
+        <a href="{{ $.Site.BaseURL }}tags/{{ $tag | urlize }}">{{ $tag }}</a>
+        {{ end}}
+    </div>
+    {{- end }}
+</footer>

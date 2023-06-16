@@ -1,0 +1,19 @@
+
+<div class="sidebar">
+    <a class="logo"  href="{{ "/" | relURL }}">
+        <img src="{{ .Site.Params.logo }}" alt="Davide Aversa Logo" width="80px" height="80px" />
+    </a>
+    <nav>
+        <ul class="navbar">
+        {{ range .Site.Menus.main }}
+            <li class="navbar-item">
+                <a href="{{ .URL }}">
+                    {{ .Pre }}
+                    <span class="{{ .Params.Class }}">{{ .Name }}</span>
+                    {{ .Post }}
+                </a>
+            </li>
+        {{ end }}
+        </ul>
+    </nav>
+</div>

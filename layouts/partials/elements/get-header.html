@@ -1,0 +1,12 @@
+{{ $cropMethod := .context.Params.crop }}
+{{ if not $cropMethod}}
+{{ $cropMethod = "smart" }}
+{{ end }}
+{{ $image := .context.Resources.GetMatch "header" }}
+{{ if $image }}
+    {{ $image = $image.Fill (print .sizes " " $cropMethod) }}
+{{ else }}
+    {{ $image = .context.Resources.GetMatch $.context.Site.Params.defaultPostImage }}
+{{ end }}
+
+{{ return $image }}

@@ -1,0 +1,48 @@
+.related {
+    display: flex;
+    gap: 0.5rem;
+    margin-block-start: 1rem;
+    margin-block-end: 1rem;
+
+    font-size: 0.8em;
+
+    .card {
+        // This is used to make the cards have the same width.
+        flex: 1 1 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 8px;
+
+        background-color: var(--bg-color-darker);
+
+        &-image {
+            border-radius: 1%;
+            box-shadow: 2px 2px 2px #00000050;
+            height: 100px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        &-body {
+            color: unset;
+        }
+
+        &-title {
+            font-size: 1.2em;
+            font-family: var(--font-mono);
+        }
+
+        &-text {
+            text-align: justify;
+            hyphens: auto;
+            overflow-block: hidden
+        }
+
+        &-footer {
+            font-size: small;
+            font-family: var(--font-mono);
+        }
+    }
+
+}

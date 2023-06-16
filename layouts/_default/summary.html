@@ -1,0 +1,23 @@
+<div  class="catalogue-item">
+    
+    {{ $img := partial "elements/get-header.html" (dict "context" . "sizes" "698x408") }}
+
+    <div class="catalogue-metadata">
+        <time datetime="{{ .PublishDate }}" class="catalogue-time">{{ i18n "publishdate" . }}</time>
+        <span>·</span>
+        <div class="catalogue-category">
+            {{ range $category := .Params.Categories }}
+            <a href="{{ $.Site.BaseURL }}categories/{{ $category | urlize }}"><span class="catalogue-category-text">{{ $category }}</span></a>
+            {{ end }}
+        </div>
+    </div>
+    <a href="{{ .Permalink }}">
+        <h1 class="catalogue-title">{{ .Title }}</h1>
+    </a>
+    {{ $altText := .Params.header_alt | default ( printf "%s%s" "Header image for " .Title) }}
+    <img class="catalogue-image" alt="{{ $altText }}" loading="lazy" src="{{$img.Permalink}}" width="698"/>
+    <p class="catalogue-summary text-justify">
+        {{ if isset .Params "summary" }}{{ .Params.Summary | markdownify }}{{ else }}{{ .Summary }}{{ end }}
+    </p>
+
+</div>

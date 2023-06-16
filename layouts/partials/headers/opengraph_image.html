@@ -1,0 +1,8 @@
+{{ if .IsPage }}
+{{- $image := .Resources.GetMatch "header" -}}
+{{ with $image }}
+  {{/* This is a fix for platforms that do not support webp og:images. At some point this should be removed. */}}
+  {{- $image = $image.Resize "600x png" -}}
+  <meta property="og:image" content="{{ $image.Permalink | absURL }}" />
+{{ end }}
+{{ end }}
