@@ -44,6 +44,14 @@
         color: var(--accent-color);
     }
 
+    h2.post-subtitle {
+        font-size: 1.5rem;
+        font-style: oblique;
+        margin-bottom: 2em;
+        color: var(--mid-gray);
+        margin-top: -1.5em !important;
+    }
+
     &-info {
         display: flex;
         gap: 1rem;

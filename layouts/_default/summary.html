@@ -13,6 +13,9 @@
     </div>
     <a href="{{ .Permalink }}">
         <h1 class="catalogue-title">{{ .Title }}</h1>
+        {{ if .Params.subtitle }}
+        <h2 class="catalogue-subtitle">{{ .Params.subtitle }}</h2>
+        {{ end }}
     </a>
     {{ $altText := .Params.header_alt | default ( printf "%s%s" "Header image for " .Title) }}
     <img class="catalogue-image" alt="{{ $altText }}" loading="lazy" src="{{$img.Permalink}}" width="698"/>

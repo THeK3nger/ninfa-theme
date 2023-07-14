@@ -36,6 +36,12 @@
     font-weight: 700;
   }
 
+  &-subtitle {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--mid-gray);
+  }
+
   &-line {
     display: block;
     width: 2rem;
