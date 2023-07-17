@@ -25,7 +25,7 @@ h1, h2, h3, h4 {
     padding-block-start: 2em;
 }
 
-#mobile-nav {
+.mobile-nav {
     display: none;
 }
 
@@ -197,14 +197,8 @@ table {
         display: block;
         width: 30px;
         height: 30px;
-        background-color: var(--primary-color);
-        border-radius: 50%;
         cursor: pointer;
         transition: background-color 0.5s ease-in-out;
-
-        :hover {
-            background-color: var(--accent-color);
-        }
     }
 
     #mobile-navbar {
@@ -213,14 +207,29 @@ table {
         top: 3.5rem;
         left: -100%;
         font-size: 2em;
+        transition: 0.3s;
+        background-color: var(--bg-color-darker);
     }
 
-    #nav-toggle:checked + #mobile-navbar {
+    #nav-toggle {
+        opacity: 0;
+    }
+
+    #nav-toggle + #nav-toggle-label:before {
+        font-size: 2em;
+        content: "🤔";
+        transition: 0.5s;
+    }
+    #nav-toggle:checked + #nav-toggle-label:before {
+        font-size: 2em;
+        content: "😱";
+        transition: 0.5s;
+    }  
+
+    #nav-toggle:checked ~ #mobile-navbar {
         display: block;
         visibility: visible;
         left: 0;
-        background-color: var(--bg-color-darker);
-        transition: left 0.5s ease-in-out;
     }
   
   }
