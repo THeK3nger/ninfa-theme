@@ -149,3 +149,26 @@
         }
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .post {
+        .post-body {
+            margin-left: 0;
+            max-width: 100%;
+        }
+
+        figure {
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-left: 0.5em;
+            margin-right: 0.5em;
+            text-align: center;
+        }
+
+        header {
+            .post-header-image {
+                top: 3.5em;
+            }
+        }
+    }
+}

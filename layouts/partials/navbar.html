@@ -17,3 +17,24 @@
         </ul>
     </nav>
 </div>
+<header class="mobile-nav">
+    <a class="logo"  href="{{ "/" | relURL }}">
+        <img src="{{ .Site.Params.logo }}" alt="Davide Aversa Logo" width="30px" height="30px" /> 
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+    <label id="mobile-navbar" for="nav-toggle">
+        <nav>
+            <ul class="navbar">
+            {{ range .Site.Menus.main }}
+                <li class="mobile-navbar-item">
+                    <a href="{{ .URL }}">
+                        {{ .Pre }}
+                        <span class="{{ .Params.Class }}">{{ .Name }}</span>
+                        {{ .Post }}
+                    </a>
+                </li>
+            {{ end }}
+            </ul>
+        </nav>
+        </label>
+</header>
