@@ -177,8 +177,25 @@ table {
     footer {
         grid-row: 4;
         grid-column: 1 /2;
+        gap: 0.5em;
         flex-direction: column;
         align-items: center;
+
+        #footer-social {
+            order: 1;
+            height: 20px;
+            align-items: center;
+        }
+
+        #privacy-policy {
+            order: 2;
+            height: 20px;
+        }
+
+        #footer-copyright {
+            order: 3;
+            height: 20px;
+        }
     }
 
     .social-column {
