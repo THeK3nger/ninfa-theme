@@ -66,6 +66,8 @@ footer {
 
 .navbar {
     list-style-type: none;
+    padding: 0 15% 0 15%;
+    text-align: center;
 
     li {
         font-family: var(--font-mono);
@@ -172,6 +174,10 @@ table {
 
     .sidebar {
         display: none;
+    }
+
+    .navbar {
+        text-align: left;
     }
 
     footer {
