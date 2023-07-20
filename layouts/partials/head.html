@@ -13,7 +13,7 @@
 
 		<!-- CSS -->
 		{{- $cssTarget		:= "css/style.css" }}
-		{{- $cssOptions		:= (dict "targetPath" $cssTarget "outputStyle" "compressed" "includePaths" (slice "node_modules")) }}
+		{{- $cssOptions		:= (dict "transpiler" "dartsass" "targetPath" $cssTarget "outputStyle" "compressed" "includePaths" (slice "node_modules")) }}
 		{{- $style			:= resources.Get "scss/ninfa.scss" | toCSS $cssOptions | minify | fingerprint }}
   		<link rel="stylesheet" href="{{ $style.RelPermalink }}">
 		<link rel="stylesheet" href="{{ "css/fonts.css" | relURL }}">
