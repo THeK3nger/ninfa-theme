@@ -1,14 +1,17 @@
 .catalogue {
+  max-width: 700px;
+  margin: auto;
+  text-decoration: none;
+  color: black;
 
-    max-width: 700px;
-    margin: auto;
-
-    text-decoration: none;
+  h1 {
     color: black;
+  }
 
-    h1 {
-        color: black;
-    }
+  &-line {
+    display: block;
+    width: 2rem;
+  }
 
   &-item {
     display: block;
@@ -25,7 +28,7 @@
   }
 
   &-time {
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
     color: var(--accent-color);
     font-family: var(--font-mono);
     font-size: smaller;
@@ -42,28 +45,22 @@
     color: var(--mid-gray);
   }
 
-  &-line {
-    display: block;
-    width: 2rem;
-  }
-
   &-image {
-      margin-top: 0.5rem;
-      margin-bottom: 1rem;
-      object-fit: cover;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    object-fit: cover;
   }
 
   &-summary {
-      font-size: 1.32rem;
-      hyphens: auto;
-      line-height: 130%;
+    font-size: 1.32rem;
+    hyphens: auto;
+    line-height: 130%;
   }
 
   &-metadata {
     display: flex;
     align-items: baseline;
     gap: 1rem;
-
     font-size: 90%;
   }
 
@@ -71,11 +68,11 @@
     text-decoration: none;
 
     &-text {
-        font-family: var(--font-mono);
-        font-size: smaller;
-        letter-spacing: .5px;
-        text-transform: uppercase;
-        color: var(--mid-gray);
+      font-family: var(--font-mono);
+      font-size: smaller;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--mid-gray);
     }
   }
 }

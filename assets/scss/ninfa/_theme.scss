@@ -1,13 +1,14 @@
+/* stylelint-disable value-keyword-case */
 :root {
-    --black: hsl(0, 0%, 0%);
-    --white: hsl(0, 0%, 100%);
-    --bg-color: hsl(0, 0%, 95%);
-    --bg-color-darker: hsl(0, 0%, 90%);
-    --mid-gray: hsl(0, 0%, 50%);
-    --primary-color: hsl(33, 100%, 50%);
-    --secondary-color: hsl(280, 100%, 70%);
+    --black: hsl(0deg 0% 0%);
+    --white: hsl(0deg 0% 100%);
+    --bg-color: hsl(0deg 0% 95%);
+    --bg-color-darker: hsl(0deg 0% 90%);
+    --mid-gray: hsl(0deg 0% 50%);
+    --primary-color: hsl(33deg 100% 50%);
+    --secondary-color: hsl(280deg 100% 70%);
     --accent-color: var(--primary-color);
-    --info-color: hsl(210, 100%, 90%);
+    --info-color: hsl(210deg 100% 90%);
     --font-san-serif: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-serif: 'Charter', serif;
     --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;

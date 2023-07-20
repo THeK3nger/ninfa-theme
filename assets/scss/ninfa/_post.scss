@@ -1,5 +1,4 @@
 .post {
-
     font-size: 1.2rem;
     margin-block-start: 1rem;
     width: 100%;
@@ -57,14 +56,13 @@
         gap: 1rem;
         font-size: 0.9rem;
         color: var(--mid-gray);
-        background-color: rgba(255,255,255,0.2);
+        background-color: rgb(255 255 255 / 20%);
     }
 
     &-categories {
         display: flex;
         align-content: flex-start;
         gap: 1em;
-
         font-family: var(--font-mono);
 
         > a {
@@ -99,7 +97,7 @@
             left: 0;
             width: 100%;
             z-index: -1;
-            opacity: 30%;
+            opacity: 0.3;
             object-fit: cover;
 
             img {
@@ -111,11 +109,8 @@
         .post-header-image::after {
             content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, var(--bg-color) 100%);
+            inset: 0;
+            background-image: linear-gradient(to bottom, rgb(255 255 255 / 0%) 0%, var(--bg-color) 100%);
         }
 
     }
@@ -136,7 +131,6 @@
             justify-content: center;
             gap: 1.5em;
             margin-bottom: 1em;
-
             font-family: var(--font-mono);
 
             > a {
@@ -144,13 +138,13 @@
                 color: var(--mid-gray);
                 background-color: var(--bg-color-darker);
                 border-radius: 10%;
-                padding: 0px 10px;
+                padding: 0 10px;
             }
         }
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width <= 768px) {
     .post {
         .post-body {
             margin-left: 0;

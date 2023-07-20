@@ -1,10 +1,9 @@
 body {
     display: grid;
-    grid-template: [start] auto [content-end footer-start] 20px/10% 1fr 20%;
+    grid-template: [start] auto [content-end footer-start] 20px / 10% 1fr 20%;
     grid-template-areas: "margin content nav" "footer footer footer";
     gap: 1rem;
     background-color: var(--bg-color); 
-
     font-family: var(--font-serif);
 }
 
@@ -19,7 +18,6 @@ h1, h2, h3, h4 {
 .sidebar {
     grid-column: 3;
     grid-row: 1;
-
     display: flex;
     flex-direction: column;
     padding-block-start: 2em;
@@ -44,7 +42,6 @@ footer {
     grid-area: footer;
     display: flex;
     justify-content: space-evenly;
-
     font-family: var(--font-san-serif);
     font-size: small;
 }
@@ -66,7 +63,7 @@ footer {
 
 .navbar {
     list-style-type: none;
-    padding: 0 15% 0 15%;
+    padding: 0 15%;
     text-align: center;
 
     li {
@@ -104,7 +101,7 @@ article > section {
     overflow-x: scroll;
     font-size: 0.8em;
     line-height: 1.5em;
-    margin-bottom: 0px !important;
+    margin-bottom: 0 !important;
 }
 
 .invisible {
@@ -120,12 +117,12 @@ table {
     display: block;
     font-size: 0.8em;
     line-height: 1.5em;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 20px rgb(0 0 0 / 15%);
     border-radius: 5px;
 
     thead {
         background-color: var(--primary-color);
-        color: #ffffff;
+        color: #fff;
         text-align: left;
         font-weight: bold;
     }
@@ -137,7 +134,7 @@ table {
 
     tbody { 
         tr {
-            border-bottom: 1px solid #dddddd;
+            border-bottom: 1px solid #ddd;
         }
     
         tr:nth-of-type(even) {
@@ -150,11 +147,10 @@ table {
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (width <= 768px) {
     body {
       display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: auto auto auto auto;
+      grid-template: auto auto auto auto / 1fr;
       grid-template-areas: none;
       gap: 0;
     }
@@ -211,7 +207,6 @@ table {
     .container-main {
         grid-column: 1/2;
         grid-row: 2;
-
         margin-left: 0.5em;
         margin-right: 0.5em;
     }
@@ -239,13 +234,14 @@ table {
         opacity: 0;
     }
 
-    #nav-toggle + #nav-toggle-label:before {
+    #nav-toggle + #nav-toggle-label::before {
         font-size: 2em;
         content: "🍔";
         transition: 0.5s;
         cursor: pointer; 
     }
-    #nav-toggle:checked + #nav-toggle-label:before {
+
+    #nav-toggle:checked + #nav-toggle-label::before {
         font-size: 2em;
         content: "🍟";
         transition: 0.5s;
