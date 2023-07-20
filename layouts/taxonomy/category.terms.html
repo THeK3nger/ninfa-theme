@@ -3,15 +3,12 @@
     <h1>{{ .Title }}</h1>
         <div class="card-columns">
         {{- range (.Paginate .Data.Pages).Pages -}}
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">{{ .Title }}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">{{ len .Data.Pages }}</h6>
-              <p class="card-text font-monospace">{{ .Params.description }}</p>
-              <a href="{{ .Permalink }}" class="btn btn-small btn-primary font-monospace">Go</a>
-            </div>
+        <div class="card">
+            <h5 class="card-title">{{ .Title }}</h5>
+            <h6 class="card-subtitle">{{ len .Data.Pages }}</h6>
+            <p class="card-text">{{ .Params.description }}</p>
+            <a class="card-button" href="{{ .Permalink }}">Go</a>
           </div>
-            <!--<li><a href="{{ .Permalink }}">{{ .Title }}</a></li>-->
         {{- end -}}
         </div>
 	
