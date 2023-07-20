@@ -57,10 +57,11 @@
     let processScroll = () => {
         let docElem = document.documentElement; 
         let docArticle = document.getElementsByTagName("main");
+        let related = document.getElementsByClassName("related")[0];
         let scrollTop = docElem['scrollTop'] || docArticle['scrollTop'];
-        let scrollBottom = (docElem['scrollHeight'] || docArticle['scrollHeight']) - window.innerHeight - 100;
+        let scrollBottom = (docElem['scrollHeight'] || docArticle['scrollHeight']) - window.innerHeight - related.clientHeight;
         let scrollPercent = scrollTop / scrollBottom * 100 + '%';
-        document.getElementById("progress-bar").style.setProperty("--scrollAmount", scrollPercent); 
+        document.getElementById("progress-bar").style.setProperty("--scroll-amount", scrollPercent); 
       }
       
       document.addEventListener('scroll', processScroll);
