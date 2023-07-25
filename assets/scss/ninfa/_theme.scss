@@ -15,7 +15,20 @@
     --font-serif: 'Charter', serif;
     --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
-    color-scheme: light;
+    color-scheme: dark light;
+}
+
+body.dark-theme{
+    --black: hsl(0deg 0% 94%);
+    --white: hsl(0deg 0% 6%);
+    --bg-color: hsl(190deg 100% 15%);
+    --bg-color-darker: hsl(190deg 100% 25%);
+    --bg-color-darkest: hsl(190deg 100% 35%);
+    --mid-gray: hsl(0deg 0% 70%); // Mid gray
+    --primary-color: hsl(190deg 100% 48%);
+    --secondary-color: hsl(30deg 100% 40%);
+    --info-post-color: hsla(0deg 0% 0% / 40%);
+    --accent-color: var(--primary-color);
 }
 
 
@@ -33,5 +46,18 @@ $font-weight-normal: 00;
         --primary-color: hsl(190deg 100% 48%);
         --secondary-color: hsl(30deg 100% 40%);
         --info-post-color: hsla(0deg 0% 0% / 40%);
+    }
+
+    body.light-theme{
+        --black: hsl(0deg 0% 0%); // Black
+        --white: hsl(0deg 0% 100%); // White
+        --bg-color: hsl(0deg 0% 95%); // Neutral Background
+        --bg-color-darker: hsl(0deg 0% 85%); // Darker variation of the background
+        --bg-color-darkest: hsl(0deg 0% 70%); // Darkest variation of the background
+        --mid-gray: hsl(0deg 0% 50%); // Mid gray
+        --primary-color: hsl(190deg 100% 28%);
+        --secondary-color: hsl(30deg 100% 40%);
+        --accent-color: var(--primary-color);
+        --info-post-color: hsla(0deg 0% 100% / 40%);
     }
 }

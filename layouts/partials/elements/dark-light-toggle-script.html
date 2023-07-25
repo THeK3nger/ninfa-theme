@@ -1,0 +1,38 @@
+<script>
+    const checkbox = document.querySelector("#dtt");
+    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+    const currentTheme = localStorage.getItem("theme");
+    if (currentTheme === "dark") {
+        document.body.classList.toggle("dark-theme");
+        checkbox.checked = true;
+    } else if (currentTheme === "light") {
+        document.body.classList.toggle("light-theme");
+        checkbox.checked = false;
+    } else {
+        checkbox.checked = prefersDarkScheme.matches ? true : false;
+    }
+
+    checkbox.addEventListener("click", () => {
+        let theme = "light";
+        if (prefersDarkScheme.matches) {
+            document.body.classList.toggle("light-theme");
+            theme = document.body.classList.contains("light-theme")
+                ? "light"
+                : "dark";
+        } else {
+            document.body.classList.toggle("dark-theme");
+            theme = document.body.classList.contains("dark-theme")
+                ? "dark"
+                : "light";
+        }
+        localStorage.setItem("theme", theme);
+    });
+</script>
+<noscript>
+    <style>
+        .dark-theme-toggle-wrapper {
+            display: none;
+        }
+    </style>
+</noscript>

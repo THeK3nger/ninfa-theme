@@ -266,6 +266,24 @@ div.highlight {
   
   }
 
+  body.dark-theme {
+    .social-column {
+        filter: grayscale(100%) invert(100%) brightness(3) opacity(50%);
+    }
+
+    #footer-social {
+        filter: grayscale(100%) invert(100%) brightness(3);
+    }
+
+    .container-main img {
+        filter: brightness(.8) contrast(1.2);
+    }
+
+    .logo {
+        filter: brightness(1.2);
+    } 
+  }
+
   @media (prefers-color-scheme: dark) {
     .social-column {
         filter: grayscale(100%) invert(100%) brightness(3) opacity(50%);
@@ -281,5 +299,23 @@ div.highlight {
 
     .logo {
         filter: brightness(1.2);
+    }
+
+    body.light-theme {
+       .social-column {
+            filter: grayscale(100%) opacity(0.5);
+       }
+
+       #footer-social {
+            filter: grayscale(100%) opacity(0.5);
+       }
+
+       .container-main img {
+            filter: none;
+       }
+
+       .logo {
+            filter: none;
+       }
     }
   }

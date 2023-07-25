@@ -1,0 +1,138 @@
+.dark-theme-toggle-wrapper {
+    $dark-theme-bg-color: hsl(190deg 100% 36%);
+    $light-theme-bg-color: hsl(199deg 100% 76%);
+    $moon-color: hsl(39deg 100% 85%); 
+    $sun-color: hsl(0deg 0% 95%);
+    $toggle-height: 50px;
+    $toggle-width: $toggle-height * 9 / 5; // Enforce aspect ration of 9:5
+    $margin: 10px;
+    $handler-radius: $toggle-height - $margin;
+
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    padding: 2em 0;
+
+    input {
+        opacity: 0;
+        display: none;
+    }
+
+    .dark-theme-toggle {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        width: $toggle-width;
+        height: $toggle-height;
+        background-color: $light-theme-bg-color;
+        border-radius: $handler-radius;
+        transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+        overflow: hidden;
+    }
+
+    .toggle-handler {
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        top: $margin / 2;
+        left: $margin / 2;
+        width: $handler-radius;
+        height: $handler-radius;
+        background-color: $sun-color;
+        border-radius: $toggle-height;
+        box-shadow: 0 0 20px #fff;
+        transition: all 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    .star {
+        position: absolute;
+        background-color: #fff;
+        transition: all 300ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+        border-radius: 50%;
+        z-index: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .star-1 {
+        top: $toggle-height / 5;
+        left: ($toggle-height / 2) + ($toggle-height / 5);
+    }
+
+    .star-2 {
+        top: ($toggle-height / 3) + 2px;
+        left: ($toggle-height / 2 ) + 3px;
+    }
+
+    .star-3 {
+        top: $toggle-height * 0.7;
+        left: 0;
+    }
+
+    .star-4 {
+        top:  $toggle-height / 10;
+        left: 0;
+    }
+
+    .star-5 {
+        top: $toggle-height / 5 * 2;
+        left: $toggle-height / 4;
+    }
+
+    .shadow {
+        position: absolute;
+        background-color: $light-theme-bg-color;
+        transition: all 300ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+        border-radius: 50%;
+        z-index: 1;
+        width: $handler-radius;
+        height: $handler-radius;
+        top: - ($toggle-height / 10);
+        left: $toggle-width;
+    }
+
+    input:checked {
+        +.dark-theme-toggle {
+            background-color: $dark-theme-bg-color;
+
+            .toggle-handler {
+                background-color: $moon-color;
+
+                // Of course, we should use $toggle-width. But the calculation is
+                // more complicated (it is $toggle-width - (5/9)%). So, we use
+                // $toggle-height instead (after all, $toggle-width is caluclated
+                // from $toggle-height).
+                transform: translate3d(calc($toggle-height - 20%), 0, 0);
+                box-shadow: 0 2px 6px rgba(0 0 0 / 30%);
+            }
+
+            .shadow {
+                background-color: $dark-theme-bg-color;
+                left: calc($toggle-width - 30%);
+            }
+
+            .star-1,
+            .star-5 {
+                width: 2px;
+                height: 2px;
+            }
+
+            .star-3 {
+                width: 2px;
+                height: 2px;
+                left: $toggle-height / 3 + 2px
+            }
+
+            .star-2 {
+                width: 3px;
+                height: 3px;
+            }
+
+            .star-4 {
+                left: $toggle-height / 2 - 2px;
+                width: 4px;
+                height: 4px;
+            }
+        }
+    }
+}
