@@ -5,7 +5,7 @@
         {{ else }}
         <li class="page-item"><a class="page-link invisible" href="#">&#8592;</a></li>
         {{ end }}
-        <li class="page-item"><a class="page-link">{{ .Paginator.PageNumber }}</a></li>
+        <li class="page-item"><span class="page-link">{{ .Paginator.PageNumber }}</span></li>
         {{ if .Paginator.HasNext }}
         <li class="page-item"><a class="page-link" aria-label="Next" href="{{ .Paginator.Next.URL }}">&#8594;</a></li>
         {{ else }}
