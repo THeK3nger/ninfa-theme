@@ -6,9 +6,10 @@
     --bg-color-darker: hsl(0deg 0% 85%); // Darker variation of the background
     --bg-color-darkest: hsl(0deg 0% 70%); // Darkest variation of the background
     --mid-gray: hsl(0deg 0% 50%); // Mid gray
-    --primary-color: hsl(190deg 100% 35%);
+    --primary-color: hsl(190deg 100% 28%);
     --secondary-color: hsl(30deg 100% 40%);
     --accent-color: var(--primary-color);
+    --info-post-color: hsla(0deg 0% 100% / 40%);
     --info-color: hsl(210deg 100% 90%);
     --font-san-serif: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-serif: 'Charter', serif;
@@ -20,3 +21,17 @@
 
 $font-size-base: 1.35rem;
 $font-weight-normal: 00;
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --black: hsl(0deg 0% 94%);
+        --white: hsl(0deg 0% 6%);
+        --bg-color: hsl(190deg 100% 15%);
+        --bg-color-darker: hsl(190deg 100% 25%);
+        --bg-color-darkest: hsl(190deg 100% 35%);
+        --mid-gray: hsl(0deg 0% 70%); // Mid gray
+        --primary-color: hsl(190deg 100% 48%);
+        --secondary-color: hsl(30deg 100% 40%);
+        --info-post-color: hsla(0deg 0% 0% / 40%);
+    }
+}

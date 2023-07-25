@@ -5,6 +5,7 @@ body {
     gap: 1rem;
     background-color: var(--bg-color); 
     font-family: var(--font-serif);
+    color: var(--black);
 }
 
 a {
@@ -75,7 +76,7 @@ footer {
 
         a {
             text-decoration: none;
-            color: black;
+            color: var(--black);
 
             :hover {
                 color: var(--accent-color);
@@ -126,7 +127,7 @@ table {
 
     thead {
         background-color: var(--primary-color);
-        color: #fff;
+        color: var(--white);
         text-align: left;
         font-weight: bold;
     }
@@ -138,7 +139,7 @@ table {
 
     tbody { 
         tr {
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid var(--mid-gray);
         }
     
         tr:nth-of-type(even) {
@@ -149,6 +150,11 @@ table {
             border-bottom: 2px solid var(--primary-color);
         }
     }
+}
+
+div.highlight {
+    // I need to reset the text color for the codeblock color scheme.
+    color: black;
 }
 
 @media only screen and (width <= 768px) {
@@ -258,4 +264,22 @@ table {
         left: 0;
     }
   
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .social-column {
+        filter: grayscale(100%) invert(100%) brightness(3) opacity(50%);
+    }
+
+    #footer-social {
+        filter: grayscale(100%) invert(100%) brightness(3);
+    }
+
+    .container-main img {
+        filter: brightness(.8) contrast(1.2);
+    }
+
+    .logo {
+        filter: brightness(1.2);
+    }
   }
