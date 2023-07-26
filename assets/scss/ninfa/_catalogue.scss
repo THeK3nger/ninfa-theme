@@ -49,6 +49,8 @@
     margin-top: 0.5rem;
     margin-bottom: 1rem;
     object-fit: cover;
+    background-color: var(--bg-color-darker);
+    color: rgb(0 0 0 / 0%);
   }
 
   &-summary {

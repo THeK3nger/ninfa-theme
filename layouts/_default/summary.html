@@ -18,7 +18,7 @@
         {{ end }}
     </a>
     {{ $altText := .Params.header_alt | default ( printf "%s%s" "Header image for " .Title) }}
-    <img class="catalogue-image" alt="{{ $altText }}" loading="lazy" src="{{$img.Permalink}}" width="698"/>
+    <img class="catalogue-image" alt="{{ $altText }}" loading="lazy" src="{{$img.Permalink}}" width="698" height="408" />
     <p class="catalogue-summary text-justify">
         {{ if isset .Params "summary" }}{{ .Params.Summary | markdownify }}{{ else }}{{ .Summary }}{{ end }}
     </p>
