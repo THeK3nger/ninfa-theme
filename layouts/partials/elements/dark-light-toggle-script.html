@@ -1,31 +1,40 @@
 <script>
-    const checkbox = document.querySelector("#dtt");
+   const checkbox = document.querySelector("#dtt");
     const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+    const themeColorMeta = (prefersDarkScheme.matches) ?
+        document.querySelector('meta[name="theme-color"][media="(prefers-color-scheme: dark)"]') :
+        document.querySelector('meta[name="theme-color"][media="(prefers-color-scheme: light)"]');
+
+    // Set c1 and remove c2 if present.
+    function toggleTwo(c1, c2) {
+        document.body.classList.toggle(c1);
+        if (document.body.classList.contains(c2)) {
+            document.body.classList.toggle(c2);
+        }
+    }
+
+    function setTheme(theme) {
+        if (theme === "dark") {
+            themeColorMeta.setAttribute("content", "#00404D");
+            toggleTwo("dark-theme", "light-theme");
+            checkbox.checked = true;
+        } else if (theme === "light") {
+            themeColorMeta.setAttribute("content", "#F2F2F2");
+            toggleTwo("light-theme", "dark-theme");
+            checkbox.checked = false;
+        }
+    }
 
     const currentTheme = localStorage.getItem("theme");
-    if (currentTheme === "dark") {
-        document.body.classList.toggle("dark-theme");
-        checkbox.checked = true;
-    } else if (currentTheme === "light") {
-        document.body.classList.toggle("light-theme");
-        checkbox.checked = false;
+    if (currentTheme === "dark" || (currentTheme !== "light" && prefersDarkScheme.matches)) {
+        setTheme("dark");
     } else {
-        checkbox.checked = prefersDarkScheme.matches ? true : false;
+        setTheme("light");
     }
 
     checkbox.addEventListener("click", () => {
-        let theme = "light";
-        if (prefersDarkScheme.matches) {
-            document.body.classList.toggle("light-theme");
-            theme = document.body.classList.contains("light-theme")
-                ? "light"
-                : "dark";
-        } else {
-            document.body.classList.toggle("dark-theme");
-            theme = document.body.classList.contains("dark-theme")
-                ? "dark"
-                : "light";
-        }
+        let theme = checkbox.checked ? "dark" : "light";
+        setTheme(theme);
         localStorage.setItem("theme", theme);
     });
 </script>
