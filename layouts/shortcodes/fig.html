@@ -1,7 +1,8 @@
 {{ if .Get "caption" }}
   {{ $.Scratch.Set "caption" (.Get "caption") }}
-{{ else if .Get "alt" }}
-  {{ $.Scratch.Set "caption" (.Get "alt") }}
+{{ end }}
+{{ if .Get "alt" }}
+  {{ $.Scratch.Set "alt" (.Get "alt") }}
 {{ end }}
 <!-- resolve absolute image path -->
 {{ $permalink := $.Page.Permalink }}
@@ -29,11 +30,12 @@
         {{ end }}
         {{ with .Get "align" }}align="{{ . }}"{{ end }}
         {{ with .Get "height" }}width="{{ . }}"{{ end }}
-        {{ with .Get "width" }}width="{{ . }}"{{ end }} style="max-width: 100%;" />
+        {{ with .Get "width" }}width="{{ . }}"{{ end }} style="max-width: 100%;"
+        class="figure-img img-fluid rounded" />
   {{ if .Get "link"}}</a>{{ end }}
   <!-- caption and attr-->
   {{ if ($.Scratch.Get "caption") }}
-    <figcaption>
+    <figcaption class="figure-caption text-center">
         Figure {{ $.Page.Scratch.Get "fig" }}. {{ $.Scratch.Get "caption" | markdownify }}
         {{ if .Get "attr" }}
           [{{- with .Get "attrlink"}}<a href="{{ . }}">{{ end }}{{ .Get "attr" | markdownify }}{{ if .Get "attrlink"}}</a>{{ end -}}]
