@@ -1,7 +1,12 @@
 .alert {
     margin-left: -2rem;
 
+    a {
+        color: var(--admonitions-link-color);
+    }
+
     &-info {
+        color: black;
         background-color: var(--info-color);
         padding: 1rem;
 
