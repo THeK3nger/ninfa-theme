@@ -1,0 +1,20 @@
+{{ $permalink := $.Page.Permalink }}
+{{ $video := .Get "src" }}
+{{ $attrs := .Get "attributes" }}
+{{ $width := .Get "width" }}
+{{ if .Page.Scratch.Get "fig"}}
+{{ .Page.Scratch.Add "fig" 1 }}
+{{ else }}
+{{ .Page.Scratch.Set "fig" 1}}
+{{ end }}
+<figure>
+<video {{ with .Get "class" }}class="{{.}}"{{ end }} {{ $attrs | safeHTMLAttr }} style="width: {{ $width}}">
+  <source src="{{ (printf "%s%s" $permalink $video) }}" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+{{ if .Get "caption" }}
+  <figcaption>
+    Figure {{ $.Page.Scratch.Get "fig" }}. {{ .Get "caption" | markdownify }}
+  </figcaption>
+{{ end }}
+</figure>

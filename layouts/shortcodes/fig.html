@@ -30,8 +30,7 @@
         {{ end }}
         {{ with .Get "align" }}align="{{ . }}"{{ end }}
         {{ with .Get "height" }}width="{{ . }}"{{ end }}
-        {{ with .Get "width" }}width="{{ . }}"{{ end }} style="max-width: 100%;"
-        class="figure-img img-fluid rounded" />
+        {{ with .Get "width" }}width="{{ . }}"{{ end }} style="max-width: 100%;" />
   {{ if .Get "link"}}</a>{{ end }}
   <!-- caption and attr-->
   {{ if ($.Scratch.Get "caption") }}

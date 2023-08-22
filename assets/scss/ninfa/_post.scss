@@ -39,6 +39,12 @@
         }
     }
 
+    video {
+        margin: auto;
+        display: block;
+        max-width: 100%;
+    }
+
     a {
         color: var(--accent-color);
     }
