@@ -8,7 +8,7 @@
 {{ .Page.Scratch.Set "fig" 1}}
 {{ end }}
 <figure>
-<video {{ with .Get "class" }}class="{{.}}"{{ end }} {{ $attrs | safeHTMLAttr }} style="width: {{ $width}}">
+<video {{ with .Get "class" }}class="{{.}}"{{ end }} {{ $attrs | safeHTMLAttr }} style="max-width: {{ $width | safeCSS }}">
   <source src="{{ (printf "%s%s" $permalink $video) }}" type="video/mp4">
   Your browser does not support the video tag.
 </video>
