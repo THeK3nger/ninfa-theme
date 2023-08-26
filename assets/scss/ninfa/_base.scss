@@ -107,6 +107,10 @@ article > section {
     font-size: 0.8em;
     line-height: 1.5em;
     margin-bottom: 0 !important;
+
+    code > span {
+        width: 1px; // I have no idea why this is necessary for responsive code blocks.
+    }
 }
 
 .invisible {
