@@ -1,0 +1,7 @@
+.spoiler {
+    filter: blur(10px);
+}
+
+.spoiler:hover, .spoiler:focus, .spoiler:active {
+    filter: blur(0);
+}
