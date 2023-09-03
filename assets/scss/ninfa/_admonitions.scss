@@ -17,3 +17,9 @@
         }
     }
 }
+
+@media only screen and (width <= 768px) {
+    .alert {
+        margin-left: 0;
+    }
+}
