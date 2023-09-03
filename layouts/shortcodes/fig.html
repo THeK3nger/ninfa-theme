@@ -6,7 +6,10 @@
 {{ end }}
 <!-- resolve absolute image path -->
 {{ $permalink := $.Page.Permalink }}
+{{ $image := .Page.Resources.GetMatch (printf "*%s*" (.Get "src")) }}
+{{ if not $image }}
 {{ $image := .Get "src" }}
+{{ end}}
 {{ $image_link_absolute := (findRE "^/" $image) }}
 {{ if .Page.Scratch.Get "fig"}}
 {{ .Page.Scratch.Add "fig" 1 }}
