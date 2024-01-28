@@ -22,6 +22,7 @@
     {{ with .Get "target" }} target="{{ . }}"{{ end }}
     {{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
   {{ end }}
+  <div class="img-wrapper"> 
   <img
       {{ if $image_link_absolute }}
         src="{{ $image | absURL }}"
@@ -34,6 +35,7 @@
         {{ with .Get "align" }}align="{{ . }}"{{ end }}
         {{ with .Get "height" }}width="{{ . }}"{{ end }}
         {{ with .Get "width" }}width="{{ . }}"{{ end }} style="max-width: 100%;" />
+    </div>
   {{ if .Get "link"}}</a>{{ end }}
   <!-- caption and attr-->
   {{ if ($.Scratch.Get "caption") }}
