@@ -21,9 +21,17 @@
         margin-block-start: 1em;
     }
 
+    blockquote {
+        margin-block: 1em 1em;
+        margin-inline: 0;
+        padding: 0.5em 1em;
+        border-left: 0.25em solid var(--accent-color);
+        color: var(--mid-gray);
+        font-style: italic;
+    }
+
     figure {
-        margin-block-start: 1em;
-        margin-block-end: 1em;
+        margin-block: 1em;
         margin-left: -2em;
         margin-right: -2em;
         text-align: center;
