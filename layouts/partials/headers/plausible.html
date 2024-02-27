@@ -1,6 +1,10 @@
 {{ if .Site.Params.plausibleBaseDomain }}
 {{ if .Site.Params.plausibleScriptPath }}
+{{ if .Site.Params.plausibleDataApi }}
+<script defer data-domain="{{ .Site.Params.plausibleBaseDomain }}" data-api="{{ .Site.Params.plausibleDataApi }}" src="{{ .Site.Params.plausibleScriptPath }}"></script>
+{{ else }}
 <script defer data-domain="{{ .Site.Params.plausibleBaseDomain }}" src="{{ .Site.Params.plausibleScriptPath }}"></script>
+{{ end }}
 {{ else }}
 <script defer data-domain="{{ .Site.Params.plausibleBaseDomain }}" src="https://plausible.io/js/script.js"></script>
 {{ end }}
