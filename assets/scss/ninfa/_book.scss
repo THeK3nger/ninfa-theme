@@ -1,28 +1,70 @@
 
 .book-cover .img-wrapper {
+    display: table;
     position: relative;
-    width: max-content;
     border-radius: 5px;
+    height: 100%;
     overflow: hidden;
 }
 
 .book-cover .img-wrapper::after {
     content: '';
     top: 0;
-    left: -2px;
+    left: 0;
     width: 100%;
     height: 100%;
     position: absolute;
-    // background: linear-gradient(to right, rgba(60, 13, 20, 0.2) 0.75%, rgba(255, 255, 255, 0.5) 1.25%, rgba(255, 255, 255, 0.25) 1.75%, rgba(255, 255, 255, 0.25) 2.5%, rgba(0, 0, 0, 0.05) 3%, transparent 4%, rgba(255, 255, 255, 0.25) 4.25%, transparent 5.5%);
-    background: linear-gradient(to right,rgba(60,13,20,.2) .75%,rgba(255,255,255,.5) 1.25%,rgba(255,255,255,.25) 1.75%,rgba(255,255,255,.25) 2.5%,rgba(0,0,0,5%) 3%,transparent 4%,rgba(255,255,255,.25) 4.25%,rgba(255,255,255,.05) 5.5%)
-}
 
-figure.book-cover {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    // Book-like gradient
+    // background: linear-gradient(to right, rgba(60, 13, 20, 0.2) 0.75%, rgba(255, 255, 255, 0.5) 1.25%, rgba(255, 255, 255, 0.25) 1.75%, rgba(255, 255, 255, 0.25) 2.5%, rgba(0, 0, 0, 0.05) 3%, transparent 4%, rgba(255, 255, 255, 0.25) 4.25%, transparent 5.5%);
+    background: linear-gradient(to right,rgb(60 13 20 / 20%) .75%,rgb(255 255 255 / 50%) 1.25%,rgb(255 255 255 / 25%) 1.75%,rgb(255 255 255 / 25%) 2.5%,rgb(0 0 0 / 5%) 3%,transparent 4%,rgb(255 255 255 / 25%) 4.25%,rgb(255 255 255 / 5%) 5.5%)
 }
 
 .book-cover figcaption{
     width: 100%;
+}
+
+.book-gallery {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    aspect-ratio: 16/9;
+    width: 100%;
+    padding: 25px;
+
+    figure {
+        flex: 1 1 0px;
+        display: table;
+        margin: 10px !important;
+    }
+
+    img {
+        max-height: max-content;
+        height: 100%;
+        box-shadow: 5px 5px 5px rgb(0 0 0 / 20%)
+    }
+
+    .book-cover {
+        height: max-content;
+    }
+
+    // PSEUDO RANDOM ROTATIONS
+    .book-cover:nth-child(1n) {
+        transform: rotate(-1deg);
+    }
+
+    .book-cover:nth-child(2n) {
+        transform: rotate(3deg);
+    }
+
+    .book-cover:nth-child(3n) {
+        transform: rotate(-3deg);
+    }
+
+    .book-cover:nth-child(4n) {
+        transform: rotate(1deg);
+    }
+
+
 }

@@ -1,0 +1,18 @@
+{{ if and (.Get "color1") (.Get "color2") }}
+{{ $color1 := .Get "color1" }}
+{{ $color2 := .Get "color2" }}
+<div class="book-gallery" style="background: linear-gradient(54deg, {{$color1}} 0%, {{ $color2 }} 100%);">
+    {{.Inner}}
+</div>
+{{ else }} 
+{{ if .Get "color" }}
+{{ $color := .Get "color1" }}
+<div class="book-gallery" style="background: {{$color}}">
+    {{.Inner}}
+</div>
+{{ else }}
+<div class="book-gallery">
+    {{.Inner}}
+</div>
+{{ end }}
+{{ end }}
