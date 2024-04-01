@@ -25,6 +25,7 @@
 
 .book-gallery {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     gap: 20px;
@@ -33,7 +34,7 @@
     padding: 25px;
 
     figure {
-        flex: 1 1 0px;
+        flex: 0 0 25%;
         display: table;
         margin: 10px !important;
     }
