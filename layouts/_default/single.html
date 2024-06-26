@@ -5,12 +5,16 @@
 
 <main>
     {{ partial "single/reading-status-bar.html" }}
+    {{- if .Params.header -}}
+    {{ partial "elements/backdrop.html" .Params.header }}
+    {{ else }}
+    {{ partial "elements/backdrop.html" $img }}
+    {{- end -}}
 	<article class="post">
         {{- if eq .Type "page" }}
-        <h1 class="post-title">{{ .Title }}</h1>
-        {{- if .Params.header -}}
-        <img src="{{ .Params.header }}" alt="{{ .Params.header_alt }}" />
-        {{- end -}}
+        <header>
+            <h1 class="page-title">{{ .Title }}</h1>
+        </header>   
         {{- else -}}
         <header>
             {{ partial "single/post-info.html" . }}
@@ -18,9 +22,9 @@
             {{ if .Params.subtitle }}
             <h2 class="post-subtitle">{{ .Params.subtitle }}</h2>
             {{ end }}
-            <div class="post-header-image">
+            {{/*  <div class="post-header-image">
                 <img src="{{ $img.Permalink }}" alt="{{ $altText }}" />
-            </div>
+            </div>  */}}
         </header>
         {{- end -}}
 

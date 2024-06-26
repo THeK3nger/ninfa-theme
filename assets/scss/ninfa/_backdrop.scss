@@ -1,0 +1,59 @@
+.backdrop-container {
+    height: 675px;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+
+    .backdrop-wrapper {
+        height: 490px;
+        overflow: hidden;
+        left: 50%;
+        position: absolute;
+        top: 0;
+        transform: translateX(-50%);
+        width: 1200px;
+        z-index: 0;
+
+        .backdrop-image {
+            height: 137.75%;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            width: 100%;
+            transition: opacity 0.75s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .backdrop-mask {
+            padding-top: 500px;
+            position: relative;
+        }
+
+        .backdrop-mask::before {
+            background-image: linear-gradient(
+                    0deg,
+                    var(--bg-color) 0%,
+                    rgba(0 0 0 / 0%) 70%
+                ),
+                linear-gradient(90deg, var(--bg-color) 0%, rgba(0 0 0 / 0%) 15%),
+                linear-gradient(
+                    270deg,
+                    var(--bg-color) 0%,
+                    rgba(0 0 0 / 0%) 15%
+                );
+            background-repeat: no-repeat;
+            content: "";
+            display: block;
+            height: 490px;
+            left: 50%;
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            transform: translateX(-50%);
+            width: 1200px;
+            z-index: 0;
+        }
+    }
+}

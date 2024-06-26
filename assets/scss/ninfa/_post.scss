@@ -3,6 +3,7 @@
     margin-block-start: 1rem;
     width: 100%;
     hyphens: auto;
+    padding-top: 300px;
 
     h1 {
         font-size: 2.5em;
@@ -156,6 +157,10 @@
             }
         }
     }
+    
+    .page-title {
+        margin-bottom: 0.5em;
+    }
 }
 
 @media only screen and (width <= 768px) {
@@ -166,8 +171,7 @@
         }
 
         figure {
-            margin-block-start: 1em;
-            margin-block-end: 1em;
+            margin-block: 1em;
             margin-left: 0.5em;
             margin-right: 0.5em;
             text-align: center;
