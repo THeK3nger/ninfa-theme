@@ -1,16 +1,15 @@
 {{ define "main" }}
-<main>
-    <h1>{{ .Title }}</h1>
-	<div class="catalogue">
-        <ul>
-        {{- range (.Paginate .Data.Pages).Pages -}}
-            <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-        {{- end -}}
-        </ul>
-	</div>
-	
-    {{ partial "elements/paginator-navbar.html" . }}
-    
-</main>
+
+<h1>{{ .Title }}</h1>
+<div class="catalogue">
+    <ul>
+    {{- range (.Paginate .Data.Pages).Pages -}}
+        <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+    {{- end -}}
+    </ul>
+</div>
+
+{{ partial "elements/paginator-navbar.html" . }}
+
 
 {{ end }}

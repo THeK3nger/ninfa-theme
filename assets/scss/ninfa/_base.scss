@@ -70,6 +70,8 @@ footer {
     list-style-type: none;
     padding: 0 15%;
     text-align: center;
+    background-color: var(--bg-color);
+    border-radius: 3%;
 
     li {
         font-family: var(--font-mono);

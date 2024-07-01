@@ -1,18 +1,16 @@
 {{ define "main" }}
 
-<main>
-	<div class="catalogue">
-        {{ range (.Paginate (where .Site.RegularPages "Type" "in" site.Params.mainSections)).Pages  }}
-            {{- if eq .Type "blog"}}
-            {{ .Render "summary" }}
-            {{- end }}
-            {{- if eq .Type "link"}}
-            {{ .Render "summaryLink" }}
-            {{- end }}
-		{{ end }}
-	</div>
+<div class="catalogue">
+    {{ range (.Paginate (where .Site.RegularPages "Type" "in" site.Params.mainSections)).Pages  }}
+        {{- if eq .Type "blog"}}
+        {{ .Render "summary" }}
+        {{- end }}
+        {{- if eq .Type "link"}}
+        {{ .Render "summaryLink" }}
+        {{- end }}
+	{{ end }}
+</div>
 
-    {{ partial "elements/paginator-navbar.html" . }}
-</main>
+{{ partial "elements/paginator-navbar.html" . }}
 
 {{ end }}

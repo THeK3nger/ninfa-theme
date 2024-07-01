@@ -3,57 +3,56 @@
 {{ $img := partial "elements/get-header.html" (dict "context" . "sizes" "1280x300") }}
 {{ $altText := .Params.header_alt | default ( printf "%s%s" "Header image for " .Title) }}
 
-<main>
-    {{ partial "single/reading-status-bar.html" }}
-    {{- if .Params.header -}}
-    {{ partial "elements/backdrop.html" .Params.header }}
-    {{ else }}
-    {{ partial "elements/backdrop.html" $img }}
+{{ partial "single/reading-status-bar.html" }}
+{{- if .Params.header -}}
+{{ partial "elements/backdrop.html" .Params.header }}
+{{ else }}
+{{ partial "elements/backdrop.html" $img }}
+{{- end -}}
+{{/* The next class selector is weird but I cannot find a better way to have "backdropped" when we have a header OR a $img. */}}
+<article class="post{{ with .Params.header }} backdropped{{end}}{{ with $img }} backdropped{{end}}">
+    {{- if eq .Type "page" }}
+    <header>
+        <h1 class="page-title">{{ .Title }}</h1>
+    </header>   
+    {{- else -}}
+    <header>
+        {{ partial "single/post-info.html" . }}
+        <h1 class="post-title">{{ .Title }}</h1>
+        {{ if .Params.subtitle }}
+        <h2 class="post-subtitle">{{ .Params.subtitle }}</h2>
+        {{ end }}
+    </header>
     {{- end -}}
-	<article class="post">
-        {{- if eq .Type "page" }}
-        <header>
-            <h1 class="page-title">{{ .Title }}</h1>
-        </header>   
-        {{- else -}}
-        <header>
-            {{ partial "single/post-info.html" . }}
-            <h1 class="post-title">{{ .Title }}</h1>
-            {{ if .Params.subtitle }}
-            <h2 class="post-subtitle">{{ .Params.subtitle }}</h2>
-            {{ end }}
-        </header>
-        {{- end -}}
 
-        <section class="post-body">
-		{{ .Content }}
-        </section>
+    <section class="post-body">
+    {{ .Content }}
+    </section>
 
-		{{ partial "single/footer.html" . }}
-    </article>
+    {{ partial "single/footer.html" . }}
+</article>
 
-    {{ partial "elements/related.html" . }}
+{{ partial "elements/related.html" . }}
 
-    {{- if ne .Params.comments false }}
-        {{ template "_internal/disqus.html" . }}
-    {{- end }}
-    
-    <nav class="pagination">
-        <ul>
-            {{ if .PrevPage }}
-            <li class="page-item"><a class="page-link" aria-label="Previous" href="{{ .PrevPage.RelPermalink }}">&#8592;</a></li>
-            {{ else }}
-            <li class="page-item"><a class="page-link invisible" href="#">&#8592;</a></li>
-            {{ end }}
-            <li class="page-item"><a class="page-link top" href="#">Top</a></li>
-            {{ if .NextPage }}
-            <li class="page-item"><a class="page-link" aria-label="Next" href="{{ .NextPage.RelPermalink }}">&#8594;</a></li>
-            {{ else }}
-            <li class="page-item"><a class="page-link invisible" href="#">&#8594;</a></li>
-            {{ end }}
-        </ul>
-    </nav>
-</main>
+{{- if ne .Params.comments false }}
+    {{ template "_internal/disqus.html" . }}
+{{- end }}
+
+<nav class="pagination">
+    <ul>
+        {{ if .PrevPage }}
+        <li class="page-item"><a class="page-link" aria-label="Previous" href="{{ .PrevPage.RelPermalink }}">&#8592;</a></li>
+        {{ else }}
+        <li class="page-item"><a class="page-link invisible" href="#">&#8592;</a></li>
+        {{ end }}
+        <li class="page-item"><a class="page-link top" href="#">Top</a></li>
+        {{ if .NextPage }}
+        <li class="page-item"><a class="page-link" aria-label="Next" href="{{ .NextPage.RelPermalink }}">&#8594;</a></li>
+        {{ else }}
+        <li class="page-item"><a class="page-link invisible" href="#">&#8594;</a></li>
+        {{ end }}
+    </ul>
+</nav>
 <script>
     let processScroll = () => {
         let docElem = document.documentElement; 

@@ -7,10 +7,10 @@
         <div class="social-column">
             {{ partialCached "social.html" . }}
         </div>
-        
-        <div class="container-main">
+
+        <main class="container-main">
         {{ block "main" . }}{{ end }}
-        </div>
+        </main>
 
         {{ partialCached "footer.html" . }}
     </body>
