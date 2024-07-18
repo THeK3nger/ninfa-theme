@@ -40,14 +40,14 @@
 
 <nav class="pagination">
     <ul>
-        {{ if .PrevPage }}
-        <li class="page-item"><a class="page-link" aria-label="Previous" href="{{ .PrevPage.RelPermalink }}">&#8592;</a></li>
+        {{ if .Prev }}
+        <li class="page-item"><a class="page-link" aria-label="Previous" href="{{ .Prev.RelPermalink }}">&#8592;</a></li>
         {{ else }}
         <li class="page-item"><a class="page-link invisible" href="#">&#8592;</a></li>
         {{ end }}
         <li class="page-item"><a class="page-link top" href="#">Top</a></li>
-        {{ if .NextPage }}
-        <li class="page-item"><a class="page-link" aria-label="Next" href="{{ .NextPage.RelPermalink }}">&#8594;</a></li>
+        {{ if .Next }}
+        <li class="page-item"><a class="page-link" aria-label="Next" href="{{ .Next.RelPermalink }}">&#8594;</a></li>
         {{ else }}
         <li class="page-item"><a class="page-link invisible" href="#">&#8594;</a></li>
         {{ end }}
