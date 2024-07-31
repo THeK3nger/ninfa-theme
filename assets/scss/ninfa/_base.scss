@@ -1,7 +1,6 @@
 body {
     display: grid;
-    grid-template: [start] auto [content-end footer-start] 20px / 10% 1fr 20%;
-    grid-template-areas: "margin content nav" "footer footer footer";
+    grid-template: "header header header" 72px "Lmargin content Rmargin" auto "footer footer footer" 20px / 10% 1fr 10%;
     gap: 1rem;
     background-color: var(--bg-color); 
     font-family: var(--font-serif);
@@ -21,11 +20,15 @@ h1, h2, h3, h4 {
 }
 
 .sidebar {
-    grid-column: 3;
+    grid-column: 1/4;
     grid-row: 1;
     display: flex;
-    flex-direction: column;
-    padding-block-start: 2em;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+    padding: 2px 2em;
+    background: linear-gradient(var(--bg-color-darker), transparent);
 }
 
 .mobile-nav {
@@ -34,11 +37,12 @@ h1, h2, h3, h4 {
 
 .logo {
     align-self: center;
+    margin: 0;
 }
 
 .container-main {
     grid-column: 2;
-    grid-row: 1;
+    grid-row: 2;
 }
 
 footer {
@@ -58,7 +62,7 @@ footer {
 }
 
 .social-column {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
@@ -66,12 +70,19 @@ footer {
     filter: grayscale(100%) opacity(0.5);
 }
 
+.navbar-wrapper {
+    display: inline;
+    flex-grow: 2;
+}
+
 .navbar {
+    display: flex;
+    flex-direction: row;
     list-style-type: none;
-    padding: 0 15%;
+    padding: 0;
     text-align: center;
-    background-color: var(--bg-color);
-    border-radius: 3%;
+    justify-content: space-evenly;
+    text-shadow: 1px 1px 2px var(--bg-color);
 
     li {
         font-family: var(--font-mono);
@@ -177,10 +188,8 @@ div.highlight {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-block-start: 0.5em;
-        padding-block-end: 0.5em;
-        padding-inline-start: 1em;
-        padding-inline-end: 1em;
+        padding-block: 0.5em;
+        padding-inline: 1em;
         background-color: var(--bg-color-darker);
     }
 
@@ -190,6 +199,7 @@ div.highlight {
 
     .navbar {
         text-align: left;
+        flex-direction: column;
     }
 
     footer {

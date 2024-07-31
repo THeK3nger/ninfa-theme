@@ -1,9 +1,10 @@
-
-<div class="sidebar">
-    <a class="logo"  href="{{ "/" | relURL }}">
-        <img src="{{ .Site.Params.logo }}" alt="Davide Aversa Logo" width="80px" height="80px" />
-    </a>
-    <nav>
+<header class="sidebar">
+    <h1 class="logo">
+        <a href="{{ "/" | relURL }}">
+        <img src="{{ .Site.Params.logo }}" alt="Davide Aversa Logo" width="70px" height="70px" />
+        </a>
+    </h1>
+    <nav class="navbar-wrapper">
         <ul class="navbar">
         {{ range .Site.Menus.main }}
             <li class="navbar-item">
@@ -17,7 +18,7 @@
         </ul>
     </nav>
     {{ partial "elements/dark-light-toggle.html" . }}
-</div>
+</header>
 <header class="mobile-nav">
     <a class="logo"  href="{{ "/" | relURL }}">
         <img src="{{ .Site.Params.logo }}" alt="Davide Aversa Logo" width="40px" height="40px" /> 

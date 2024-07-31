@@ -1,41 +1,41 @@
 <head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="theme-color" content="#00404D" media="(prefers-color-scheme: dark)">
-        <meta name="theme-color" content="#f2f2f2" media="(prefers-color-scheme: light)" />
-		{{- if .IsHome }}
-			<meta name="description" content="{{ .Site.Params.Description }}">
-		{{- else if .Description }}
-			<meta name="description" content="{{ .Description }}">
-        {{- end }}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#00404D" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f2f2f2" media="(prefers-color-scheme: light)" />
+    {{- if .IsHome }}
+        <meta name="description" content="{{ .Site.Params.Description }}">
+    {{- else if .Description }}
+        <meta name="description" content="{{ .Description }}">
+    {{- end }}
 
-		<title>{{- if .IsHome }}{{ .Site.Title }}{{- else }}{{ .Title }} &middot; {{ .Site.Title }}{{- end }}</title>
+    <title>{{- if .IsHome }}{{ .Site.Title }}{{- else }}{{ .Title }} &middot; {{ .Site.Title }}{{- end }}</title>
 
-		<!-- CSS -->
-		{{- $cssTarget		:= "css/style.css" }}
-		{{- $cssOptions		:= (dict "transpiler" "dartsass" "targetPath" $cssTarget "outputStyle" "compressed" "includePaths" (slice "node_modules")) }}
-		{{- $style			:= resources.Get "scss/ninfa.scss" | toCSS $cssOptions | minify | fingerprint }}
-  		<link rel="stylesheet" href="{{ $style.RelPermalink }}">
-		<link rel="stylesheet" href="{{ "css/fonts.css" | relURL }}">
-		{{ range .Site.Params.css -}}
-			<link rel="stylesheet" href="{{ . | relURL }}">
-        {{ end -}}
+    <!-- CSS -->
+    {{- $cssTarget		:= "css/style.css" }}
+    {{- $cssOptions		:= (dict "transpiler" "dartsass" "targetPath" $cssTarget "outputStyle" "compressed" "includePaths" (slice "node_modules")) }}
+    {{- $style			:= resources.Get "scss/ninfa.scss" | toCSS $cssOptions | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+    <link rel="stylesheet" href="{{ "css/fonts.css" | relURL }}">
+    {{ range .Site.Params.css -}}
+        <link rel="stylesheet" href="{{ . | relURL }}">
+    {{ end -}}
 
-        {{partial "headers/plausible.html" . }}
+    {{partial "headers/plausible.html" . }}
 
-        <!-- Favicon -->
-		<link rel="icon" href="{{ "/favicon.svg" | relURL }}">
-        <link rel="mask-icon" href="{{ "/favicon.svg" | relURL }}" color="#523199">
-		<link rel="apple-touch-icon" sizes="180x180" href="{{ "/apple-touch-icon.png" | relURL }}">
+    <!-- Favicon -->
+    <link rel="icon" href="{{ "/favicon.svg" | relURL }}">
+    <link rel="mask-icon" href="{{ "/favicon.svg" | relURL }}" color="#523199">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ "/apple-touch-icon.png" | relURL }}">
 
-		<!-- RSS -->
-        <link href="{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
-        
+    <!-- RSS -->
+    <link href="{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+    
 
-        {{- if eq .Params.mathjax true -}}
-        {{ partialCached "headers/mathjax.html" . }}
-        {{- end -}}
-        {{ partial "headers/twitter_card.html" . }}
-        {{ partial "headers/opengraph.html" . }}
-        {{ partial "headers/opengraph_image.html" . }}
-	</head>
+    {{- if eq .Params.mathjax true -}}
+    {{ partialCached "headers/mathjax.html" . }}
+    {{- end -}}
+    {{ partial "headers/twitter_card.html" . }}
+    {{ partial "headers/opengraph.html" . }}
+    {{ partial "headers/opengraph_image.html" . }}
+</head>
