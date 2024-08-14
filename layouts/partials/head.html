@@ -32,7 +32,7 @@
     <link href="{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
     
 
-    {{- if eq .Params.mathjax true -}}
+    {{- if .Params.math -}}
     {{ partialCached "headers/mathjax.html" . }}
     {{- end -}}
     {{ partial "headers/twitter_card.html" . }}
