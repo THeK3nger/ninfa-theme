@@ -16,6 +16,16 @@
             margin-block-end: 0.25rem;
         }
     }
+
+    &-warning {
+        color: black;
+        background-color: var(--warning-color);
+        padding: 1rem;
+
+        h4 {
+            margin-block-end: 0.25rem;
+        }
+    }
 }
 
 @media only screen and (width <= 768px) {
