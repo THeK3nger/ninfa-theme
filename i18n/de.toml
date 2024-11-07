@@ -5,7 +5,7 @@ other = "Von"
 other = "am"
 
 [generator]
-other = "Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/THeK3nger/ninfa'>Ninfa</a> theme."
+other = "Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/THeK3nger/ninfa-theme'>Ninfa</a> theme."
 
 [publishdate]
 other = "{{ .PublishDate.Day }}. {{ index $.Site.Data.months_de (printf \"%d\" .PublishDate.Month) }} {{ .PublishDate.Year }}"

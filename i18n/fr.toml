@@ -5,7 +5,7 @@ other = "Écrit par"
 other = "le"
 
 [generator]
-other = "Fait avec <a href='https://gohugo.io'>Hugo</a>, à partir du thème <a href='https://github.com/THeK3nger/ninfa'>Ninfa</a>."
+other = "Fait avec <a href='https://gohugo.io'>Hugo</a>, à partir du thème <a href='https://github.com/THeK3nger/ninfa-theme'>Ninfa</a>."
 
 [publishdate]
 other = "{{ .PublishDate.Day }} {{ index $.Site.Data.months_fr (printf \"%d\" .PublishDate.Month) }} {{ .PublishDate.Year }}"

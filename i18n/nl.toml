@@ -5,7 +5,7 @@ other = "Geschreven door"
 other = "op"
 
 [generator]
-other = "Gemaakt met <a href='https://gohugo.io'>Hugo</a> en thema <a href='https://github.com/THeK3nger/ninfa'>Ninfa</a>."
+other = "Gemaakt met <a href='https://gohugo.io'>Hugo</a> en thema <a href='https://github.com/THeK3nger/ninfa-theme'>Ninfa</a>."
 
 [publishdate]
 other = "{{ .PublishDate.Day }} {{ index $.Site.Data.months_nl (printf \"%d\" .PublishDate.Month) }} {{ .PublishDate.Year }}"
