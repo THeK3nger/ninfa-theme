@@ -1,21 +1,33 @@
-{{ if .Get "caption" }}
-  {{ $.Scratch.Set "caption" (.Get "caption") }}
-{{ end }}
-{{ if .Get "alt" }}
-  {{ $.Scratch.Set "alt" (.Get "alt") }}
-{{ end }}
 <!-- resolve absolute image path -->
 {{ $permalink := $.Page.Permalink }}
-{{ $image := .Page.Resources.GetMatch (printf "*%s*" (.Get "src")) }}
-{{ if not $image }}
-{{ $image := .Get "src" }}
-{{ end}}
-{{ $image_link_absolute := (findRE "^/" $image) }}
-{{ if .Page.Scratch.Get "fig"}}
-{{ .Page.Scratch.Add "fig" 1 }}
+{{ $src := .Get "src" }}
+{{ $image := "" }}
+{{ $figureNumber := 0 }}
+
+{{ if strings.HasPrefix $src "/" }}
+  <!-- If the src starts with '/', assume it's a static or global path -->
+  {{ $image = $src | absURL }}
 {{ else }}
-{{ .Page.Scratch.Set "fig" 1}}
+{{ $bundleImage := .Page.Resources.GetMatch (printf "*%s*" $src) }}
+{{ if $bundleImage }}
+{{ $image = $bundleImage }}
+{{ else }}
+{{/* Attempt to find image in global static or content directories */}}
+{{ $globalImage := resources.GetMatch (printf "**/%s" $src) }}
+{{ if $globalImage }}
+    {{ $image = $globalImage.RelPermalink }}
 {{ end }}
+{{ end }}
+{{ end }}
+
+{{/* Increment figure number */}}
+{{ $figureNumber = add ($.Page.Scratch.Get "figCount" | default 0) 1 }}
+{{ $.Page.Scratch.Set "figCount" $figureNumber }}
+
+
+{{ if not $image}}
+<p>Image Not Found.</p>
+{{ else }}
 <figure {{ with .Get "class" }}class="{{.}}"{{ end }}>
   {{ if .Get "link"}}
     <a href="{{ .Get "link" }}"
@@ -23,28 +35,26 @@
     {{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
   {{ end }}
   <div class="img-wrapper"> 
+{{ $alt := .Get "alt" }}
+{{ $caption := .Get "caption" }}
   <img
-      {{ if $image_link_absolute }}
-        src="{{ $image | absURL }}"
-      {{ else }}
-        src="{{ (printf "%s%s" $permalink $image) }}"
-      {{ end }}
-        {{ if .Get "alt" }}alt="{{ .Get "alt" | markdownify | plainify }}"
-        {{ else if .Get "caption" }}alt="{{ .Get "caption" | markdownify | plainify }}"
+        src="{{ $image }}"
+        {{ if $alt }}alt="{{ $alt | markdownify | plainify }}"
+        {{ else if $caption }}alt="{{ $caption | markdownify | plainify }}"
         {{ end }}
         {{ with .Get "align" }}align="{{ . }}"{{ end }}
-        {{ with .Get "height" }}width="{{ . }}"{{ end }}
+        {{ with .Get "height" }}height="{{ . }}"{{ end }}
         {{ with .Get "width" }}width="{{ . }}"{{ end }} style="max-width: 100%;" />
     </div>
   {{ if .Get "link"}}</a>{{ end }}
   <!-- caption and attr-->
-  {{ if ($.Scratch.Get "caption") }}
+  {{ if $caption }}
     <figcaption class="figure-caption text-center">
-        Figure {{ $.Page.Scratch.Get "fig" }}. {{ $.Scratch.Get "caption" | markdownify }}
+        Figure {{ $figureNumber }}. {{ $caption | markdownify }}
         {{ if .Get "attr" }}
           [{{- with .Get "attrlink"}}<a href="{{ . }}">{{ end }}{{ .Get "attr" | markdownify }}{{ if .Get "attrlink"}}</a>{{ end -}}]
         {{ end }}
     </figcaption>
   {{ end }}
 </figure>
-{{ $.Scratch.Delete "caption"}}
+{{ end }}
