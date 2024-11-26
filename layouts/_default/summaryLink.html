@@ -1,11 +1,13 @@
-<div  class="catalogue-item">
-    <div class="d-flex justify-content-between">
-        <time datetime="{{ .PublishDate }}" class="catalogue-time">{{ i18n "publishdate" . }}</time>
-        <div>
-        {{ range $category := .Params.Categories }}
-        <a href="{{ $.Site.BaseURL }}categories/{{ $category | urlize }}"><span class="badge rounded-pill badge-primary text-uppercase font-monospace">{{ $category }}</span></a>
+<div  class="catalogue-item-link">
+    <div class="catalogue-ribbon catalogue-ribbon-link">
+        <img src="/images/icons/link.svg" width="10px" height="10px" alt="GitHub Icon"/>
+        LINK • {{ range $category := .Params.Categories }}
+        {{ $category | upper }}
         {{ end }}
-        </div>
+    </div>
+    <div class="catalogue-wrapper">
+    <div class="catalogue-metadata">
+        <time datetime="{{ .PublishDate }}" class="catalogue-time">{{ i18n "publishdate" . }}</time>
     </div>
     <a href="{{ .Params.link }}">
     <h1 class="catalogue-title text-primary">
@@ -15,4 +17,5 @@
     <p class="catalogue-summary text-justify">
     {{ if isset .Params "summary" }}{{ .Params.Summary | markdownify }}{{ else }}{{ .Summary }}{{ end }}
     </p>
+    </div>
 </div>

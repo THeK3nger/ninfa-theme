@@ -77,4 +77,31 @@
       color: var(--mid-gray);
     }
   }
+
+  &-item-link {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  &-ribbon {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    padding-top: 0.5rem;
+    width: 20px;
+    vertical-align: middle;
+    font-size: small;
+
+    img {
+        display: inline;
+        margin-bottom: 0.4rem;
+    }
+  }
+
+  &-ribbon-link {
+    background-color: rgba(255 0 0 / 60%);
+  } 
+
 }
+
