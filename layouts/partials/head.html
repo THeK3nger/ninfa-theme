@@ -35,7 +35,6 @@
     {{- if .Params.math -}}
     {{ partialCached "headers/mathjax.html" . }}
     {{- end -}}
-    {{ partial "headers/twitter_card.html" . }}
     {{ partial "headers/opengraph.html" . }}
     {{ partial "headers/opengraph_image.html" . }}
 </head>
