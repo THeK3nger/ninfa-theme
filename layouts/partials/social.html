@@ -8,6 +8,11 @@
     <img src="/images/icons/mastodon.svg" width="16px" height="16px" alt="Mastodon Icon"/>
 </a>
 {{- end -}}
+{{ with .Site.Params.Social.bluesky }}
+<a href="https://bsky.app/profile/{{ . }}" title="RSS" >
+    <img src="/images/icons/bluesky.svg" width="16px" alt="RSS Icon"/>
+</a>
+{{ end }}
 {{ with .Site.Params.Social.facebook }}
 <a href="https://facebook.com/{{.}}" title="Facebbok" rel="me">
     <img src="/images/icons/facebook.svg" width="16px" alt="Facebook Icon"/>
