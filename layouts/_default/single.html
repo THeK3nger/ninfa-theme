@@ -34,8 +34,8 @@
 
 {{ partial "elements/related.html" . }}
 
-{{- if ne .Params.comments false }}
-    {{ template "_internal/disqus.html" . }}
+{{- if ne .Params.comments false }}  	
+    {{ partial "elements/bluesky-comments.html" . }}
 {{- end }}
 
 <nav class="pagination">

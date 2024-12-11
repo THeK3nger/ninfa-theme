@@ -1,0 +1,103 @@
+.comment-section {
+    h2 {
+        font-family: var(--font-mono);
+        margin-bottom: 15px;
+    }
+
+    .comment-intro {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+
+    .button-link {
+        display: inline-block;
+        padding: 4px 12px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 4px;
+        background-color: var(--primary-color);
+        color: var(--white);
+        transition: background-color 0.3s;
+
+        &:hover {
+            filter: brightness(1.1);
+        }
+    }
+
+    .comment-container {
+        font-size: 1rem;
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 15px;
+        padding: 15px;
+        background-color: var(--bg-color-darker);
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0 0 0 / 15%);
+        border: 1px solid var(--bg-color-darkest);
+        transition: all 0.3s ease;
+    }
+
+
+    .child-comments {
+        margin-left: 30px;
+        border-left: 2px solid var(--bg-color-darkest);
+        padding-left: 15px;
+        margin-top: 10px;
+    }
+
+    .comment-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .comment-details {
+        max-width: calc(100% - 60px);
+    }
+
+    .comment-header {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .comment-header span {
+        font-size: 0.9em;
+        color: gray;
+    }
+
+    .comment-text {
+        margin-bottom: 10px;
+    }
+
+    .comment-timestamp {
+        font-size: 0.8em;
+        color: gray;
+    }
+
+    .username-link {
+        font-family: var(--font-mono);
+        font-weight: bold;
+        color: var(--primary-color);
+        text-decoration: none;
+    }
+
+    .username-link:hover {
+        text-decoration: underline;
+    }
+
+    .comment-meta {
+        display: flex;
+        gap: 15px;
+        margin-top: 10px;
+        font-size: 0.9em;
+        color: gray;
+    }
+
+    .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+}
