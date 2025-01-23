@@ -141,6 +141,20 @@
     padding-top: 300px;
 }
 
+.photocredit {
+    border-radius: 15px;
+    background: var(--bg-color-darker);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    padding: 3px;
+    margin: 1rem 0 1rem -1rem;
+
+    p {
+        margin-block-end: 0;
+        margin-left: 10px;
+    }
+}
+
 @media only screen and (width <= 768px) {
     .post {
         .post-body {
@@ -154,5 +168,9 @@
             margin-right: 0.5em;
             text-align: center;
         }
+    }
+
+    .photocredit {
+        margin-left: 0;
     }
 }
