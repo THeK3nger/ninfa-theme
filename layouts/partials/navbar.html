@@ -17,7 +17,7 @@
         {{ end }}
         </ul>
     </nav>
-    {{ partial "elements/dark-light-toggle.html" . }}
+    {{ partialCached "elements/dark-light-toggle.html" . }}
 </header>
 <header class="mobile-nav">
     <a class="logo"  href="{{ "/" | relURL }}">

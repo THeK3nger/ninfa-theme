@@ -21,7 +21,7 @@
         <link rel="stylesheet" href="{{ . | relURL }}">
     {{ end -}}
 
-    {{partial "headers/plausible.html" . }}
+    {{partialCached "headers/plausible.html" . }}
 
     <!-- Favicon -->
     <link rel="icon" href="{{ "/favicon.svg" | relURL }}">

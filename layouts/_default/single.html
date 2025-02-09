@@ -3,11 +3,11 @@
 {{ $img := partial "elements/get-header.html" (dict "context" . "sizes" "1280x300") }}
 {{ $altText := .Params.header_alt | default ( printf "%s%s" "Header image for " .Title) }}
 
-{{ partial "single/reading-status-bar.html" }}
+{{ partialCached "single/reading-status-bar.html" . }}
 {{- if .Params.header -}}
-{{ partial "elements/backdrop.html" .Params.header }}
+{{ partialCached "elements/backdrop.html" .Params.header .Params.header }}
 {{ else }}
-{{ partial "elements/backdrop.html" $img }}
+{{ partialCached "elements/backdrop.html" $img $img }}
 {{- end -}}
 {{/* The next class selector is weird but I cannot find a better way to have "backdropped" when we have a header OR a $img. */}}
 <article class="post{{ with .Params.header }} backdropped{{end}}{{ with $img }} backdropped{{end}}">
@@ -34,8 +34,8 @@
 
 {{ partial "elements/related.html" . }}
 
-{{- if ne .Params.comments false }}  	
-    {{ partial "elements/bluesky-comments.html" . }}
+{{- if (isset .Params "comments") }}  	
+    {{ partialCached "elements/bluesky-comments.html" . .Params.comments.id }}
 {{- end }}
 
 <nav class="pagination">
