@@ -4,7 +4,6 @@
     position: relative;
     border-radius: 5px;
     height: 100%;
-    overflow: hidden;
 }
 
 .book-cover .img-wrapper::after {
@@ -23,7 +22,7 @@
     width: 100%;
 }
 
-.book-gallery {
+book-gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -41,7 +40,6 @@
 
     img {
         max-height: max-content;
-        height: 100%;
         box-shadow: 5px 5px 5px rgb(0 0 0 / 20%)
     }
 
