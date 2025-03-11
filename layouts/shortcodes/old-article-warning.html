@@ -1,0 +1,10 @@
+{{ $currentDate := now }}
+{{ $lastModDate := .Page.Lastmod }}
+{{ $yearThreshold := .Site.Params.oldArticleThreshold | default 2 }}
+{{ $thresholdDate := $currentDate.AddDate ( int (mul -1 $yearThreshold)) 0 0 }}
+
+{{ if lt $lastModDate $thresholdDate }}
+<div style="background-color: yellow; padding: 10px; border: 1px solid #ccc;">
+    <strong>Note:</strong> This article has not been updated in the last {{ $yearThreshold }} years. The information may be outdated.
+</div>
+{{ end }}
