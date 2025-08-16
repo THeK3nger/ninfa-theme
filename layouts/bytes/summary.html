@@ -1,0 +1,21 @@
+<div  class="catalogue-item-byte">
+    <div class="catalogue-ribbon catalogue-ribbon-byte">
+        <img src="/images/icons/pacman.svg" width="10px" height="10px" alt="GitHub Icon"/>
+        BYTE • {{ range $category := .Params.Categories }}
+        {{ $category | upper }}
+        {{ end }}
+    </div>
+    <div class="catalogue-wrapper">
+    <div class="catalogue-metadata">
+        <time datetime="{{ .PublishDate }}" class="catalogue-time">{{ i18n "publishdate" . }}</time>
+    </div>
+    <a href="{{ .Permalink }}">
+    <h1 class="catalogue-title text-primary">
+        {{ .Title }} <span class="badge badge-primary font-monospace"><i class="fas fa-link"></i></span></h1>
+    <div class="catalogue-line"></div>
+    </a>
+    <div class="catalogue-content text-justify">
+    {{ .Content }}
+    </div>
+    </div>
+</div>

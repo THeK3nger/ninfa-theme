@@ -58,6 +58,18 @@
     hyphens: auto;
     line-height: 130%;
   }
+  
+  &-content {
+    font-size: 1.32rem;
+    hyphens: auto;
+    line-height: 130%;
+    
+    p {
+        margin-block-end: 0.5em;
+        line-height: 1.6em;
+        text-align: justify;
+    }
+  }
 
   &-metadata {
     display: flex;
@@ -78,9 +90,10 @@
     }
   }
 
-  &-item-link {
+  &-item-link, &-item-byte {
     display: flex;
     gap: 0.5rem;
+    margin-bottom: 1rem;
   }
 
   &-ribbon {
@@ -101,6 +114,10 @@
 
   &-ribbon-link {
     background-color: rgba(255 0 0 / 60%);
+  } 
+  
+  &-ribbon-byte {
+    background-color: rgba(111 0 254 / 60%);
   } 
 
 }
