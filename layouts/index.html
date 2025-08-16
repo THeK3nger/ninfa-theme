@@ -1,16 +1,75 @@
 {{ define "main" }}
 
+<!-- <div class="catalogue">
+    {{ range (.Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections)).Pages  }}
+        <h3>Processing: {{ .Title }} (Type: {{ .Type }})</h3>
+        {{- if eq .Type "blog"}}
+        <p>Rendering blog summary</p>
+        START
+        {{ .Render "summary" }}
+        END
+        {{- end }}
+        {{- if eq .Type "link"}}
+        <p>Rendering link summary</p>
+        START
+        {{ .Render "summary" }}
+        END
+        {{- end }}
+        {{- if eq .Type "byte"}}
+        <p>Rendering byte summary</p>
+        START
+        {{ .Render "summary" }}
+        END
+        {{- end }}
+    {{ end }}
+</div> -->
+
 <div class="catalogue">
-    {{ range (.Paginate (where .Site.RegularPages "Type" "in" site.Params.mainSections)).Pages  }}
+    {{ range (.Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections)).Pages  }}
         {{- if eq .Type "blog"}}
         {{ .Render "summary" }}
         {{- end }}
         {{- if eq .Type "link"}}
-        {{ .Render "summaryLink" }}
+        {{ .Render "summary" }}
+        {{- end }}
+        {{- if eq .Type "byte"}}
+        {{ .Render "summary" }}
         {{- end }}
 	{{ end }}
 </div>
 
 {{ partial "elements/paginator-navbar.html" . }}
 
+<div id="guide" style="z-index: 10; position: fixed; top: 5%; left: 5%; width: 90%; height: 90%; background-color: rgba(255, 255, 255, 0.9); padding: 1em; border: 1px solid #ccc; visibility: hidden;">
+    <h2>Secret Guide!</h2>
+    <p>Congratulations! You discovered the secret guide!</p>
+    <p>Press <kbd>?</kbd> to show/hide this guide!</p>
+    <h3>List of Hidden Pages:</h3>
+    <ul>
+        {{ range .Site.Menus.slashpages }}
+        <li>
+            <a href="{{ .URL }}">
+                {{ .Pre }}
+                <span class="{{ .Params.Class }}">{{ .Name }}</span>
+                {{ .Post }}
+            </a>
+        </li>
+        {{ end }}
+    </ul>
+</div>
+
+<script>
+    document.addEventListener('keydown', function(event) {
+        if (event.key === '?') {
+            const el = document.getElementById('guide');
+            if (el.style.visibility === 'hidden') {
+                el.style.visibility = 'visible';
+            } else {
+                el.style.visibility = 'hidden';
+            }
+        }
+    });
+</script>
+
 {{ end }}
+

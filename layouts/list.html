@@ -4,6 +4,8 @@
     {{ range (.Paginate .Pages).Pages }}
         {{- if eq .Type "link"}}
         {{ .Render "summaryLink" }}
+        {{- else if eq .Type "byte"}}
+        {{ .Render "summaryByte" }}
         {{- else }}
         {{ .Render "summary" }}
         {{- end }}
