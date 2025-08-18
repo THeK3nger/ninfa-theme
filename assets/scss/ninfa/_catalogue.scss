@@ -1,124 +1,123 @@
 .catalogue {
-  max-width: 700px;
-  margin: auto;
-  text-decoration: none;
-  color: var(--black);
-
-  h1 {
-    color: var(--black);
-  }
-
-  &-line {
-    display: block;
-    width: 2rem;
-  }
-
-  &-item {
-    display: block;
-    padding: 1rem 0;
-
-    &:hover .catalogue-line,
-    &:focus .catalogue-line {
-      width: 5rem;
-    }
-
-    &:last-child {
-      border: 0;
-    }
-  }
-
-  &-time {
-    letter-spacing: 0.5px;
-    color: var(--accent-color);
-    font-family: var(--font-mono);
-    font-size: smaller;
-  }
-
-  &-title {
-    font-size: 2.4rem;
-    font-weight: 700;
-  }
-
-  &-subtitle {
-    font-size: 1.6rem;
-    font-weight: 400;
-    color: var(--mid-gray);
-  }
-
-  &-image {
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-    object-fit: cover;
-    background-color: var(--bg-color-darker);
-    color: rgb(0 0 0 / 0%);
-  }
-
-  &-summary {
-    font-size: 1.32rem;
-    hyphens: auto;
-    line-height: 130%;
-  }
-  
-  &-content {
-    font-size: 1.32rem;
-    hyphens: auto;
-    line-height: 130%;
-    
-    p {
-        margin-block-end: 0.5em;
-        line-height: 1.6em;
-        text-align: justify;
-    }
-  }
-
-  &-metadata {
-    display: flex;
-    align-items: baseline;
-    gap: 1rem;
-    font-size: 90%;
-  }
-
-  &-category {
+    max-width: 700px;
+    margin: auto;
     text-decoration: none;
+    color: var(--black);
 
-    &-text {
-      font-family: var(--font-mono);
-      font-size: smaller;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      color: var(--mid-gray);
+    h1 {
+        color: var(--black);
     }
-  }
 
-  &-item-link, &-item-byte {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-  }
-
-  &-ribbon {
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    font-family: 'Courier New', Courier, monospace;
-    color: white;
-    padding-top: 0.5rem;
-    width: 20px;
-    vertical-align: middle;
-    font-size: small;
-
-    img {
-        display: inline;
-        margin-bottom: 0.4rem;
+    &-line {
+        display: block;
+        width: 2rem;
     }
-  }
 
-  &-ribbon-link {
-    background-color: rgba(255 0 0 / 60%);
-  } 
-  
-  &-ribbon-byte {
-    background-color: rgba(111 0 254 / 60%);
-  } 
+    &-item {
+        display: block;
+        padding: 1rem 0;
 
+        &:hover .catalogue-line,
+        &:focus .catalogue-line {
+            width: 5rem;
+        }
+
+        &:last-child {
+            border: 0;
+        }
+    }
+
+    &-time {
+        letter-spacing: 0.5px;
+        color: var(--accent-color);
+        font-family: var(--font-mono);
+        font-size: smaller;
+    }
+
+    &-title {
+        font-size: 2.4rem;
+        font-weight: 700;
+    }
+
+    &-subtitle {
+        font-size: 1.6rem;
+        font-weight: 400;
+        color: var(--mid-gray);
+    }
+
+    &-image {
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+        object-fit: cover;
+        background-color: var(--bg-color-darker);
+        color: rgb(0 0 0 / 0%);
+    }
+
+    &-summary {
+        font-size: 1.32rem;
+        hyphens: auto;
+        line-height: 130%;
+    }
+
+    &-content {
+        font-size: 1.15rem;
+        hyphens: auto;
+        line-height: 130%;
+
+        p {
+            margin-block-end: 0.5em;
+            line-height: 1.6em;
+            text-align: justify;
+        }
+    }
+
+    &-metadata {
+        display: flex;
+        align-items: baseline;
+        gap: 1rem;
+        font-size: 90%;
+    }
+
+    &-category {
+        text-decoration: none;
+
+        &-text {
+            font-family: var(--font-mono);
+            font-size: smaller;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--mid-gray);
+        }
+    }
+
+    &-item-link,
+    &-item-byte {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    &-ribbon {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        font-family: "Courier New", Courier, monospace;
+        color: white;
+        padding-top: 0.5rem;
+        width: 20px;
+        vertical-align: middle;
+        font-size: small;
+
+        img {
+            display: inline;
+            margin-bottom: 0.4rem;
+        }
+    }
+
+    &-ribbon-link {
+        background-color: rgba(255 0 0 / 60%);
+    }
+
+    &-ribbon-byte {
+        background-color: rgba(111 0 254 / 60%);
+    }
 }
-
