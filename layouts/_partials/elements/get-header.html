@@ -6,7 +6,12 @@
 {{ if $image }}
     {{ $image = $image.Fill (print .sizes " " $cropMethod) }}
 {{ else }}
-    {{ $image = .context.Resources.GetMatch $.context.Site.Params.defaultPostImage }}
+    {{ $defaultPath := $.context.Site.Params.defaultPostImage }}
+    {{ if $defaultPath }}
+        {{ $image = resources.Get $defaultPath }}
+        {{ if $image }}
+            {{ $image = $image.Fill (print .sizes " " "center") }}
+        {{ end }}
+    {{ end }}
 {{ end }}
-
 {{ return $image }}
