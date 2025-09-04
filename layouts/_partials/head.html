@@ -28,8 +28,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{ "/apple-touch-icon.png" | relURL }}">
 
     <!-- RSS -->
-    <link href="{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
-    
+    <link href="{{ .Site.Params.social.rss }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
 
     {{- if .Params.math -}}
     {{ partialCached "headers/mathjax.html" . }}
