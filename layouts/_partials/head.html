@@ -30,6 +30,11 @@
     <!-- RSS -->
     <link href="{{ .Site.Params.social.rss }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
 
+    {{- if .Site.Params.webmentionUrl -}}
+    <link rel="webmention" href="{{ .Site.Params.webmentionUrl }}" />
+    {{- end -}}
+
+
     {{- if .Params.math -}}
     {{ partialCached "headers/mathjax.html" . }}
     {{- end -}}
