@@ -18,9 +18,9 @@
     {{- else -}}
     <header>
         {{ partial "single/post-info.html" . }}
-        <h1 class="post-title">{{ .Title }}</h1>
+        <h1 class="post-title" style="view-transition-name: post-{{ .Slug }}">{{ .Title }}</h1>
         {{ if .Params.subtitle }}
-        <h2 class="post-subtitle">{{ .Params.subtitle }}</h2>
+        <h2 class="post-subtitle" style="view-transition-name: subtitle-{{ .Slug }}">{{ .Params.subtitle }}</h2>
         {{ end }}
     </header>
     {{- end -}}

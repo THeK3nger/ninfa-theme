@@ -3,7 +3,7 @@
     {{ $img := partial "elements/get-header.html" (dict "context" . "sizes" "698x408") }}
 
     <div class="catalogue-metadata">
-        <time datetime="{{ .PublishDate }}" class="catalogue-time">{{ i18n "publishdate" . }}</time>
+        <time datetime="{{ .PublishDate }}" class="catalogue-time" style="view-transition-name: time-{{.Slug}}">{{ i18n "publishdate" . }}</time>
         <span>·</span>
         <div class="catalogue-category">
             {{ range $category := .Params.Categories }}
@@ -12,9 +12,9 @@
         </div>
     </div>
     <a href="{{ .Permalink }}">
-        <h1 class="catalogue-title">{{ .Title }}</h1>
+        <h1 class="catalogue-title" style="view-transition-name: post-{{.Slug}}" >{{ .Title }}</h1>
         {{ if .Params.subtitle }}
-        <h2 class="catalogue-subtitle">{{ .Params.subtitle }}</h2>
+        <h2 class="catalogue-subtitle" style="view-transition-name: subtitle-{{.Slug}}">{{ .Params.subtitle }}</h2>
         {{ end }}
     </a>
     {{ $altText := .Params.header_alt | default ( printf "%s%s" "Header image for " .Title) }}

@@ -7,7 +7,7 @@
     </div>
     {{- end }}
     {{- if .PublishDate }}
-    <time datetime="{{ .PublishDate }}">{{ i18n "publishdate" . }}</time>
+    <time datetime="{{ .PublishDate }}" style="view-transition-name: time-{{.Slug}}">{{ i18n "publishdate" . }}</time>
     {{- end }}
     <!-- <span>Reading time: {{ .ReadingTime }} minutes.</span> -->
 </section>
