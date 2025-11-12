@@ -69,6 +69,15 @@
             line-height: 1.6em;
             text-align: justify;
         }
+
+        blockquote {
+            margin-block: 1em;
+            margin-inline: 0;
+            padding: 0.5em 1em;
+            border-left: 0.25em solid var(--accent-color);
+            color: var(--mid-gray);
+            font-style: italic;
+        }
     }
 
     &-metadata {
