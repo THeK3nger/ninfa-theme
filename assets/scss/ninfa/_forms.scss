@@ -1,6 +1,6 @@
 label {
   font-family: var(--font-mono);
-  font-size: 1em;
+  font-size: var(--font-size-md);
   font-weight: bold;
 }
 
@@ -21,7 +21,7 @@ form.contact-form {
 
     legend {
       font-family: var(--font-mono);
-      font-size: 1.2em;
+      font-size: var(--font-size-lg);
       margin-left: -0.5em;
     }
 
@@ -37,7 +37,7 @@ form.contact-form {
     border: 1px solid var(--black);
     border-radius: 0.5em;
     padding: 0.5em;
-    font-size: 0.8em;
+    font-size: var(--font-size-xs);
     background-color: var(--white);
     color: var(--black);
     width: 100%;
@@ -51,7 +51,7 @@ form.contact-form {
     border: 1px solid var(--mid-gray);
     border-radius: 0.5em;
     padding: 0.5em;
-    font-size: 1.2em;
+    font-size: var(--font-size-lg);
     background-color: var(--white);
     color: var(--black);
     cursor: pointer;

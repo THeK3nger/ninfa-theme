@@ -1,24 +1,4 @@
 /* stylelint-disable value-keyword-case */
-:root {
-    --black: hsl(0deg 0% 0%); // Black
-    --white: hsl(0deg 0% 100%); // White
-    --bg-color: hsl(0deg 0% 95%); // Neutral Background
-    --bg-color-darker: hsl(0deg 0% 85%); // Darker variation of the background
-    --bg-color-darkest: hsl(0deg 0% 70%); // Darkest variation of the background
-    --mid-gray: hsl(0deg 0% 50%); // Mid gray
-    --primary-color: hsl(190deg 100% 28%);
-    --secondary-color: hsl(30deg 100% 40%);
-    --accent-color: var(--primary-color);
-    --info-post-color: hsla(0deg 0% 100% / 40%);
-    --info-color: hsl(210deg 100% 90%);
-    --warning-color: hsl(40deg 100% 90%);
-    --admonitions-link-color: var(--primary-color);
-    --font-san-serif: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --font-serif: 'Charter', serif;
-    --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-
-    color-scheme: dark light;
-}
 
 body.dark-theme{
     --black: hsl(0deg 0% 94%);
@@ -34,8 +14,54 @@ body.dark-theme{
 }
 
 
+// Font Size System - Edit these values to change font sizes globally
+// Based on modular scale with 1.2 ratio (Minor Third)
 $font-size-base: 1.35rem;
-$font-weight-normal: 00;
+$font-weight-normal: 400;
+
+// Font size scale - all sizes derived from base
+$font-size-xs: calc($font-size-base * 0.6);      // ~0.81rem
+$font-size-sm: calc($font-size-base * 0.75);     // ~1.01rem
+$font-size-md: $font-size-base;                  // 1.35rem (base)
+$font-size-lg: calc($font-size-base * 1.2);      // ~1.62rem
+$font-size-xl: calc($font-size-base * 1.44);     // ~1.94rem
+$font-size-2xl: calc($font-size-base * 1.728);   // ~2.33rem
+$font-size-3xl: calc($font-size-base * 2.074);   // ~2.8rem
+
+// CSS Custom Properties (for runtime changes and easier override)
+:root {
+    // Color variables
+    --black: hsl(0deg 0% 0%); // Black
+    --white: hsl(0deg 0% 100%); // White
+    --bg-color: hsl(0deg 0% 95%); // Neutral Background
+    --bg-color-darker: hsl(0deg 0% 85%); // Darker variation of the background
+    --bg-color-darkest: hsl(0deg 0% 70%); // Darkest variation of the background
+    --mid-gray: hsl(0deg 0% 50%); // Mid gray
+    --primary-color: hsl(190deg 100% 28%);
+    --secondary-color: hsl(30deg 100% 40%);
+    --accent-color: var(--primary-color);
+    --info-post-color: hsla(0deg 0% 100% / 40%);
+    --info-color: hsl(210deg 100% 90%);
+    --warning-color: hsl(40deg 100% 90%);
+    --admonitions-link-color: var(--primary-color);
+
+    // Font families
+    --font-san-serif: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-serif: 'Charter', serif;
+    --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+    // Font sizes as CSS variables for maximum flexibility
+    --font-size-base: #{$font-size-base};
+    --font-size-xs: calc(var(--font-size-base) * 0.6);
+    --font-size-sm: calc(var(--font-size-base) * 0.75);
+    --font-size-md: var(--font-size-base);
+    --font-size-lg: calc(var(--font-size-base) * 1.2);
+    --font-size-xl: calc(var(--font-size-base) * 1.44);
+    --font-size-2xl: calc(var(--font-size-base) * 1.728);
+    --font-size-3xl: calc(var(--font-size-base) * 2.074);
+
+    color-scheme: dark light;
+}
 
 @media (prefers-color-scheme: dark) {
     :root {

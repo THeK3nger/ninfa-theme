@@ -23,13 +23,13 @@
 
     &-text {
         font-family: var(--font-san-serif);
-        font-size: 0.70em;
+        font-size: var(--font-size-xs);
         flex-grow: 2;
     }
 
     &-button {
         font-family: var(--font-mono);
-        font-size: 1em;
+        font-size: var(--font-size-md);
         margin-top: 10px;
         font-weight: bold;
         text-align: right;
