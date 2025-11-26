@@ -28,7 +28,7 @@
     }
 
     &-time {
-        letter-spacing: 0.5px;
+        letter-spacing: var(--letter-spacing-wide);
         color: var(--accent-color);
         font-family: var(--font-mono);
         font-size: var(--font-size-sm);
@@ -37,11 +37,13 @@
     &-title {
         font-size: var(--font-size-3xl);
         font-weight: var(--font-weight-bold);
+        letter-spacing: var(--letter-spacing-tighter);
     }
 
     &-subtitle {
         font-size: var(--font-size-xl);
         font-weight: var(--font-weight-normal);
+        letter-spacing: var(--letter-spacing-tight);
         color: var(--mid-gray);
     }
 
@@ -93,7 +95,7 @@
         &-text {
             font-family: var(--font-mono);
             font-size: var(--font-size-sm);
-            letter-spacing: 0.5px;
+            letter-spacing: var(--letter-spacing-wide);
             text-transform: uppercase;
             color: var(--mid-gray);
         }

@@ -7,18 +7,22 @@
     h1 {
         font-size: var(--font-size-3xl);
         margin-bottom: 1em;
+        /* Balance heading text across lines for better appearance */
+        text-wrap: balance;
     }
 
     h2 {
         font-size: var(--font-size-2xl);
         margin-bottom: 0.5em;
         margin-block-start: 1em;
+        text-wrap: balance;
     }
 
     h3 {
         font-size: var(--font-size-xl);
         margin-bottom: 0.5em;
         margin-block-start: 1em;
+        text-wrap: balance;
     }
 
     blockquote {
@@ -103,6 +107,24 @@
         margin-block-end: 0.5em;
         line-height: var(--line-height-relaxed);
         text-align: justify;
+
+        /* Prevent orphans and widows for better text flow */
+        orphans: 3;
+        widows: 3;
+
+        /* Better word breaking */
+        word-break: break-word;
+        overflow-wrap: break-word;
+
+        /* Improved hyphenation rules */
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphenate-limit-chars: 6 3 3;  /* min-word-length min-before min-after */
+        hyphenate-limit-lines: 2;      /* max consecutive hyphenated lines */
+
+        /* Modern text wrapping for better line breaks */
+        text-wrap: pretty;
     }
 
     footer {
