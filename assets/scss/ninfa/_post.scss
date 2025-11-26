@@ -101,7 +101,7 @@
 
     p {
         margin-block-end: 0.5em;
-        line-height: 1.6em;
+        line-height: var(--line-height-relaxed);
         text-align: justify;
     }
 

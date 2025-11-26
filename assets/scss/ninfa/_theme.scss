@@ -14,10 +14,23 @@ body.dark-theme{
 }
 
 
-// Font Size System - Edit these values to change font sizes globally
+// Typography System - Edit these values to change typography globally
 // Based on modular scale with 1.2 ratio (Minor Third)
 $font-size-base: 1.35rem;
+
+// Font Weight System - Use numeric values for consistency
+$font-weight-light: 300;
 $font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Line Height System - Optimized for readability
+$line-height-tight: 1.1;      // Headings, tight text
+$line-height-snug: 1.375;     // UI elements, compact text
+$line-height-normal: 1.5;     // Body text, general use
+$line-height-relaxed: 1.625;  // Long-form reading
+$line-height-loose: 2;        // Spacious text, accessibility
 
 // Font size scale - all sizes derived from base
 $font-size-xs: calc($font-size-base * 0.6);      // ~0.81rem
@@ -59,6 +72,20 @@ $font-size-3xl: calc($font-size-base * 2.074);   // ~2.8rem
     --font-size-xl: calc(var(--font-size-base) * 1.44);
     --font-size-2xl: calc(var(--font-size-base) * 1.728);
     --font-size-3xl: calc(var(--font-size-base) * 2.074);
+
+    // Font weights
+    --font-weight-light: #{$font-weight-light};
+    --font-weight-normal: #{$font-weight-normal};
+    --font-weight-medium: #{$font-weight-medium};
+    --font-weight-semibold: #{$font-weight-semibold};
+    --font-weight-bold: #{$font-weight-bold};
+
+    // Line heights
+    --line-height-tight: #{$line-height-tight};
+    --line-height-snug: #{$line-height-snug};
+    --line-height-normal: #{$line-height-normal};
+    --line-height-relaxed: #{$line-height-relaxed};
+    --line-height-loose: #{$line-height-loose};
 
     color-scheme: dark light;
 }

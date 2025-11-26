@@ -34,7 +34,7 @@ html:focus-within {
 body {
   min-height: 100vh;
   text-rendering: optimizespeed;
-  line-height: 1.5;
+  line-height: var(--line-height-normal);
 }
 
 /* A elements that don't have a class get default styles */
