@@ -33,8 +33,14 @@ html:focus-within {
 /* Set core body defaults */
 body {
   min-height: 100vh;
-  text-rendering: optimizespeed;
+  /* Prioritize legibility over rendering speed for better kerning and ligatures */
+  text-rendering: optimizeLegibility;
   line-height: var(--line-height-normal);
+  /* Enable font smoothing for better anti-aliasing on all browsers */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Improve subpixel rendering */
+  font-smooth: always;
 }
 
 /* A elements that don't have a class get default styles */

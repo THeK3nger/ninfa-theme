@@ -15,8 +15,9 @@ body.dark-theme{
 
 
 // Typography System - Edit these values to change typography globally
-// Based on modular scale with 1.2 ratio (Minor Third)
-$font-size-base: 1.35rem;
+// Fluid typography scales smoothly between mobile (320px) and desktop (1200px)
+// Base font size scales from 1.125rem (18px) on mobile to 1.35rem (21.6px) on desktop
+$font-size-base: clamp(1.125rem, 0.9375rem + 0.5vw, 1.35rem);
 
 // Font Weight System - Use numeric values for consistency
 $font-weight-light: 300;
@@ -63,15 +64,17 @@ $font-size-3xl: calc($font-size-base * 2.074);   // ~2.8rem
     --font-serif: 'Charter', serif;
     --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
-    // Font sizes as CSS variables for maximum flexibility
+    // Font sizes with fluid typography - scales smoothly between mobile and desktop
+    // Only the base uses clamp(), all others scale proportionally using calc()
+    // To change all sizes: just edit $font-size-base in the SCSS variables above!
     --font-size-base: #{$font-size-base};
-    --font-size-xs: calc(var(--font-size-base) * 0.6);
-    --font-size-sm: calc(var(--font-size-base) * 0.75);
-    --font-size-md: var(--font-size-base);
-    --font-size-lg: calc(var(--font-size-base) * 1.2);
-    --font-size-xl: calc(var(--font-size-base) * 1.44);
-    --font-size-2xl: calc(var(--font-size-base) * 1.728);
-    --font-size-3xl: calc(var(--font-size-base) * 2.074);
+    --font-size-xs: calc(var(--font-size-base) * 0.6);      // 0.6x base
+    --font-size-sm: calc(var(--font-size-base) * 0.75);     // 0.75x base
+    --font-size-md: var(--font-size-base);                  // 1x base
+    --font-size-lg: calc(var(--font-size-base) * 1.2);      // 1.2x base
+    --font-size-xl: calc(var(--font-size-base) * 1.44);     // 1.44x base
+    --font-size-2xl: calc(var(--font-size-base) * 1.728);   // 1.728x base
+    --font-size-3xl: calc(var(--font-size-base) * 2.074);   // 2.074x base
 
     // Font weights
     --font-weight-light: #{$font-weight-light};
