@@ -3,14 +3,17 @@
 body.dark-theme{
     --black: hsl(0deg 0% 94%);
     --white: hsl(0deg 0% 6%);
-    --bg-color: hsl(190deg 100% 15%);
-    --bg-color-darker: hsl(190deg 100% 25%);
-    --bg-color-darkest: hsl(190deg 100% 35%);
+    --bg-color: hsl(270deg 50% 12%);
+    --bg-color-darker: hsl(270deg 45% 20%);
+    --bg-color-darkest: hsl(270deg 40% 30%);
     --mid-gray: hsl(0deg 0% 70%); // Mid gray
-    --primary-color: hsl(190deg 100% 48%);
-    --secondary-color: hsl(30deg 100% 40%);
+    --primary-color: hsl(280deg 85% 65%);
+    --secondary-color: hsl(45deg 100% 60%);
     --info-post-color: hsla(0deg 0% 0% / 40%);
     --accent-color: var(--primary-color);
+    --info-color: hsl(270deg 45% 25%);
+    --warning-color: hsl(45deg 60% 25%);
+    --admonitions-link-color: var(--primary-color);
 }
 
 
@@ -66,16 +69,16 @@ $font-size-3xl: calc($font-size-base * 2.074);   // ~2.8rem
     // Color variables
     --black: hsl(0deg 0% 0%); // Black
     --white: hsl(0deg 0% 100%); // White
-    --bg-color: hsl(0deg 0% 95%); // Neutral Background
-    --bg-color-darker: hsl(0deg 0% 85%); // Darker variation of the background
-    --bg-color-darkest: hsl(0deg 0% 70%); // Darkest variation of the background
+    --bg-color: hsl(280deg 30% 97%); // Neutral Background
+    --bg-color-darker: hsl(280deg 25% 90%); // Darker variation of the background
+    --bg-color-darkest: hsl(280deg 20% 75%); // Darkest variation of the background
     --mid-gray: hsl(0deg 0% 50%); // Mid gray
-    --primary-color: hsl(190deg 100% 28%);
-    --secondary-color: hsl(30deg 100% 40%);
+    --primary-color: hsl(270deg 70% 50%);
+    --secondary-color: hsl(320deg 85% 55%);
     --accent-color: var(--primary-color);
     --info-post-color: hsla(0deg 0% 100% / 40%);
-    --info-color: hsl(210deg 100% 90%);
-    --warning-color: hsl(40deg 100% 90%);
+    --info-color: hsl(280deg 40% 92%);
+    --warning-color: hsl(45deg 90% 85%);
     --admonitions-link-color: var(--primary-color);
 
     // Font families
@@ -133,25 +136,32 @@ $font-size-3xl: calc($font-size-base * 2.074);   // ~2.8rem
     :root {
         --black: hsl(0deg 0% 94%);
         --white: hsl(0deg 0% 6%);
-        --bg-color: hsl(190deg 100% 15%);
-        --bg-color-darker: hsl(190deg 100% 25%);
-        --bg-color-darkest: hsl(190deg 100% 35%);
+        --bg-color: hsl(270deg 50% 12%);
+        --bg-color-darker: hsl(270deg 45% 20%);
+        --bg-color-darkest: hsl(270deg 40% 30%);
         --mid-gray: hsl(0deg 0% 70%); // Mid gray
-        --primary-color: hsl(190deg 100% 48%);
-        --secondary-color: hsl(30deg 100% 40%);
+        --primary-color: hsl(280deg 85% 65%);
+        --secondary-color: hsl(45deg 100% 60%);
         --info-post-color: hsla(0deg 0% 0% / 40%);
+        --accent-color: var(--primary-color);
+        --info-color: hsl(270deg 45% 25%);
+        --warning-color: hsl(45deg 60% 25%);
+        --admonitions-link-color: var(--primary-color);
     }
 
     body.light-theme{
         --black: hsl(0deg 0% 0%); // Black
         --white: hsl(0deg 0% 100%); // White
-        --bg-color: hsl(0deg 0% 95%); // Neutral Background
-        --bg-color-darker: hsl(0deg 0% 85%); // Darker variation of the background
-        --bg-color-darkest: hsl(0deg 0% 70%); // Darkest variation of the background
+        --bg-color: hsl(280deg 30% 97%); // Neutral Background
+        --bg-color-darker: hsl(280deg 25% 90%); // Darker variation of the background
+        --bg-color-darkest: hsl(280deg 20% 75%); // Darkest variation of the background
         --mid-gray: hsl(0deg 0% 50%); // Mid gray
-        --primary-color: hsl(190deg 100% 28%);
-        --secondary-color: hsl(30deg 100% 40%);
+        --primary-color: hsl(270deg 70% 50%);
+        --secondary-color: hsl(320deg 85% 55%);
         --accent-color: var(--primary-color);
         --info-post-color: hsla(0deg 0% 100% / 40%);
+        --info-color: hsl(280deg 40% 92%);
+        --warning-color: hsl(45deg 90% 85%);
+        --admonitions-link-color: var(--primary-color);
     }
 }
