@@ -1,0 +1,5 @@
+{{ if .Site.Params.umamiWebsiteId }}
+{{ $src := "https://cloud.umami.is/script.js" }}
+{{ if .Site.Params.umamiScriptSrc }}{{ $src = .Site.Params.umamiScriptSrc }}{{ end }}
+<script defer src="{{ $src }}" data-website-id="{{ .Site.Params.umamiWebsiteId }}"></script>
+{{ end }}
