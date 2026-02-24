@@ -34,8 +34,8 @@
 
 {{ partial "elements/related.html" . }}
 
-{{- if (isset .Params "comments") }}  	
-    {{ partialCached "elements/bluesky-comments.html" . .Params.comments.id }}
+{{- if (isset .Params "comments") }}
+    {{ partial "elements/bluesky-comments.html" . }}
 {{- end }}
 
 <nav class="pagination">

@@ -1,12 +1,25 @@
-{{/*  This code is based on Oliver Menzel who explained it here 
+{{/*  This code is based on Oliver Menzel who explained it here
 https://www.menzel.it/post/2024/11/set-comments-experience-bluesky-posts/  */}}
-{{ if and (isset .Params "comments") (isset .Params.comments "id") }}
+{{ if isset .Params "comments" }}
+{{ $commentId := "" }}
+{{ $blockedPosts := slice }}
+{{ with .Params.comments }}
+  {{ with .id }}{{ $commentId = . }}{{ end }}
+  {{ with .blocked }}{{ $blockedPosts = . }}{{ end }}
+{{ end }}
+{{ $blockedUsers := slice }}
+{{ with $.Site.Data.moderation }}{{ with .blockedUsers }}{{ $blockedUsers = . }}{{ end }}{{ end }}
 <div class="comment-section">
   <h2>Comments 🦋</h2>
   <p class="comment-intro">
       You can use your <i>Bluesky</i> account to
-      <a class="button-link" href="https://bsky.app/profile/{{ .Site.Params.article.bluesky }}/post/{{ .Params.comments.id }}"
+      {{ if $commentId }}
+      <a class="button-link" href="https://bsky.app/profile/{{ .Site.Params.article.bluesky }}/post/{{ $commentId }}"
           target="_blank">reply</a>
+      {{ else }}
+      <a class="button-link" id="bluesky-reply-link" href="#" style="display:none"
+          target="_blank">reply</a>
+      {{ end }}
       to this post. Learn how this is implemented
       <a class="link" href="https://www.menzel.it/post/2024/11/set-comments-experience-bluesky-posts/">here</a>.
   </p>
@@ -15,7 +28,15 @@ https://www.menzel.it/post/2024/11/set-comments-experience-bluesky-posts/  */}}
   <script src="/js/vendor/purify.min.js"></script>
   <script src="/js/blueskycomments.js"></script>
   <script>
-    loadBlueskyComments({{ .Site.Params.article.bluesky }}, {{ .Params.comments.id }})
+    var blueskyModeration = {
+      blockedUsers: {{ $blockedUsers | jsonify }},
+      blockedPosts: {{ $blockedPosts | jsonify }}
+    };
+    {{ if $commentId }}
+    loadBlueskyComments({{ .Site.Params.article.bluesky }}, {{ $commentId }}, blueskyModeration)
+    {{ else }}
+    loadBlueskyCommentsByUrl({{ .Site.Params.article.bluesky }}, {{ .Permalink }}, blueskyModeration)
+    {{ end }}
   </script>
 </div>
 {{ end }}
