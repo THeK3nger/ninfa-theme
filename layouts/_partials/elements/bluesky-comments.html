@@ -8,7 +8,7 @@ https://www.menzel.it/post/2024/11/set-comments-experience-bluesky-posts/  */}}
   {{ with .blocked }}{{ $blockedPosts = . }}{{ end }}
 {{ end }}
 {{ $blockedUsers := slice }}
-{{ with $.Site.Data.moderation }}{{ with .blockedUsers }}{{ $blockedUsers = . }}{{ end }}{{ end }}
+{{ with hugo.Data.moderation }}{{ with .blockedUsers }}{{ $blockedUsers = . }}{{ end }}{{ end }}
 <div class="comment-section">
   <h2>Comments 🦋</h2>
   <p class="comment-intro">
