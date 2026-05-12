@@ -2,7 +2,6 @@
     font-size: var(--font-size-md);
     margin-block-start: 1rem;
     width: 100%;
-    hyphens: auto;
 
     h1 {
         font-size: var(--font-size-3xl);
@@ -106,7 +105,7 @@
     p {
         margin-block-end: 0.5em;
         line-height: var(--line-height-relaxed);
-        text-align: justify;
+        text-align: left;
 
         /* Prevent orphans and widows for better text flow */
         orphans: 3;
@@ -115,13 +114,6 @@
         /* Better word breaking */
         word-break: break-word;
         overflow-wrap: break-word;
-
-        /* Improved hyphenation rules */
-        hyphens: auto;
-        -webkit-hyphens: auto;
-        -ms-hyphens: auto;
-        hyphenate-limit-chars: 6 3 3;  /* min-word-length min-before min-after */
-        hyphenate-limit-lines: 2;      /* max consecutive hyphenated lines */
 
         /* Modern text wrapping for better line breaks */
         text-wrap: pretty;

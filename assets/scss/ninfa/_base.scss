@@ -133,6 +133,11 @@ footer {
     display: none;
 }
 
+.text-justify {
+  text-align: justify;
+  hyphens: auto;
+}
+
 main {
     font-size: var(--font-size-md);
 }
@@ -140,10 +145,6 @@ main {
 img {
   display: block;
   max-width: 100%;
-}
-
-article > section {
-  hyphens: auto;
 }
 
 .highlight {
