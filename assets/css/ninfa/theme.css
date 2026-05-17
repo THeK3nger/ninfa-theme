@@ -1,0 +1,122 @@
+/* stylelint-disable value-keyword-case */
+
+@layer theme {
+    :root {
+        /* Colors */
+        --black: hsl(0deg 0% 0%);
+        --white: hsl(0deg 0% 100%);
+        --bg-color: hsl(280deg 30% 97%);
+        --bg-color-darker: hsl(280deg 25% 90%);
+        --bg-color-darkest: hsl(280deg 20% 75%);
+        --mid-gray: hsl(0deg 0% 50%);
+        --primary-color: hsl(270deg 70% 50%);
+        --secondary-color: hsl(320deg 85% 55%);
+        --accent-color: var(--primary-color);
+        --info-post-color: hsla(0deg 0% 100% / 40%);
+        --info-color: hsl(280deg 40% 92%);
+        --warning-color: hsl(45deg 90% 85%);
+        --admonitions-link-color: var(--primary-color);
+
+        /* Font families */
+        --font-san-serif: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        --font-serif: 'Urbanist', sans-serif;
+        --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+        /* Font sizes — fluid typography, scales between mobile (320px) and desktop (1200px).
+           Base uses clamp(); all others scale proportionally via calc(). */
+        --font-size-base: clamp(1.125rem, 0.9375rem + 0.5vw, 1.35rem);
+        --font-size-xs: calc(var(--font-size-base) * 0.6);
+        --font-size-sm: calc(var(--font-size-base) * 0.75);
+        --font-size-md: var(--font-size-base);
+        --font-size-lg: calc(var(--font-size-base) * 1.2);
+        --font-size-xl: calc(var(--font-size-base) * 1.44);
+        --font-size-2xl: calc(var(--font-size-base) * 1.728);
+        --font-size-3xl: calc(var(--font-size-base) * 2.074);
+
+        /* Font weights */
+        --font-weight-light: 300;
+        --font-weight-normal: 400;
+        --font-weight-medium: 500;
+        --font-weight-semibold: 600;
+        --font-weight-bold: 700;
+
+        /* Line heights */
+        --line-height-tight: 1.1;
+        --line-height-snug: 1.375;
+        --line-height-normal: 1.5;
+        --line-height-relaxed: 1.625;
+        --line-height-loose: 2;
+
+        /* Vertical rhythm — all spacing derives from --spacing-base */
+        --spacing-base: 1.5rem;
+        --spacing-xs: calc(var(--spacing-base) * 0.25);
+        --spacing-sm: calc(var(--spacing-base) * 0.5);
+        --spacing-md: var(--spacing-base);
+        --spacing-lg: calc(var(--spacing-base) * 1.5);
+        --spacing-xl: calc(var(--spacing-base) * 2);
+        --spacing-2xl: calc(var(--spacing-base) * 3);
+        --spacing-3xl: calc(var(--spacing-base) * 4);
+
+        /* Letter spacing */
+        --letter-spacing-tighter: -0.05em;
+        --letter-spacing-tight: -0.025em;
+        --letter-spacing-normal: 0;
+        --letter-spacing-wide: 0.025em;
+        --letter-spacing-wider: 0.05em;
+        --letter-spacing-widest: 0.1em;
+
+        color-scheme: light dark;
+    }
+
+    body.dark-theme {
+        --black: hsl(0deg 0% 94%);
+        --white: hsl(0deg 0% 6%);
+        --bg-color: hsl(270deg 50% 12%);
+        --bg-color-darker: hsl(270deg 45% 20%);
+        --bg-color-darkest: hsl(270deg 40% 30%);
+        --mid-gray: hsl(0deg 0% 70%);
+        --primary-color: hsl(280deg 85% 65%);
+        --secondary-color: hsl(45deg 100% 60%);
+        --info-post-color: hsla(0deg 0% 0% / 40%);
+        --accent-color: var(--primary-color);
+        --info-color: hsl(270deg 45% 25%);
+        --warning-color: hsl(45deg 60% 25%);
+        --admonitions-link-color: var(--primary-color);
+        color-scheme: dark;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --black: hsl(0deg 0% 94%);
+            --white: hsl(0deg 0% 6%);
+            --bg-color: hsl(270deg 50% 12%);
+            --bg-color-darker: hsl(270deg 45% 20%);
+            --bg-color-darkest: hsl(270deg 40% 30%);
+            --mid-gray: hsl(0deg 0% 70%);
+            --primary-color: hsl(280deg 85% 65%);
+            --secondary-color: hsl(45deg 100% 60%);
+            --info-post-color: hsla(0deg 0% 0% / 40%);
+            --accent-color: var(--primary-color);
+            --info-color: hsl(270deg 45% 25%);
+            --warning-color: hsl(45deg 60% 25%);
+            --admonitions-link-color: var(--primary-color);
+        }
+
+        body.light-theme {
+            --black: hsl(0deg 0% 0%);
+            --white: hsl(0deg 0% 100%);
+            --bg-color: hsl(280deg 30% 97%);
+            --bg-color-darker: hsl(280deg 25% 90%);
+            --bg-color-darkest: hsl(280deg 20% 75%);
+            --mid-gray: hsl(0deg 0% 50%);
+            --primary-color: hsl(270deg 70% 50%);
+            --secondary-color: hsl(320deg 85% 55%);
+            --accent-color: var(--primary-color);
+            --info-post-color: hsla(0deg 0% 100% / 40%);
+            --info-color: hsl(280deg 40% 92%);
+            --warning-color: hsl(45deg 90% 85%);
+            --admonitions-link-color: var(--primary-color);
+            color-scheme: light;
+        }
+    }
+}

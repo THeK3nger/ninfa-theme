@@ -1,0 +1,71 @@
+@layer font {
+    @font-face {
+        font-family: 'Urbanist';
+        font-style: normal;
+        font-weight: 300;
+        src: url("/fonts/Urbanist-Light.ttf") format("truetype");
+    }
+
+    @font-face {
+        font-family: 'Urbanist';
+        font-style: italic;
+        font-weight: 300;
+        src: url("/fonts/Urbanist-LightItalic.ttf") format("truetype");
+    }
+
+    @font-face {
+        font-family: 'Urbanist';
+        font-style: normal;
+        font-weight: 400;
+        src: url("/fonts/Urbanist-Regular.ttf") format("truetype");
+    }
+
+    @font-face {
+        font-family: 'Urbanist';
+        font-style: italic;
+        font-weight: 400;
+        src: url("/fonts/Urbanist-Italic.ttf") format("truetype");
+    }
+
+    @font-face {
+        font-family: 'Urbanist';
+        font-style: normal;
+        font-weight: 500;
+        src: url("/fonts/Urbanist-Medium.ttf") format("truetype");
+    }
+
+    @font-face {
+        font-family: 'Urbanist';
+        font-style: italic;
+        font-weight: 500;
+        src: url("/fonts/Urbanist-MediumItalic.ttf") format("truetype");
+    }
+
+    @font-face {
+        font-family: 'Urbanist';
+        font-style: normal;
+        font-weight: 600;
+        src: url("/fonts/Urbanist-SemiBold.ttf") format("truetype");
+    }
+
+    @font-face {
+        font-family: 'Urbanist';
+        font-style: italic;
+        font-weight: 600;
+        src: url("/fonts/Urbanist-SemiBoldItalic.ttf") format("truetype");
+    }
+
+    @font-face {
+        font-family: 'Urbanist';
+        font-style: normal;
+        font-weight: 700;
+        src: url("/fonts/Urbanist-Bold.ttf") format("truetype");
+    }
+
+    @font-face {
+        font-family: 'Urbanist';
+        font-style: italic;
+        font-weight: 700;
+        src: url("/fonts/Urbanist-BoldItalic.ttf") format("truetype");
+    }
+}

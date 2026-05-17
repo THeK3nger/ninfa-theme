@@ -1,9 +1,4 @@
 module.exports = {
-  extends: "stylelint-config-standard-scss",
-  overrides: [
-    {
-      files: ["**/*.scss"],
-      customSyntax: "postcss-scss"
-    }
-  ]
+  extends: "stylelint-config-standard",
+  ignoreFiles: ["assets/scss/**/*.scss"]
 };

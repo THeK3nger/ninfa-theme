@@ -1,0 +1,55 @@
+@layer book {
+    .book-cover .img-wrapper {
+        display: table;
+        position: relative;
+        border-radius: 5px;
+        height: 100%;
+    }
+
+    .book-cover .img-wrapper::after {
+        content: '';
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        /* Book-like spine gradient */
+        background: linear-gradient(to right, rgb(60 13 20 / 20%) .75%, rgb(255 255 255 / 50%) 1.25%, rgb(255 255 255 / 25%) 1.75%, rgb(255 255 255 / 25%) 2.5%, rgb(0 0 0 / 5%) 3%, transparent 4%, rgb(255 255 255 / 25%) 4.25%, rgb(255 255 255 / 5%) 5.5%);
+    }
+
+    .book-cover figcaption {
+        width: 100%;
+    }
+
+    book-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        gap: 20px;
+        aspect-ratio: 16/9;
+        width: 100%;
+        padding: 25px;
+
+        figure {
+            flex: 0 0 25%;
+            display: table;
+            margin: 10px !important;
+        }
+
+        img {
+            max-height: max-content;
+            box-shadow: 5px 5px 5px rgb(0 0 0 / 20%);
+        }
+
+        .book-cover {
+            height: max-content;
+        }
+
+        /* Pseudo-random rotations for visual variety */
+        .book-cover:nth-child(1n) { transform: rotate(-1deg); }
+        .book-cover:nth-child(2n) { transform: rotate(3deg); }
+        .book-cover:nth-child(3n) { transform: rotate(-3deg); }
+        .book-cover:nth-child(4n) { transform: rotate(1deg); }
+    }
+}

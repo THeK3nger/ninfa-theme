@@ -1,0 +1,30 @@
+@layer admonitions {
+    .alert {
+        margin-left: -2rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+
+        a {
+            color: var(--admonitions-link-color);
+        }
+    }
+
+    .alert-info,
+    .alert-warning {
+        color: black;
+        padding: 1rem;
+
+        h4 {
+            margin-block-end: 0.25rem;
+        }
+    }
+
+    .alert-info    { background-color: var(--info-color); }
+    .alert-warning { background-color: var(--warning-color); }
+
+    @media only screen and (width <= 768px) {
+        .alert {
+            margin-left: 0;
+        }
+    }
+}
