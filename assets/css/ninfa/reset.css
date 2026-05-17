@@ -1,5 +1,5 @@
 /* Layer order declaration for the entire stylesheet */
-@layer reset, font, theme, base, catalogue, pagination, readingbar, post, admonitions, related, forms, cardgrid, tagbullet, darklighttoggle, spoiler, book, backdrop, comments;
+@layer reset, foundation, base, catalogue, post, cards, components, book;
 
 @layer reset {
     /* Box sizing rules */

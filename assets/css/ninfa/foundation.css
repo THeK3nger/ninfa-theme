@@ -1,6 +1,6 @@
 /* stylelint-disable value-keyword-case */
 
-@layer font {
+@layer foundation {
     @font-face {
         font-family: 'Urbanist';
         font-style: normal;
@@ -70,9 +70,7 @@
         font-weight: 700;
         src: url("/fonts/Urbanist-BoldItalic.ttf") format("truetype");
     }
-}
 
-@layer theme {
     :root {
         /* Colors */
         --black: hsl(0deg 0% 0%);

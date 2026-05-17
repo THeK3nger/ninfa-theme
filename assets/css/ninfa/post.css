@@ -168,9 +168,9 @@
             margin-left: 0;
         }
     }
-}
 
-@layer admonitions {
+    /* Admonitions */
+
     .alert {
         margin-left: -2rem;
         margin-top: 1rem;
@@ -199,9 +199,9 @@
             margin-left: 0;
         }
     }
-}
 
-@layer backdrop {
+    /* Backdrop */
+
     .backdrop-container {
         height: 675px;
         left: 0;
@@ -261,10 +261,9 @@
             }
         }
     }
-}
 
-@layer readingbar {
-    /* Progress bar */
+    /* Reading bar */
+
     #progress-bar {
         --scroll-amount: 0%;
 

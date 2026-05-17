@@ -1,4 +1,4 @@
-@layer related {
+@layer cards {
     .related {
         display: flex;
         gap: 0.5rem;
@@ -74,9 +74,7 @@
             font-size: var(--font-size-md);
         }
     }
-}
 
-@layer cardgrid {
     .card-columns {
         display: grid;
         gap: 1rem;
