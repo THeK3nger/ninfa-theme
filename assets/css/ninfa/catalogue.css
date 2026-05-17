@@ -124,3 +124,19 @@
         background-color: rgba(111 0 254 / 60%);
     }
 }
+
+@layer pagination {
+    .pagination {
+        ul {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            list-style-type: none;
+            padding-left: 0;
+
+            a {
+                color: var(--black);
+            }
+        }
+    }
+}

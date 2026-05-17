@@ -15,23 +15,13 @@
     {{- $cssTarget := "css/style.css" }}
     {{- $cssFiles := slice
         (resources.Get "css/ninfa/reset.css")
-        (resources.Get "css/ninfa/font.css")
-        (resources.Get "css/ninfa/theme.css")
+        (resources.Get "css/ninfa/foundation.css")
         (resources.Get "css/ninfa/base.css")
         (resources.Get "css/ninfa/catalogue.css")
-        (resources.Get "css/ninfa/pagination.css")
-        (resources.Get "css/ninfa/readingbar.css")
         (resources.Get "css/ninfa/post.css")
-        (resources.Get "css/ninfa/admonitions.css")
-        (resources.Get "css/ninfa/related.css")
-        (resources.Get "css/ninfa/forms.css")
-        (resources.Get "css/ninfa/cardgrid.css")
-        (resources.Get "css/ninfa/tagbullet.css")
-        (resources.Get "css/ninfa/darklighttoggle.css")
-        (resources.Get "css/ninfa/spoiler.css")
+        (resources.Get "css/ninfa/cards.css")
+        (resources.Get "css/ninfa/components.css")
         (resources.Get "css/ninfa/book.css")
-        (resources.Get "css/ninfa/backdrop.css")
-        (resources.Get "css/ninfa/comments.css")
     }}
     {{- $style := $cssFiles | resources.Concat $cssTarget | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}">
