@@ -239,13 +239,42 @@
                 background-image: linear-gradient(
                         0deg,
                         var(--bg-color) 0%,
-                        rgba(0 0 0 / 0%) 70%
+                        color-mix(in srgb, var(--bg-color) 98%, transparent) 4.9%,
+                        color-mix(in srgb, var(--bg-color) 94%, transparent) 9.5%,
+                        color-mix(in srgb, var(--bg-color) 88%, transparent) 14.6%,
+                        color-mix(in srgb, var(--bg-color) 80%, transparent) 20%,
+                        color-mix(in srgb, var(--bg-color) 71%, transparent) 25.6%,
+                        color-mix(in srgb, var(--bg-color) 60%, transparent) 31.5%,
+                        color-mix(in srgb, var(--bg-color) 50%, transparent) 37.3%,
+                        color-mix(in srgb, var(--bg-color) 40%, transparent) 43.1%,
+                        color-mix(in srgb, var(--bg-color) 29%, transparent) 48.7%,
+                        color-mix(in srgb, var(--bg-color) 20%, transparent) 54%,
+                        color-mix(in srgb, var(--bg-color) 12%, transparent) 58.8%,
+                        color-mix(in srgb, var(--bg-color) 6%, transparent) 63%,
+                        color-mix(in srgb, var(--bg-color) 2%, transparent) 66.5%,
+                        transparent 70%
                     ),
-                    linear-gradient(90deg, var(--bg-color) 0%, rgba(0 0 0 / 0%) 15%),
+                    linear-gradient(
+                        90deg,
+                        var(--bg-color) 0%,
+                        color-mix(in srgb, var(--bg-color) 94%, transparent) 2.1%,
+                        color-mix(in srgb, var(--bg-color) 80%, transparent) 4.6%,
+                        color-mix(in srgb, var(--bg-color) 60%, transparent) 7.2%,
+                        color-mix(in srgb, var(--bg-color) 40%, transparent) 9.8%,
+                        color-mix(in srgb, var(--bg-color) 20%, transparent) 12.4%,
+                        color-mix(in srgb, var(--bg-color) 6%, transparent) 14.8%,
+                        transparent 16.67%
+                    ),
                     linear-gradient(
                         270deg,
                         var(--bg-color) 0%,
-                        rgba(0 0 0 / 0%) 15%
+                        color-mix(in srgb, var(--bg-color) 94%, transparent) 2.1%,
+                        color-mix(in srgb, var(--bg-color) 80%, transparent) 4.6%,
+                        color-mix(in srgb, var(--bg-color) 60%, transparent) 7.2%,
+                        color-mix(in srgb, var(--bg-color) 40%, transparent) 9.8%,
+                        color-mix(in srgb, var(--bg-color) 20%, transparent) 12.4%,
+                        color-mix(in srgb, var(--bg-color) 6%, transparent) 14.8%,
+                        transparent 16.67%
                     );
                 background-repeat: no-repeat;
                 content: "";
