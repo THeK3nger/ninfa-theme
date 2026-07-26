@@ -1,0 +1,12 @@
+{{ $did := .Get "did" }}
+{{ if not $did }}
+  {{ errorf "puzzmo-stats shortcode requires a 'did' argument, e.g. {{< puzzmo-stats did=\"did:plc:xxxx\" >}} (%s)" .Position }}
+{{ end }}
+<div class="puzzmo-stats-section">
+  <div id="puzzmo-stats-list">Loading Puzzmo stats...</div>
+  <p class="puzzmo-stats-note">Live data pulled from my <a class="link" href="https://puzzmo.com/">Puzzmo</a> streaks, stored on my <a class="link" href="https://atproto.com/">ATProto</a> PDS.</p>
+  <script src="/js/puzzmostats.js"></script>
+  <script>
+    loadPuzzmoStats({{ $did }}, "puzzmo-stats-list");
+  </script>
+</div>

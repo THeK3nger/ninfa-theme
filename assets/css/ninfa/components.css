@@ -349,4 +349,123 @@
             gap: 5px;
         }
     }
+
+    /* Puzzmo stats */
+
+    .puzzmo-stats-section {
+        margin: 20px 0;
+
+        .puzzmo-loading {
+            font-family: var(--font-mono);
+            font-size: var(--font-size-md);
+        }
+
+        .puzzmo-stats-note {
+            font-size: var(--font-size-sm);
+            color: color-mix(in srgb, var(--black) 75%, transparent);
+            margin-top: 15px;
+        }
+
+        .puzzmo-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 14px;
+        }
+
+        .puzzmo-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 16px 10px;
+            border-radius: 18px;
+            background: color-mix(in hsl, hsl(var(--tile-hue) 85% 55%) 22%, var(--bg-color-darker));
+            border: 2px solid color-mix(in hsl, hsl(var(--tile-hue) 85% 55%) 50%, var(--bg-color-darkest));
+            box-shadow: 0 4px 6px rgba(0 0 0 / 15%);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+            &:nth-child(odd):hover {
+                transform: translateY(-5px) rotate(-2deg) scale(1.04);
+            }
+
+            &:nth-child(even):hover {
+                transform: translateY(-5px) rotate(2deg) scale(1.04);
+            }
+
+            &:hover {
+                box-shadow: 0 10px 18px rgba(0 0 0 / 25%);
+            }
+        }
+
+        .puzzmo-card-hot {
+            animation: puzzmo-pulse 2.4s ease-in-out infinite;
+        }
+
+        .puzzmo-card-inactive {
+            filter: grayscale(0.6);
+            opacity: 0.7;
+        }
+
+        .puzzmo-card-streak-broken {
+            color: color-mix(in srgb, var(--black) 60%, transparent);
+        }
+
+        .puzzmo-card-badge {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: var(--font-size-xs);
+            font-family: var(--font-mono);
+            font-weight: var(--font-weight-bold);
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 2px 8px;
+            border-radius: 999px;
+            white-space: nowrap;
+            box-shadow: 0 2px 4px rgba(0 0 0 / 25%);
+        }
+
+        .puzzmo-card-icon {
+            display: block;
+            font-size: var(--font-size-3xl);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .puzzmo-card-name {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(var(--font-size-sm) * 1.2 * 2);
+            font-family: var(--font-mono);
+            font-weight: var(--font-weight-bold);
+            font-size: var(--font-size-sm);
+            margin-bottom: 8px;
+        }
+
+        .puzzmo-card-streak {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-bold);
+        }
+
+        .puzzmo-card-meta {
+            margin-top: 6px;
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-semibold);
+            color: color-mix(in srgb, var(--black) 75%, transparent);
+        }
+    }
+}
+
+@keyframes puzzmo-pulse {
+    0%,
+    100% {
+        box-shadow: 0 4px 6px rgba(0 0 0 / 15%);
+    }
+
+    50% {
+        box-shadow: 0 4px 18px 2px color-mix(in hsl, hsl(var(--tile-hue) 85% 55%) 70%, transparent);
+    }
 }
