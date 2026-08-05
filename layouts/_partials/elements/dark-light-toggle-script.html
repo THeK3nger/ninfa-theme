@@ -1,47 +1,43 @@
 <script>
-   const checkbox = document.querySelector("#dtt");
-    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-    const themeColorMeta = (prefersDarkScheme.matches) ?
-        document.querySelector('meta[name="theme-color"][media="(prefers-color-scheme: dark)"]') :
-        document.querySelector('meta[name="theme-color"][media="(prefers-color-scheme: light)"]');
+    (() => {
+        const toggle = document.querySelector("#theme-toggle");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+        const themeColorMeta = document.querySelectorAll('meta[name="theme-color"]');
 
-    // Set c1 and remove c2 if present.
-    function toggleTwo(c1, c2) {
-        document.body.classList.toggle(c1);
-        if (document.body.classList.contains(c2)) {
-            document.body.classList.toggle(c2);
-        }
-    }
+        if (!toggle) return;
 
-    function setTheme(theme) {
-        if (theme === "dark") {
-            themeColorMeta.setAttribute("content", "#00404D");
-            toggleTwo("dark-theme", "light-theme");
-            checkbox.checked = true;
-        } else if (theme === "light") {
-            themeColorMeta.setAttribute("content", "#F2F2F2");
-            toggleTwo("light-theme", "dark-theme");
-            checkbox.checked = false;
-        }
-    }
+        const storedTheme = () => {
+            try {
+                return localStorage.getItem("theme");
+            } catch {
+                return null;
+            }
+        };
 
-    const currentTheme = localStorage.getItem("theme");
-    if (currentTheme === "dark" || (currentTheme !== "light" && prefersDarkScheme.matches)) {
-        setTheme("dark");
-    } else {
-        setTheme("light");
-    }
+        const applyTheme = (theme) => {
+            const isDark = theme === "dark";
+            document.body.classList.remove("light-theme", "dark-theme");
+            document.body.classList.add(isDark ? "dark-theme" : "light-theme");
+            toggle.setAttribute("aria-pressed", String(isDark));
+            toggle.setAttribute("aria-label", isDark ? "Use light theme" : "Use dark theme");
+            toggle.setAttribute("title", isDark ? "Use light theme" : "Use dark theme");
+            themeColorMeta.forEach((meta) => meta.setAttribute("content", isDark ? "#110f1a" : "#faf8fc"));
+        };
 
-    checkbox.addEventListener("click", () => {
-        let theme = checkbox.checked ? "dark" : "light";
-        setTheme(theme);
-        localStorage.setItem("theme", theme);
-    });
+        applyTheme(storedTheme() || (prefersDark.matches ? "dark" : "light"));
+
+        toggle.addEventListener("click", () => {
+            const theme = document.body.classList.contains("dark-theme") ? "light" : "dark";
+            applyTheme(theme);
+            try {
+                localStorage.setItem("theme", theme);
+            } catch {
+                // The selected theme still applies for the current page.
+            }
+        });
+
+        prefersDark.addEventListener("change", (event) => {
+            if (!storedTheme()) applyTheme(event.matches ? "dark" : "light");
+        });
+    })();
 </script>
-<noscript>
-    <style>
-        .dark-theme-toggle-wrapper {
-            display: none;
-        }
-    </style>
-</noscript>

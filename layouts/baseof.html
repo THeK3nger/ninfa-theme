@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.Language.Locale | default "en" }}">
     {{ partial "head.html" . }}
-    <body>
-        {{ partialCached "navbar.html" . }}
-
-        <div class="social-column">
-            {{ partialCached "social.html" . }}
-        </div>
+    <body{{ if .IsHome }} class="home"{{ end }}>
+        {{ partial "navbar.html" . }}
 
         <main class="container-main">
         {{ block "main" . }}{{ end }}
         </main>
 
         {{ partialCached "footer.html" . }}
+        {{ partialCached "elements/dark-light-toggle-script.html" . }}
     </body>
-    {{ partialCached "elements/dark-light-toggle-script.html" . }}
 </html>

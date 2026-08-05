@@ -51,6 +51,9 @@
     }
 
     .catalogue-image {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 698 / 408;
         margin-top: 0.5rem;
         margin-bottom: 1rem;
         object-fit: cover;

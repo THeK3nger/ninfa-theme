@@ -1,41 +1,55 @@
-<header class="sidebar">
-    <h1 class="logo">
-        <a href="{{ "/" | relURL }}">
-        <img src="{{ .Site.Params.logo }}" alt="Davide Aversa Logo" width="70px" height="70px" />
+{{- $primaryIDs := slice "notebook" "books" "projects" "about" -}}
+<header class="site-header">
+    <div class="site-header__inner">
+        <a class="site-brand" href="{{ "/" | relURL }}" aria-label="{{ .Site.Title }} home">
+            <img class="site-brand__logo" src="{{ .Site.Params.logo }}" alt="" width="42" height="48" />
+            <span class="site-brand__copy">
+                <span class="site-brand__name">{{ .Site.Title }}</span>
+                <span class="site-brand__tagline">{{ .Site.Params.tagline }}</span>
+            </span>
         </a>
-    </h1>
-    <nav class="navbar-wrapper">
-        <ul class="navbar">
-        {{ range .Site.Menus.main }}
-            <li class="navbar-item">
-                <a href="{{ .URL }}">
-                    {{ .Pre }}
-                    <span class="{{ .Params.Class }}">{{ .Name }}</span>
-                    {{ .Post }}
-                </a>
-            </li>
-        {{ end }}
-        </ul>
-    </nav>
-    {{ partialCached "elements/dark-light-toggle.html" . }}
-</header>
-<header class="mobile-nav">
-    <a class="logo"  href="{{ "/" | relURL }}">
-        <img src="{{ .Site.Params.logo }}" alt="Davide Aversa Logo" width="40px" height="40px" /> 
-    </a>
-    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-    <label id="nav-toggle-label" for="nav-toggle"></label>
-    <nav id="mobile-navbar" >
-        <ul class="navbar">
-        {{ range .Site.Menus.main }}
-            <li class="mobile-navbar-item">
-                <a href="{{ .URL }}">
-                    {{ .Pre }}
-                    <span class="{{ .Params.Class }}">{{ .Name }}</span>
-                    {{ .Post }}
-                </a>
-            </li>
-        {{ end }}
-        </ul>
-    </nav>
+
+        <nav class="primary-nav" aria-label="Primary navigation">
+            <ul>
+                {{- range .Site.Menus.main }}
+                    {{- if in $primaryIDs .Identifier }}
+                    {{- $isCurrent := or (and $.IsHome (eq .Identifier "notebook")) (and (ne .Identifier "notebook") (hasPrefix $.RelPermalink .URL)) -}}
+                    <li>
+                        <a href="{{ .URL }}"{{ if $isCurrent }} aria-current="page"{{ end }}>
+                            {{ .Name }}
+                        </a>
+                    </li>
+                    {{- end }}
+                {{- end }}
+            </ul>
+        </nav>
+
+        <div class="site-header__actions">
+            <a class="icon-button search-link" href="{{ "/archive/" | relURL }}" aria-label="Search the site" title="Search">
+                <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20">
+                    <circle cx="11" cy="11" r="6.5"></circle>
+                    <path d="m16 16 4 4"></path>
+                </svg>
+            </a>
+            {{ partialCached "elements/dark-light-toggle.html" . }}
+
+            <details class="mobile-menu">
+                <summary class="icon-button" aria-label="Open navigation">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22">
+                        <path d="M4 7h16M4 12h16M4 17h16"></path>
+                    </svg>
+                </summary>
+                <nav aria-label="Mobile navigation">
+                    <ul>
+                        {{- range .Site.Menus.main }}
+                            {{- if in $primaryIDs .Identifier }}
+                            {{- $isCurrent := or (and $.IsHome (eq .Identifier "notebook")) (and (ne .Identifier "notebook") (hasPrefix $.RelPermalink .URL)) -}}
+                            <li><a href="{{ .URL }}"{{ if $isCurrent }} aria-current="page"{{ end }}>{{ .Name }}</a></li>
+                            {{- end }}
+                        {{- end }}
+                    </ul>
+                </nav>
+            </details>
+        </div>
+    </div>
 </header>

@@ -1,22 +1,29 @@
-<footer>
-    <div id="footer-buttons">
-        <a href="https://kagi.com/smallweb/"><img src="/buttons/small_web.gif" width="88" height="31" alt="Small Web" /></a>
-        <a href="https://buymeacoffee.com/thek3nger"><img src="/buttons/buy-me-a-coffee.gif" width="88" height="31" alt="Buy Me a Coffee" /></a>
-        <a href="https://gohugo.io"><img src="/buttons/hugo.webp" width="88" height="31" alt="Made with Hugo" /></a>
-        {{ with .Site.Params.Social.rss }}
-        <a href="{{ . }}" title="RSS" >
-            <img src="/buttons/valid-rss.gif" width="88" height="31" alt="Valid RSS" />
-        </a>
-        {{ end }}
-        <a href=""><img src="/buttons/valid-html5.gif" width="88" height="31" alt="Valid RSS" /></a>
+<footer class="site-footer">
+    <div class="site-footer__inner">
+        <div class="site-footer__identity">
+            <span>&copy; <time datetime="{{ now.Format "2006" }}">{{ now.Format "2006" }}</time> {{ .Site.Params.author }}</span>
+            <nav class="site-footer__secondary" aria-label="Secondary navigation">
+                <a href="{{ "/publications/" | relURL }}">Publications</a>
+                <a href="{{ "/contacts/" | relURL }}">Contacts</a>
+                {{- with .Site.Params.privacyPolicy }}
+                <a href="{{ . | relURL }}">Privacy</a>
+                {{- end }}
+            </nav>
+            <nav class="site-footer__social" aria-label="Social links">
+                {{ partialCached "social.html" . }}
+            </nav>
+        </div>
+
+        {{- with .Site.Params.footerQuote }}
+        <p class="site-footer__quote">{{ . }}</p>
+        {{- end }}
+
+        <nav class="site-footer__primary" aria-label="Footer navigation">
+            <a href="{{ "/about/" | relURL }}">About</a>
+            <a href="{{ "/archive/" | relURL }}">Archive</a>
+            {{- with .Site.Params.social.rss }}
+            <a href="{{ . }}">RSS</a>
+            {{- end }}
+        </nav>
     </div>
-    <div id="footer-social" class="social">
-    {{ partialCached "social.html" . }}
-    </div>
-    <span id="footer-copyright">
-    &copy; <time datetime="{{ now }}">{{ now.Format "2006" }}</time> {{ .Site.Params.author }}.
-    </span>
-    {{- if .Site.Params.privacyPolicy}}
-    <a id="privacy-policy" class="navabar-link py-2 flex-grow-1" href="{{ $.Site.BaseURL }}{{ .Site.Params.privacyPolicy }}">Privacy Policy</a>
-    {{- end }}
 </footer>
