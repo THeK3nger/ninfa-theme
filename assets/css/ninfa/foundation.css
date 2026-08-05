@@ -72,36 +72,64 @@
     }
 
     :root {
-        /* Colors */
-        --black: hsl(0deg 0% 0%);
-        --white: hsl(0deg 0% 100%);
-        --bg-color: hsl(280deg 30% 97%);
-        --bg-color-darker: hsl(280deg 25% 90%);
-        --bg-color-darkest: hsl(280deg 20% 75%);
-        --mid-gray: hsl(0deg 0% 50%);
-        --primary-color: hsl(270deg 70% 50%);
-        --secondary-color: hsl(320deg 85% 55%);
-        --accent-color: var(--primary-color);
-        --info-post-color: hsla(0deg 0% 100% / 40%);
-        --info-color: hsl(280deg 40% 92%);
-        --warning-color: hsl(45deg 90% 85%);
-        --admonitions-link-color: var(--primary-color);
+        /*
+         * Semantic color system. Components should prefer these names; the
+         * legacy aliases below keep the current theme working during the
+         * redesign.
+         */
+        --color-canvas: hsl(280deg 33% 98%);
+        --color-surface: hsl(0deg 0% 100%);
+        --color-surface-subtle: hsl(280deg 24% 96%);
+        --color-surface-strong: hsl(275deg 18% 91%);
+        --color-text: hsl(245deg 38% 12%);
+        --color-text-muted: hsl(260deg 9% 42%);
+        --color-text-faint: hsl(260deg 7% 57%);
+        --color-border: hsl(275deg 19% 89%);
+        --color-border-strong: hsl(270deg 14% 78%);
+        --color-primary: hsl(258deg 58% 46%);
+        --color-primary-hover: hsl(258deg 64% 38%);
+        --color-primary-soft: hsl(260deg 62% 94%);
+        --color-secondary: hsl(194deg 68% 42%);
+        --color-success: hsl(151deg 52% 39%);
+        --color-warning: hsl(43deg 94% 45%);
+        --color-warning-soft: hsl(44deg 94% 88%);
+        --color-focus: hsl(258deg 77% 58%);
+        --color-overlay: hsl(245deg 38% 12% / 55%);
 
-        /* Font families */
-        --font-san-serif: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-        --font-serif: 'Urbanist', sans-serif;
-        --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        /* Compatibility aliases for the existing Ninfa styles. */
+        --black: var(--color-text);
+        --white: var(--color-surface);
+        --bg-color: var(--color-canvas);
+        --bg-color-darker: var(--color-surface-strong);
+        --bg-color-darkest: var(--color-border-strong);
+        --mid-gray: var(--color-text-muted);
+        --primary-color: var(--color-primary);
+        --secondary-color: var(--color-secondary);
+        --accent-color: var(--color-primary);
+        --info-post-color: hsl(0deg 0% 100% / 55%);
+        --info-color: var(--color-primary-soft);
+        --warning-color: var(--color-warning-soft);
+        --admonitions-link-color: var(--color-primary);
 
-        /* Font sizes — fluid typography, scales between mobile (320px) and desktop (1200px).
-           Base uses clamp(); all others scale proportionally via calc(). */
-        --font-size-base: clamp(1.125rem, 0.9375rem + 0.5vw, 1.35rem);
-        --font-size-xs: calc(var(--font-size-base) * 0.6);
-        --font-size-sm: calc(var(--font-size-base) * 0.75);
+        /* Typography */
+        --font-sans: 'Urbanist', -apple-system, blinkmacsystemfont, "Segoe UI", sans-serif;
+        --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+        --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+
+        /* Compatibility aliases. --font-serif currently drives body copy. */
+        --font-san-serif: var(--font-sans);
+        --font-serif: var(--font-sans);
+
+        /* A compact editorial type scale for dense cards and long-form text. */
+        --font-size-base: clamp(1rem, 0.955rem + 0.14vw, 1.125rem);
+        --font-size-xs: 0.75rem;
+        --font-size-sm: 0.875rem;
         --font-size-md: var(--font-size-base);
-        --font-size-lg: calc(var(--font-size-base) * 1.2);
-        --font-size-xl: calc(var(--font-size-base) * 1.44);
-        --font-size-2xl: calc(var(--font-size-base) * 1.728);
-        --font-size-3xl: calc(var(--font-size-base) * 2.074);
+        --font-size-lg: clamp(1.125rem, 1.08rem + 0.14vw, 1.25rem);
+        --font-size-xl: clamp(1.25rem, 1.16rem + 0.28vw, 1.5rem);
+        --font-size-2xl: clamp(1.5rem, 1.32rem + 0.56vw, 2rem);
+        --font-size-3xl: clamp(2rem, 1.73rem + 0.84vw, 2.75rem);
+        --font-size-display: clamp(2.5rem, 2rem + 1.56vw, 3.875rem);
 
         /* Font weights */
         --font-weight-light: 300;
@@ -117,15 +145,48 @@
         --line-height-relaxed: 1.625;
         --line-height-loose: 2;
 
-        /* Vertical rhythm — all spacing derives from --spacing-base */
+        /* Spacing */
+        --space-1: 0.25rem;
+        --space-2: 0.5rem;
+        --space-3: 0.75rem;
+        --space-4: 1rem;
+        --space-5: 1.5rem;
+        --space-6: 2rem;
+        --space-7: 3rem;
+        --space-8: 4rem;
+        --space-9: 6rem;
+
+        /* Compatibility aliases for the current vertical rhythm. */
         --spacing-base: 1.5rem;
-        --spacing-xs: calc(var(--spacing-base) * 0.25);
-        --spacing-sm: calc(var(--spacing-base) * 0.5);
-        --spacing-md: var(--spacing-base);
-        --spacing-lg: calc(var(--spacing-base) * 1.5);
-        --spacing-xl: calc(var(--spacing-base) * 2);
-        --spacing-2xl: calc(var(--spacing-base) * 3);
-        --spacing-3xl: calc(var(--spacing-base) * 4);
+        --spacing-xs: var(--space-1);
+        --spacing-sm: var(--space-3);
+        --spacing-md: var(--space-5);
+        --spacing-lg: 2.25rem;
+        --spacing-xl: var(--space-7);
+        --spacing-2xl: 4.5rem;
+        --spacing-3xl: var(--space-9);
+
+        /* Shape and elevation */
+        --radius-sm: 0.25rem;
+        --radius-md: 0.5rem;
+        --radius-lg: 0.75rem;
+        --radius-xl: 1rem;
+        --radius-pill: 999px;
+        --shadow-sm: 0 1px 2px hsl(245deg 38% 12% / 5%);
+        --shadow-md: 0 8px 24px hsl(255deg 30% 18% / 7%);
+        --shadow-lg: 0 18px 48px hsl(255deg 30% 18% / 11%);
+        --focus-ring: 0 0 0 3px hsl(258deg 77% 58% / 28%);
+
+        /* Layout */
+        --content-width: 72rem;
+        --page-width: 96rem;
+        --sidebar-width: 21rem;
+        --page-gutter: clamp(1rem, 0.45rem + 1.7vw, 2.5rem);
+
+        /* Motion */
+        --duration-fast: 120ms;
+        --duration-normal: 200ms;
+        --ease-standard: cubic-bezier(0.2, 0, 0, 1);
 
         /* Letter spacing */
         --letter-spacing-tighter: -0.05em;
@@ -139,53 +200,107 @@
     }
 
     body.dark-theme {
-        --black: hsl(0deg 0% 94%);
-        --white: hsl(0deg 0% 6%);
-        --bg-color: hsl(270deg 50% 12%);
-        --bg-color-darker: hsl(270deg 45% 20%);
-        --bg-color-darkest: hsl(270deg 40% 30%);
-        --mid-gray: hsl(0deg 0% 70%);
-        --primary-color: hsl(280deg 85% 65%);
-        --secondary-color: hsl(45deg 100% 60%);
-        --info-post-color: hsla(0deg 0% 0% / 40%);
-        --accent-color: var(--primary-color);
-        --info-color: hsl(270deg 45% 25%);
-        --warning-color: hsl(45deg 60% 25%);
-        --admonitions-link-color: var(--primary-color);
+        --color-canvas: hsl(250deg 25% 8%);
+        --color-surface: hsl(250deg 22% 11%);
+        --color-surface-subtle: hsl(250deg 20% 14%);
+        --color-surface-strong: hsl(251deg 18% 19%);
+        --color-text: hsl(270deg 25% 95%);
+        --color-text-muted: hsl(260deg 12% 72%);
+        --color-text-faint: hsl(258deg 9% 58%);
+        --color-border: hsl(252deg 16% 24%);
+        --color-border-strong: hsl(252deg 14% 34%);
+        --color-primary: hsl(258deg 94% 76%);
+        --color-primary-hover: hsl(258deg 96% 82%);
+        --color-primary-soft: hsl(257deg 32% 22%);
+        --color-secondary: hsl(192deg 70% 62%);
+        --color-success: hsl(151deg 48% 58%);
+        --color-warning: hsl(43deg 96% 63%);
+        --color-warning-soft: hsl(42deg 39% 23%);
+        --color-focus: hsl(258deg 94% 76%);
+        --color-overlay: hsl(250deg 40% 3% / 72%);
+        --black: var(--color-text);
+        --white: var(--color-surface);
+        --bg-color: var(--color-canvas);
+        --bg-color-darker: var(--color-surface-strong);
+        --bg-color-darkest: var(--color-border-strong);
+        --mid-gray: var(--color-text-muted);
+        --primary-color: var(--color-primary);
+        --secondary-color: var(--color-secondary);
+        --accent-color: var(--color-primary);
+        --info-post-color: hsl(250deg 30% 5% / 45%);
+        --info-color: var(--color-primary-soft);
+        --warning-color: var(--color-warning-soft);
+        --admonitions-link-color: var(--color-primary);
+        --shadow-sm: 0 1px 2px hsl(250deg 50% 2% / 25%);
+        --shadow-md: 0 8px 24px hsl(250deg 50% 2% / 28%);
+        --shadow-lg: 0 18px 48px hsl(250deg 50% 2% / 36%);
+        --focus-ring: 0 0 0 3px hsl(258deg 94% 76% / 30%);
         color-scheme: dark;
     }
 
     @media (prefers-color-scheme: dark) {
         :root {
-            --black: hsl(0deg 0% 94%);
-            --white: hsl(0deg 0% 6%);
-            --bg-color: hsl(270deg 50% 12%);
-            --bg-color-darker: hsl(270deg 45% 20%);
-            --bg-color-darkest: hsl(270deg 40% 30%);
-            --mid-gray: hsl(0deg 0% 70%);
-            --primary-color: hsl(280deg 85% 65%);
-            --secondary-color: hsl(45deg 100% 60%);
-            --info-post-color: hsla(0deg 0% 0% / 40%);
-            --accent-color: var(--primary-color);
-            --info-color: hsl(270deg 45% 25%);
-            --warning-color: hsl(45deg 60% 25%);
-            --admonitions-link-color: var(--primary-color);
+            --color-canvas: hsl(250deg 25% 8%);
+            --color-surface: hsl(250deg 22% 11%);
+            --color-surface-subtle: hsl(250deg 20% 14%);
+            --color-surface-strong: hsl(251deg 18% 19%);
+            --color-text: hsl(270deg 25% 95%);
+            --color-text-muted: hsl(260deg 12% 72%);
+            --color-text-faint: hsl(258deg 9% 58%);
+            --color-border: hsl(252deg 16% 24%);
+            --color-border-strong: hsl(252deg 14% 34%);
+            --color-primary: hsl(258deg 94% 76%);
+            --color-primary-hover: hsl(258deg 96% 82%);
+            --color-primary-soft: hsl(257deg 32% 22%);
+            --color-secondary: hsl(192deg 70% 62%);
+            --color-success: hsl(151deg 48% 58%);
+            --color-warning: hsl(43deg 96% 63%);
+            --color-warning-soft: hsl(42deg 39% 23%);
+            --color-focus: hsl(258deg 94% 76%);
+            --color-overlay: hsl(250deg 40% 3% / 72%);
+            --info-post-color: hsl(250deg 30% 5% / 45%);
+            --shadow-sm: 0 1px 2px hsl(250deg 50% 2% / 25%);
+            --shadow-md: 0 8px 24px hsl(250deg 50% 2% / 28%);
+            --shadow-lg: 0 18px 48px hsl(250deg 50% 2% / 36%);
+            --focus-ring: 0 0 0 3px hsl(258deg 94% 76% / 30%);
         }
 
         body.light-theme {
-            --black: hsl(0deg 0% 0%);
-            --white: hsl(0deg 0% 100%);
-            --bg-color: hsl(280deg 30% 97%);
-            --bg-color-darker: hsl(280deg 25% 90%);
-            --bg-color-darkest: hsl(280deg 20% 75%);
-            --mid-gray: hsl(0deg 0% 50%);
-            --primary-color: hsl(270deg 70% 50%);
-            --secondary-color: hsl(320deg 85% 55%);
-            --accent-color: var(--primary-color);
-            --info-post-color: hsla(0deg 0% 100% / 40%);
-            --info-color: hsl(280deg 40% 92%);
-            --warning-color: hsl(45deg 90% 85%);
-            --admonitions-link-color: var(--primary-color);
+            --color-canvas: hsl(280deg 33% 98%);
+            --color-surface: hsl(0deg 0% 100%);
+            --color-surface-subtle: hsl(280deg 24% 96%);
+            --color-surface-strong: hsl(275deg 18% 91%);
+            --color-text: hsl(245deg 38% 12%);
+            --color-text-muted: hsl(260deg 9% 42%);
+            --color-text-faint: hsl(260deg 7% 57%);
+            --color-border: hsl(275deg 19% 89%);
+            --color-border-strong: hsl(270deg 14% 78%);
+            --color-primary: hsl(258deg 58% 46%);
+            --color-primary-hover: hsl(258deg 64% 38%);
+            --color-primary-soft: hsl(260deg 62% 94%);
+            --color-secondary: hsl(194deg 68% 42%);
+            --color-success: hsl(151deg 52% 39%);
+            --color-warning: hsl(43deg 94% 45%);
+            --color-warning-soft: hsl(44deg 94% 88%);
+            --color-focus: hsl(258deg 77% 58%);
+            --color-overlay: hsl(245deg 38% 12% / 55%);
+            --black: var(--color-text);
+            --white: var(--color-surface);
+            --bg-color: var(--color-canvas);
+            --bg-color-darker: var(--color-surface-strong);
+            --bg-color-darkest: var(--color-border-strong);
+            --mid-gray: var(--color-text-muted);
+            --primary-color: var(--color-primary);
+            --secondary-color: var(--color-secondary);
+            --accent-color: var(--color-primary);
+            --info-post-color: hsl(0deg 0% 100% / 55%);
+            --info-color: var(--color-primary-soft);
+            --warning-color: var(--color-warning-soft);
+            --admonitions-link-color: var(--color-primary);
+            --shadow-sm: 0 1px 2px hsl(245deg 38% 12% / 5%);
+            --shadow-md: 0 8px 24px hsl(255deg 30% 18% / 7%);
+            --shadow-lg: 0 18px 48px hsl(255deg 30% 18% / 11%);
+            --focus-ring: 0 0 0 3px hsl(258deg 77% 58% / 28%);
             color-scheme: light;
         }
     }
