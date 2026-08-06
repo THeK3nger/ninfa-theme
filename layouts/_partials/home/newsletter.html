@@ -1,0 +1,10 @@
+<section class="rail-card newsletter-card" aria-labelledby="newsletter-title">
+    <h2 id="newsletter-title">Get new articles in your inbox</h2>
+    <p>The monthly ChangeLog, with no spam and an unsubscribe button.</p>
+    <a class="home-button" href="https://buttondown.email/thek3nger">Subscribe</a>
+    <div class="newsletter-card__links">
+        <a href="{{ .Site.Params.social.rss }}">RSS</a>
+        {{- with .Site.Params.social.bluesky }}<a href="https://bsky.app/profile/{{ . }}">Bluesky</a>{{ end }}
+        {{- with .Site.Params.social.github }}<a href="https://github.com/{{ . }}">GitHub</a>{{ end }}
+    </div>
+</section>

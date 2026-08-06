@@ -1,0 +1,11 @@
+<section class="rail-card" aria-labelledby="recent-notes-title">
+    <h2 id="recent-notes-title">Recent notes</h2>
+    <ol class="recent-notes">
+        {{- range .Pages }}
+        <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "Jan 2" }}</time>
+        </li>
+        {{- end }}
+    </ol>
+</section>

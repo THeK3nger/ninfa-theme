@@ -1,0 +1,34 @@
+{{- $topic := .Topic -}}
+{{- $matches := slice -}}
+{{- range .Pages -}}
+    {{- $page := . -}}
+    {{- $values := index .Params $topic.Taxonomy | default (slice) -}}
+    {{- $include := gt (len (intersect $values $topic.Terms)) 0 -}}
+    {{- with $topic.ExcludeTag -}}
+        {{- if in ($page.Params.tags | default (slice)) . }}{{ $include = false }}{{ end -}}
+    {{- end -}}
+    {{- if $include }}{{ $matches = $matches | append . }}{{ end -}}
+{{- end -}}
+{{- $matches = first 3 $matches -}}
+<article class="topic-card topic-card--{{ $topic.Accent }}">
+    <header class="topic-card__heading">
+        <span class="topic-card__icon" aria-hidden="true">{{ $topic.Icon }}</span>
+        <h3>{{ $topic.Title }}</h3>
+    </header>
+    {{- if gt (len $matches) 0 }}
+        {{- $lead := index $matches 0 -}}
+        {{- $image := partial "elements/get-header.html" (dict "context" $lead "sizes" "520x210") -}}
+        {{- $alt := $lead.Params.header_alt | default (printf "Header image for %s" $lead.Title) -}}
+        <a class="topic-card__image" href="{{ $lead.RelPermalink }}">
+            <img src="{{ $image.RelPermalink }}" alt="{{ $alt }}" width="520" height="210" loading="lazy" />
+        </a>
+        <ol class="topic-card__articles">
+            {{- range $matches }}
+            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+            {{- end }}
+        </ol>
+    {{- else }}
+        <p class="topic-card__empty">More writing is on the way.</p>
+    {{- end }}
+    <a class="topic-card__more" href="{{ $topic.URL | relURL }}">View all <span aria-hidden="true">→</span></a>
+</article>

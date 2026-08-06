@@ -1,0 +1,25 @@
+{{- $page := .Page -}}
+{{- $image := partial "elements/get-header.html" (dict "context" $page "sizes" "1100x620") -}}
+{{- $alt := $page.Params.header_alt | default (printf "Header image for %s" $page.Title) -}}
+<section class="home-hero" aria-labelledby="latest-essay-title">
+    <div class="home-hero__copy">
+        <p class="home-eyebrow">Latest essay</p>
+        <h1 id="latest-essay-title"><a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></h1>
+        {{- with $page.Params.subtitle }}
+        <p class="home-hero__subtitle">{{ . }}</p>
+        {{- end }}
+        <div class="home-hero__summary">
+            {{- with $page.Params.summary }}{{ . | markdownify }}{{ else }}{{ $page.Summary }}{{ end -}}
+        </div>
+        <div class="home-hero__footer">
+            <a class="home-button" href="{{ $page.RelPermalink }}">Read the article</a>
+            <div class="home-hero__meta">
+                <time datetime="{{ $page.PublishDate.Format "2006-01-02" }}">{{ $page.PublishDate.Format "Jan 2, 2006" }}</time>
+                {{- with index $page.Params.categories 0 }}<span aria-hidden="true">·</span><span>{{ . }}</span>{{ end }}
+            </div>
+        </div>
+    </div>
+    <a class="home-hero__media" href="{{ $page.RelPermalink }}" tabindex="-1" aria-hidden="true">
+        <img src="{{ $image.RelPermalink }}" alt="{{ $alt }}" width="1100" height="620" fetchpriority="high" />
+    </a>
+</section>

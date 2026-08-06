@@ -1,0 +1,10 @@
+<section class="home-section" aria-labelledby="topics-title">
+    <div class="home-section__heading">
+        <h2 id="topics-title">Latest by topic</h2>
+    </div>
+    <div class="topic-grid">
+        {{- range .Topics }}
+            {{ partial "home/topic-card.html" (dict "Pages" $.Pages "Topic" .) }}
+        {{- end }}
+    </div>
+</section>

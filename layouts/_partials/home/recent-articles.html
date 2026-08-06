@@ -1,0 +1,23 @@
+<section class="home-section" aria-labelledby="recent-articles-title">
+    <div class="home-section__heading">
+        <h2 id="recent-articles-title">Recent articles</h2>
+        <a href="{{ "/archive/" | relURL }}">View all articles <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="recent-articles">
+        {{- range .Pages }}
+        {{- $image := partial "elements/get-header.html" (dict "context" . "sizes" "260x150") -}}
+        {{- $alt := .Params.header_alt | default "" -}}
+        <article class="recent-article">
+            <a class="recent-article__image" href="{{ .RelPermalink }}" tabindex="-1" aria-hidden="true">
+                <img src="{{ $image.RelPermalink }}" alt="{{ $alt }}" width="260" height="150" loading="lazy" />
+            </a>
+            <div class="recent-article__body">
+                <time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "Jan 2, 2006" }}</time>
+                <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                {{- with .Params.summary }}<p>{{ . | markdownify | plainify | truncate 105 }}</p>{{ end }}
+                {{- with index .Params.categories 0 }}<a class="recent-article__category" href="{{ printf "/categories/%s/" (. | urlize) | relURL }}">{{ . }}</a>{{ end }}
+            </div>
+        </article>
+        {{- end }}
+    </div>
+</section>
