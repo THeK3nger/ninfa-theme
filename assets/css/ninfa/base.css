@@ -179,7 +179,8 @@
         transition: border-color var(--duration-fast) var(--ease-standard), background-color var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard);
     }
 
-    .icon-button:hover {
+    .icon-button:hover,
+    .icon-button[aria-current="page"] {
         border-color: var(--color-border);
         background: var(--color-surface);
         color: var(--color-primary);
