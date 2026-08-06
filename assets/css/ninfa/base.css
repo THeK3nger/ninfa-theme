@@ -506,25 +506,16 @@
         }
     }
 
-    body.dark-theme .container-main img {
-        filter: brightness(0.85) contrast(1.1);
-    }
-
     body.dark-theme .site-footer__social img {
         filter: grayscale(1) invert(1);
     }
 
     @media (prefers-color-scheme: dark) {
-        .container-main img {
-            filter: brightness(0.85) contrast(1.1);
-        }
-
         .site-footer__social img {
             filter: grayscale(1) invert(1);
         }
 
         body.light-theme {
-            .container-main img,
             .site-footer__social img {
                 filter: none;
             }

@@ -1,0 +1,4 @@
+{{- $images := partial "elements/get-header-images.html" . -}}
+{{- with $images.Default -}}
+<img{{ with $.class }} class="{{ . }}"{{ end }} src="{{ .RelPermalink }}"{{ with $images.Retina }} srcset="{{ $images.Default.RelPermalink }} 1x, {{ .RelPermalink }} {{ $images.RetinaDensity }}"{{ end }} alt="{{ $.alt }}" width="{{ .Width }}" height="{{ .Height }}"{{ with $.loading }} loading="{{ . }}"{{ end }}{{ with $.fetchpriority }} fetchpriority="{{ . }}"{{ end }} decoding="async" />
+{{- end -}}

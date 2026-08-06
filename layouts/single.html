@@ -1,16 +1,17 @@
 {{ define "main" }}
 
-{{ $img := partial "elements/get-header.html" (dict "context" . "sizes" "1280x300") }}
-{{ $altText := .Params.header_alt | default ( printf "%s%s" "Header image for " .Title) }}
+{{- $backdrop := .Params.header -}}
+{{- if not $backdrop -}}
+    {{- with partial "elements/get-header-source.html" . -}}
+        {{- $backdrop = .RelPermalink -}}
+    {{- end -}}
+{{- end -}}
 
 {{ partialCached "single/reading-status-bar.html" . }}
-{{- if .Params.header -}}
-{{ partialCached "elements/backdrop.html" .Params.header .Params.header }}
-{{ else }}
-{{ partialCached "elements/backdrop.html" $img $img }}
-{{- end -}}
-{{/* The next class selector is weird but I cannot find a better way to have "backdropped" when we have a header OR a $img. */}}
-<article class="post{{ with .Params.header }} backdropped{{end}}{{ with $img }} backdropped{{end}}">
+{{- with $backdrop }}
+{{ partialCached "elements/backdrop.html" . . }}
+{{- end }}
+<article class="post{{ with $backdrop }} backdropped{{ end }}">
     {{- if eq .Type "page" }}
     <header>
         <h1 class="page-title">{{ .Title }}</h1>

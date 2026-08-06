@@ -1,0 +1,7 @@
+{{- $image := .Resources.GetMatch "header" -}}
+{{- if not $image -}}
+    {{- with .Site.Params.defaultPostImage -}}
+        {{- $image = resources.Get . -}}
+    {{- end -}}
+{{- end -}}
+{{- return $image -}}

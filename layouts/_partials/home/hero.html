@@ -1,5 +1,4 @@
 {{- $page := .Page -}}
-{{- $image := partial "elements/get-header.html" (dict "context" $page "sizes" "1100x620") -}}
 {{- $alt := $page.Params.header_alt | default (printf "Header image for %s" $page.Title) -}}
 <section class="home-hero" aria-labelledby="latest-essay-title">
     <div class="home-hero__copy">
@@ -20,6 +19,6 @@
         </div>
     </div>
     <a class="home-hero__media" href="{{ $page.RelPermalink }}" tabindex="-1" aria-hidden="true">
-        <img src="{{ $image.RelPermalink }}" alt="{{ $alt }}" width="1100" height="620" fetchpriority="high" />
+        {{ partial "elements/responsive-header-image.html" (dict "context" $page "width" 1100 "height" 620 "alt" $alt "fetchpriority" "high") }}
     </a>
 </section>

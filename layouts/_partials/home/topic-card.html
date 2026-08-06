@@ -17,10 +17,9 @@
     </header>
     {{- if gt (len $matches) 0 }}
         {{- $lead := index $matches 0 -}}
-        {{- $image := partial "elements/get-header.html" (dict "context" $lead "sizes" "520x210") -}}
         {{- $alt := $lead.Params.header_alt | default (printf "Header image for %s" $lead.Title) -}}
         <a class="topic-card__image" href="{{ $lead.RelPermalink }}">
-            <img src="{{ $image.RelPermalink }}" alt="{{ $alt }}" width="520" height="210" loading="lazy" />
+            {{ partial "elements/responsive-header-image.html" (dict "context" $lead "width" 520 "height" 210 "alt" $alt "loading" "lazy") }}
         </a>
         <ol class="topic-card__articles">
             {{- range $matches }}

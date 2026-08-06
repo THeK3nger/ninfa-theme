@@ -5,11 +5,10 @@
     </div>
     <div class="recent-articles">
         {{- range .Pages }}
-        {{- $image := partial "elements/get-header.html" (dict "context" . "sizes" "260x150") -}}
         {{- $alt := .Params.header_alt | default "" -}}
         <article class="recent-article">
             <a class="recent-article__image" href="{{ .RelPermalink }}" tabindex="-1" aria-hidden="true">
-                <img src="{{ $image.RelPermalink }}" alt="{{ $alt }}" width="260" height="150" loading="lazy" />
+                {{ partial "elements/responsive-header-image.html" (dict "context" . "width" 260 "height" 150 "alt" $alt "loading" "lazy") }}
             </a>
             <div class="recent-article__body">
                 <time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "Jan 2, 2006" }}</time>

@@ -1,0 +1,34 @@
+{{- $context := .context -}}
+{{- $width := int .width -}}
+{{- $height := int .height -}}
+{{- $source := partial "elements/get-header-source.html" $context -}}
+{{- $default := $source -}}
+{{- $retina := false -}}
+{{- $retinaDensity := "" -}}
+
+{{- with $source -}}
+    {{- $crop := $context.Params.crop | default "smart" -}}
+    {{- if not ($context.Resources.GetMatch "header") -}}
+        {{- $crop = "center" -}}
+    {{- end -}}
+
+    {{- if and (ge .Width $width) (ge .Height $height) -}}
+        {{- $default = .Fill (printf "%dx%d %s" $width $height $crop) -}}
+    {{- end -}}
+
+    {{- $retinaWidth := mul $width 2 -}}
+    {{- $retinaHeight := mul $height 2 -}}
+    {{- if and (ge .Width $retinaWidth) (ge .Height $retinaHeight) -}}
+        {{- $retina = .Fill (printf "%dx%d %s" $retinaWidth $retinaHeight $crop) -}}
+        {{- $retinaDensity = "2x" -}}
+    {{- else -}}
+        {{- $largeWidth := div (mul $width 3) 2 -}}
+        {{- $largeHeight := div (mul $height 3) 2 -}}
+        {{- if and (ge .Width $largeWidth) (ge .Height $largeHeight) -}}
+            {{- $retina = .Fill (printf "%dx%d %s" $largeWidth $largeHeight $crop) -}}
+            {{- $retinaDensity = "1.5x" -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+
+{{- return (dict "Default" $default "Retina" $retina "RetinaDensity" $retinaDensity "Source" $source) -}}
