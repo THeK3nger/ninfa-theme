@@ -1,0 +1,78 @@
+{{ define "main" }}
+{{- $types := slice "blog" "bytes" -}}
+{{- $pages := where .Site.RegularPages "Type" "in" $types -}}
+{{- $pages = $pages.ByPublishDate.Reverse -}}
+{{- $articles := where $pages "Type" "blog" -}}
+{{- $notes := where $pages "Type" "bytes" -}}
+
+<section class="archive-page" data-archive>
+    <header class="archive-header">
+        <p class="archive-eyebrow">Archive &amp; search</p>
+        <h1>{{ .Title }}</h1>
+        <p>{{ .Description }}</p>
+    </header>
+
+    <div class="archive-controls" id="search">
+        <label class="archive-search" for="archive-search">
+            <span class="archive-search__icon" aria-hidden="true">⌕</span>
+            <span class="visually-hidden">Search the archive</span>
+            <input id="archive-search" type="search" placeholder="Search titles, summaries, categories, and tags…" autocomplete="off" spellcheck="false" aria-controls="archive-results" />
+            <kbd aria-hidden="true">/</kbd>
+        </label>
+        <button class="archive-clear" type="button" data-clear-search hidden>Clear search</button>
+    </div>
+
+    <div class="archive-toolbar">
+        <div class="archive-filters" aria-label="Filter archive by content type">
+            <button type="button" data-archive-filter="all" aria-pressed="true">All <span>{{ len $pages }}</span></button>
+            <button type="button" data-archive-filter="article" aria-pressed="false">Articles <span>{{ len $articles }}</span></button>
+            <button type="button" data-archive-filter="note" aria-pressed="false">Notes <span>{{ len $notes }}</span></button>
+        </div>
+        <p class="archive-count" aria-live="polite"><span data-result-count>{{ len $pages }}</span> <span data-result-label>entries</span></p>
+    </div>
+
+    <div class="archive-results" id="archive-results">
+        {{- range $pages.GroupByDate "2006" }}
+        <section class="archive-year" data-archive-year>
+            <h2>{{ .Key }}</h2>
+            <div class="archive-year__items">
+                {{- range .Pages }}
+                {{- $kind := cond (eq .Type "bytes") "note" "article" -}}
+                {{- $categories := .Params.categories | default (slice) -}}
+                {{- $tags := .Params.tags | default (slice) -}}
+                {{- $summary := .Summary | plainify | htmlUnescape -}}
+                {{- $searchText := printf "%s %s %s %s" .Title $summary (delimit $categories " ") (delimit $tags " ") -}}
+                <article class="archive-item" data-archive-item data-kind="{{ $kind }}" data-search="{{ $searchText }}">
+                    <div class="archive-item__meta">
+                        <span class="archive-item__kind">{{ if eq $kind "note" }}Note{{ else }}Article{{ end }}</span>
+                        <time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "Jan 2" }}</time>
+                    </div>
+                    <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                    <p>{{ $summary | truncate 180 }}</p>
+                    {{- with $categories }}
+                    <ul class="archive-item__terms" aria-label="Categories">
+                        {{- range first 2 . }}<li>{{ . }}</li>{{ end }}
+                    </ul>
+                    {{- else }}
+                    {{- with $tags }}
+                    <ul class="archive-item__terms" aria-label="Tags">
+                        {{- range first 2 . }}<li>{{ . }}</li>{{ end }}
+                    </ul>
+                    {{- end }}
+                    {{- end }}
+                </article>
+                {{- end }}
+            </div>
+        </section>
+        {{- end }}
+    </div>
+
+    <div class="archive-empty" data-archive-empty hidden>
+        <p>No entries match that search.</p>
+        <button type="button" data-empty-clear>Clear the filters</button>
+    </div>
+</section>
+
+{{- $script := resources.Get "js/archive.js" | minify | fingerprint -}}
+<script src="{{ $script.RelPermalink }}" defer></script>
+{{ end }}

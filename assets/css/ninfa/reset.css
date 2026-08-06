@@ -1,5 +1,5 @@
 /* Layer order declaration for the entire stylesheet */
-@layer reset, foundation, base, catalogue, home, post, cards, components, book;
+@layer reset, foundation, base, catalogue, home, archive, post, cards, components, book;
 
 @layer reset {
     /* Box sizing rules */
