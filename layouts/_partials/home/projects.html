@@ -1,0 +1,19 @@
+{{- $projects := .Data -}}
+<section class="rail-card projects-card" aria-labelledby="homepage-projects-title">
+    <div class="rail-card__heading">
+        <h2 id="homepage-projects-title">Projects</h2>
+        {{- with $projects.updated }}<time datetime="{{ . }}">Updated {{ time.Format "Jan 2006" . }}</time>{{ end }}
+    </div>
+    <ul class="project-list">
+        {{- range $projects.items }}
+        <li>
+            <span class="project-item__icon" aria-hidden="true">{{ .icon }}</span>
+            <div>
+                <a class="project-item__name" href="{{ .url }}">{{ .name }}</a>
+                <p>{{ .description }}</p>
+            </div>
+        </li>
+        {{- end }}
+    </ul>
+    <a class="rail-card__more" href="{{ $projects.url | relURL }}">View all projects <span aria-hidden="true">→</span></a>
+</section>

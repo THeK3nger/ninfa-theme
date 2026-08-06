@@ -23,8 +23,10 @@
     </div>
 
     <aside class="home-rail" aria-label="Updates and newsletter">
+        {{ partial "home/currently.html" (dict "Data" hugo.Data.homepage.currently) }}
         {{ partial "home/recent-notes.html" (dict "Pages" (first 5 $notes)) }}
         {{ partial "home/newsletter.html" . }}
+        {{ partial "home/projects.html" (dict "Data" hugo.Data.homepage.projects) }}
     </aside>
 </div>
 
