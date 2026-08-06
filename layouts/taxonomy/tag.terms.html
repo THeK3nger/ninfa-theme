@@ -1,14 +1,10 @@
 {{ define "main" }}
-<main>
     <h1>{{ .Title }}</h1>
     <div class="tagbullet">
-    {{- range .Data.Terms.ByCount -}}
-    <a href="{{ .Page.Permalink}}" type="button" class="tag">
-        <span class="tag-key">{{ .Page.Title }}</span><span class="tag-val">{{ .Count }}</span>
-    </a>
-    {{- end -}}
+        {{- range .Data.Terms.ByCount -}}
+        <a href="{{ .Page.Permalink}}" type="button" class="tag">
+            <span class="tag-key">{{ .Page.Title }}</span><span class="tag-val">{{ .Count }}</span>
+        </a>
+        {{- end -}}
     </div>
-
-</main>
-
 {{ end }}
