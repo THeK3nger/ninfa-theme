@@ -7,7 +7,13 @@
     <ul class="project-list">
         {{- range $projects.items }}
         <li>
-            <span class="project-item__icon" aria-hidden="true">{{ .icon }}</span>
+            <span class="project-item__icon{{ with .icon_image }} project-item__icon--image{{ end }}" aria-hidden="true">
+                {{- with .icon_image }}
+                    <img src="{{ . | relURL }}" alt="" width="32" height="32">
+                {{- else }}
+                    {{ .icon }}
+                {{- end }}
+            </span>
             <div>
                 <a class="project-item__name" href="{{ .url }}">{{ .name }}</a>
                 <p>{{ .description }}</p>

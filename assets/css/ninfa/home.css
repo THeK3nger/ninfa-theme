@@ -439,6 +439,15 @@
         line-height: 1;
     }
 
+    .currently-item__icon img,
+    .project-item__icon img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+        image-rendering: pixelated;
+    }
+
     .currently-item__icon {
         width: 2rem;
         height: 2rem;
@@ -456,6 +465,11 @@
 
     .currently-item__icon--yellow {
         background: var(--color-warning-soft);
+    }
+
+    .currently-item__icon.currently-item__icon--image {
+        border-radius: 0;
+        background: none;
     }
 
     .currently-item__body {
@@ -507,6 +521,11 @@
         height: 1.75rem;
         background: var(--color-surface-subtle);
         font-size: 0.95rem;
+    }
+
+    .project-item__icon.project-item__icon--image {
+        border-radius: 0;
+        background: none;
     }
 
     .project-item__name {
