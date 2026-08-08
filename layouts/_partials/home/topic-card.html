@@ -12,7 +12,13 @@
 {{- $matches = first 3 $matches -}}
 <article class="topic-card topic-card--{{ $topic.Accent }}">
     <header class="topic-card__heading">
-        <span class="topic-card__icon" aria-hidden="true">{{ $topic.Icon }}</span>
+        <span class="topic-card__icon{{ with $topic.IconImage }} topic-card__icon--image{{ end }}" aria-hidden="true">
+            {{- with $topic.IconImage }}
+                <img src="{{ . | relURL }}" alt="" width="32" height="32">
+            {{- else }}
+                {{ $topic.Icon }}
+            {{- end }}
+        </span>
         <h3>{{ $topic.Title }}</h3>
     </header>
     {{- if gt (len $matches) 0 }}

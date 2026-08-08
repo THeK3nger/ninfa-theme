@@ -9,7 +9,7 @@
 {{- $hero := index $blogPages 0 -}}
 {{- $recentArticles := first 6 (where $blogPages "RelPermalink" "ne" $hero.RelPermalink) -}}
 {{- $topics := slice
-    (dict "Title" "Programming" "Icon" "💾" "Taxonomy" "categories" "Terms" (slice "Programming") "URL" "/categories/programming/" "Accent" "cyan")
+    (dict "Title" "Programming" "IconImage" "images/icons/floppy32.png" "Taxonomy" "categories" "Terms" (slice "Programming") "URL" "/categories/programming/" "Accent" "cyan")
     (dict "Title" "Writing" "Icon" "✍️" "Taxonomy" "tags" "Terms" (slice "writing") "URL" "/tags/writing/" "Accent" "yellow")
     (dict "Title" "Books" "Icon" "📚" "Taxonomy" "tags" "Terms" (slice "books") "ExcludeTag" "changelog" "URL" "/tags/books/" "Accent" "green")
     (dict "Title" "AI" "Icon" "🤖" "Taxonomy" "categories" "Terms" (slice "Artificial Intelligence") "URL" "/categories/artificial-intelligence/" "Accent" "purple")

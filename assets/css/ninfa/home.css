@@ -191,8 +191,8 @@
     }
 
     .topic-card__icon {
-        width: 1.75rem;
-        height: 1.75rem;
+        width: 2rem;
+        height: 2rem;
         display: inline-grid;
         flex: 0 0 auto;
         place-items: center;
@@ -202,6 +202,14 @@
         font-family: system-ui, sans-serif;
         font-size: 1rem;
         line-height: 1;
+    }
+
+    .topic-card__icon img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+        image-rendering: pixelated;
     }
 
     .topic-card--cyan .topic-card__icon {
@@ -217,6 +225,11 @@
     .topic-card--yellow .topic-card__icon {
         background: var(--color-warning-soft);
         color: color-mix(in srgb, var(--color-warning) 78%, var(--color-text));
+    }
+
+    .topic-card__icon.topic-card__icon--image {
+        border-radius: 0;
+        background: none;
     }
 
     .topic-card__image {
