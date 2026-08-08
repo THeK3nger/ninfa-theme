@@ -1,17 +1,42 @@
 <script>
     (() => {
         const toggle = document.querySelector("#theme-toggle");
+        const palettePicker = document.querySelector("#palette-picker");
+        const paletteOptions = document.querySelectorAll("[data-palette]");
         const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
         const themeColorMeta = document.querySelectorAll('meta[name="theme-color"]');
+        const palettes = new Set(["arcade", "notebook", "midnight"]);
 
         if (!toggle) return;
 
-        const storedTheme = () => {
+        const storedValue = (key) => {
             try {
-                return localStorage.getItem("theme");
+                return localStorage.getItem(key);
             } catch {
                 return null;
             }
+        };
+
+        const storeValue = (key, value) => {
+            try {
+                localStorage.setItem(key, value);
+            } catch {
+                // The selection still applies for the current page.
+            }
+        };
+
+        const updateThemeColor = () => {
+            const canvas = getComputedStyle(document.body).getPropertyValue("--color-canvas").trim();
+            themeColorMeta.forEach((meta) => meta.setAttribute("content", canvas));
+        };
+
+        const applyPalette = (palette) => {
+            const selected = palettes.has(palette) ? palette : "arcade";
+            document.body.dataset.palette = selected;
+            paletteOptions.forEach((option) => {
+                option.setAttribute("aria-pressed", String(option.dataset.palette === selected));
+            });
+            updateThemeColor();
         };
 
         const applyTheme = (theme) => {
@@ -21,23 +46,28 @@
             toggle.setAttribute("aria-pressed", String(isDark));
             toggle.setAttribute("aria-label", isDark ? "Use light theme" : "Use dark theme");
             toggle.setAttribute("title", isDark ? "Use light theme" : "Use dark theme");
-            themeColorMeta.forEach((meta) => meta.setAttribute("content", isDark ? "#110f1a" : "#faf8fc"));
+            updateThemeColor();
         };
 
-        applyTheme(storedTheme() || (prefersDark.matches ? "dark" : "light"));
+        applyPalette(storedValue("palette") || "arcade");
+        applyTheme(storedValue("theme") || (prefersDark.matches ? "dark" : "light"));
 
         toggle.addEventListener("click", () => {
             const theme = document.body.classList.contains("dark-theme") ? "light" : "dark";
             applyTheme(theme);
-            try {
-                localStorage.setItem("theme", theme);
-            } catch {
-                // The selected theme still applies for the current page.
-            }
+            storeValue("theme", theme);
+        });
+
+        paletteOptions.forEach((option) => {
+            option.addEventListener("click", () => {
+                applyPalette(option.dataset.palette);
+                storeValue("palette", option.dataset.palette);
+                if (palettePicker) palettePicker.open = false;
+            });
         });
 
         prefersDark.addEventListener("change", (event) => {
-            if (!storedTheme()) applyTheme(event.matches ? "dark" : "light");
+            if (!storedValue("theme")) applyTheme(event.matches ? "dark" : "light");
         });
     })();
 </script>

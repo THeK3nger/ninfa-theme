@@ -77,24 +77,27 @@
          * legacy aliases below keep the current theme working during the
          * redesign.
          */
-        --color-canvas: hsl(280deg 33% 98%);
-        --color-surface: hsl(0deg 0% 100%);
-        --color-surface-subtle: hsl(280deg 24% 96%);
-        --color-surface-strong: hsl(275deg 18% 91%);
-        --color-text: hsl(245deg 38% 12%);
-        --color-text-muted: hsl(260deg 9% 42%);
-        --color-text-faint: hsl(260deg 7% 57%);
-        --color-border: hsl(275deg 19% 89%);
-        --color-border-strong: hsl(270deg 14% 78%);
-        --color-primary: hsl(258deg 58% 46%);
-        --color-primary-hover: hsl(258deg 64% 38%);
-        --color-primary-soft: hsl(260deg 62% 94%);
-        --color-secondary: hsl(194deg 68% 42%);
+        /* Arcade Twilight: warm paper, deep ink, and old-screen color. */
+        --color-canvas: hsl(42deg 28% 95%);
+        --color-surface: hsl(45deg 33% 98%);
+        --color-surface-subtle: hsl(40deg 22% 92%);
+        --color-surface-strong: hsl(36deg 16% 85%);
+        --color-text: hsl(255deg 22% 13%);
+        --color-text-muted: hsl(258deg 10% 39%);
+        --color-text-faint: hsl(255deg 8% 53%);
+        --color-border: hsl(37deg 18% 84%);
+        --color-border-strong: hsl(32deg 13% 70%);
+        --color-primary: hsl(268deg 78% 48%);
+        --color-primary-hover: hsl(268deg 82% 39%);
+        --color-primary-soft: hsl(267deg 62% 91%);
+        --color-on-primary: white;
+        --color-secondary: hsl(185deg 74% 31%);
         --color-success: hsl(151deg 52% 39%);
-        --color-warning: hsl(43deg 94% 45%);
-        --color-warning-soft: hsl(44deg 94% 88%);
-        --color-focus: hsl(258deg 77% 58%);
-        --color-overlay: hsl(245deg 38% 12% / 55%);
+        --color-warning: hsl(35deg 78% 39%);
+        --color-warning-soft: hsl(39deg 73% 86%);
+        --color-tertiary: var(--color-warning);
+        --color-focus: hsl(270deg 83% 55%);
+        --color-overlay: hsl(255deg 22% 13% / 58%);
 
         /* Compatibility aliases for the existing Ninfa styles. */
         --black: var(--color-text);
@@ -172,10 +175,10 @@
         --radius-lg: 0.75rem;
         --radius-xl: 1rem;
         --radius-pill: 999px;
-        --shadow-sm: 0 1px 2px hsl(245deg 38% 12% / 5%);
-        --shadow-md: 0 8px 24px hsl(255deg 30% 18% / 7%);
-        --shadow-lg: 0 18px 48px hsl(255deg 30% 18% / 11%);
-        --focus-ring: 0 0 0 3px hsl(258deg 77% 58% / 28%);
+        --shadow-sm: 0 1px 2px hsl(255deg 22% 13% / 6%);
+        --shadow-md: 0 8px 24px hsl(255deg 22% 13% / 8%);
+        --shadow-lg: 0 18px 48px hsl(255deg 22% 13% / 12%);
+        --focus-ring: 0 0 0 3px hsl(270deg 83% 55% / 28%);
 
         /* Layout */
         --content-width: 72rem;
@@ -200,24 +203,26 @@
     }
 
     body.dark-theme {
-        --color-canvas: hsl(250deg 25% 8%);
-        --color-surface: hsl(250deg 22% 11%);
-        --color-surface-subtle: hsl(250deg 20% 14%);
-        --color-surface-strong: hsl(251deg 18% 19%);
-        --color-text: hsl(270deg 25% 95%);
-        --color-text-muted: hsl(260deg 12% 72%);
-        --color-text-faint: hsl(258deg 9% 58%);
-        --color-border: hsl(252deg 16% 24%);
-        --color-border-strong: hsl(252deg 14% 34%);
-        --color-primary: hsl(258deg 94% 76%);
-        --color-primary-hover: hsl(258deg 96% 82%);
-        --color-primary-soft: hsl(257deg 32% 22%);
-        --color-secondary: hsl(192deg 70% 62%);
+        --color-canvas: hsl(255deg 24% 8%);
+        --color-surface: hsl(255deg 21% 11%);
+        --color-surface-subtle: hsl(254deg 18% 14%);
+        --color-surface-strong: hsl(252deg 16% 19%);
+        --color-text: hsl(40deg 25% 92%);
+        --color-text-muted: hsl(38deg 12% 70%);
+        --color-text-faint: hsl(32deg 8% 56%);
+        --color-border: hsl(252deg 15% 24%);
+        --color-border-strong: hsl(250deg 13% 34%);
+        --color-primary: hsl(267deg 100% 76%);
+        --color-primary-hover: hsl(267deg 100% 83%);
+        --color-primary-soft: hsl(267deg 38% 22%);
+        --color-on-primary: hsl(255deg 24% 10%);
+        --color-secondary: hsl(184deg 66% 56%);
         --color-success: hsl(151deg 48% 58%);
-        --color-warning: hsl(43deg 96% 63%);
-        --color-warning-soft: hsl(42deg 39% 23%);
-        --color-focus: hsl(258deg 94% 76%);
-        --color-overlay: hsl(250deg 40% 3% / 72%);
+        --color-warning: hsl(38deg 88% 63%);
+        --color-warning-soft: hsl(35deg 38% 23%);
+        --color-tertiary: var(--color-warning);
+        --color-focus: hsl(267deg 100% 76%);
+        --color-overlay: hsl(255deg 40% 3% / 74%);
         --black: var(--color-text);
         --white: var(--color-surface);
         --bg-color: var(--color-canvas);
@@ -234,56 +239,60 @@
         --shadow-sm: 0 1px 2px hsl(250deg 50% 2% / 25%);
         --shadow-md: 0 8px 24px hsl(250deg 50% 2% / 28%);
         --shadow-lg: 0 18px 48px hsl(250deg 50% 2% / 36%);
-        --focus-ring: 0 0 0 3px hsl(258deg 94% 76% / 30%);
+        --focus-ring: 0 0 0 3px hsl(267deg 100% 76% / 30%);
         color-scheme: dark;
     }
 
     @media (prefers-color-scheme: dark) {
         :root {
-            --color-canvas: hsl(250deg 25% 8%);
-            --color-surface: hsl(250deg 22% 11%);
-            --color-surface-subtle: hsl(250deg 20% 14%);
-            --color-surface-strong: hsl(251deg 18% 19%);
-            --color-text: hsl(270deg 25% 95%);
-            --color-text-muted: hsl(260deg 12% 72%);
-            --color-text-faint: hsl(258deg 9% 58%);
-            --color-border: hsl(252deg 16% 24%);
-            --color-border-strong: hsl(252deg 14% 34%);
-            --color-primary: hsl(258deg 94% 76%);
-            --color-primary-hover: hsl(258deg 96% 82%);
-            --color-primary-soft: hsl(257deg 32% 22%);
-            --color-secondary: hsl(192deg 70% 62%);
+            --color-canvas: hsl(255deg 24% 8%);
+            --color-surface: hsl(255deg 21% 11%);
+            --color-surface-subtle: hsl(254deg 18% 14%);
+            --color-surface-strong: hsl(252deg 16% 19%);
+            --color-text: hsl(40deg 25% 92%);
+            --color-text-muted: hsl(38deg 12% 70%);
+            --color-text-faint: hsl(32deg 8% 56%);
+            --color-border: hsl(252deg 15% 24%);
+            --color-border-strong: hsl(250deg 13% 34%);
+            --color-primary: hsl(267deg 100% 76%);
+            --color-primary-hover: hsl(267deg 100% 83%);
+            --color-primary-soft: hsl(267deg 38% 22%);
+            --color-on-primary: hsl(255deg 24% 10%);
+            --color-secondary: hsl(184deg 66% 56%);
             --color-success: hsl(151deg 48% 58%);
-            --color-warning: hsl(43deg 96% 63%);
-            --color-warning-soft: hsl(42deg 39% 23%);
-            --color-focus: hsl(258deg 94% 76%);
-            --color-overlay: hsl(250deg 40% 3% / 72%);
+            --color-warning: hsl(38deg 88% 63%);
+            --color-warning-soft: hsl(35deg 38% 23%);
+            --color-tertiary: var(--color-warning);
+            --color-focus: hsl(267deg 100% 76%);
+            --color-overlay: hsl(255deg 40% 3% / 74%);
             --info-post-color: hsl(250deg 30% 5% / 45%);
             --shadow-sm: 0 1px 2px hsl(250deg 50% 2% / 25%);
             --shadow-md: 0 8px 24px hsl(250deg 50% 2% / 28%);
             --shadow-lg: 0 18px 48px hsl(250deg 50% 2% / 36%);
-            --focus-ring: 0 0 0 3px hsl(258deg 94% 76% / 30%);
+            --focus-ring: 0 0 0 3px hsl(267deg 100% 76% / 30%);
         }
 
         body.light-theme {
-            --color-canvas: hsl(280deg 33% 98%);
-            --color-surface: hsl(0deg 0% 100%);
-            --color-surface-subtle: hsl(280deg 24% 96%);
-            --color-surface-strong: hsl(275deg 18% 91%);
-            --color-text: hsl(245deg 38% 12%);
-            --color-text-muted: hsl(260deg 9% 42%);
-            --color-text-faint: hsl(260deg 7% 57%);
-            --color-border: hsl(275deg 19% 89%);
-            --color-border-strong: hsl(270deg 14% 78%);
-            --color-primary: hsl(258deg 58% 46%);
-            --color-primary-hover: hsl(258deg 64% 38%);
-            --color-primary-soft: hsl(260deg 62% 94%);
-            --color-secondary: hsl(194deg 68% 42%);
+            --color-canvas: hsl(42deg 28% 95%);
+            --color-surface: hsl(45deg 33% 98%);
+            --color-surface-subtle: hsl(40deg 22% 92%);
+            --color-surface-strong: hsl(36deg 16% 85%);
+            --color-text: hsl(255deg 22% 13%);
+            --color-text-muted: hsl(258deg 10% 39%);
+            --color-text-faint: hsl(255deg 8% 53%);
+            --color-border: hsl(37deg 18% 84%);
+            --color-border-strong: hsl(32deg 13% 70%);
+            --color-primary: hsl(268deg 78% 48%);
+            --color-primary-hover: hsl(268deg 82% 39%);
+            --color-primary-soft: hsl(267deg 62% 91%);
+            --color-on-primary: white;
+            --color-secondary: hsl(185deg 74% 31%);
             --color-success: hsl(151deg 52% 39%);
-            --color-warning: hsl(43deg 94% 45%);
-            --color-warning-soft: hsl(44deg 94% 88%);
-            --color-focus: hsl(258deg 77% 58%);
-            --color-overlay: hsl(245deg 38% 12% / 55%);
+            --color-warning: hsl(35deg 78% 39%);
+            --color-warning-soft: hsl(39deg 73% 86%);
+            --color-tertiary: var(--color-warning);
+            --color-focus: hsl(270deg 83% 55%);
+            --color-overlay: hsl(255deg 22% 13% / 58%);
             --black: var(--color-text);
             --white: var(--color-surface);
             --bg-color: var(--color-canvas);
@@ -297,11 +306,132 @@
             --info-color: var(--color-primary-soft);
             --warning-color: var(--color-warning-soft);
             --admonitions-link-color: var(--color-primary);
-            --shadow-sm: 0 1px 2px hsl(245deg 38% 12% / 5%);
-            --shadow-md: 0 8px 24px hsl(255deg 30% 18% / 7%);
-            --shadow-lg: 0 18px 48px hsl(255deg 30% 18% / 11%);
-            --focus-ring: 0 0 0 3px hsl(258deg 77% 58% / 28%);
+            --shadow-sm: 0 1px 2px hsl(255deg 22% 13% / 6%);
+            --shadow-md: 0 8px 24px hsl(255deg 22% 13% / 8%);
+            --shadow-lg: 0 18px 48px hsl(255deg 22% 13% / 12%);
+            --focus-ring: 0 0 0 3px hsl(270deg 83% 55% / 28%);
             color-scheme: light;
         }
+    }
+
+    /*
+     * TTRPG Notebook
+     * Parchment, brown-charcoal ink, burgundy, forest green, and brass.
+     * These selectors intentionally follow the system-mode fallbacks above.
+     */
+    body[data-palette="notebook"].light-theme {
+        --color-canvas: hsl(40deg 42% 93%);
+        --color-surface: hsl(42deg 46% 97%);
+        --color-surface-subtle: hsl(38deg 31% 89%);
+        --color-surface-strong: hsl(35deg 24% 82%);
+        --color-text: hsl(24deg 25% 15%);
+        --color-text-muted: hsl(24deg 12% 37%);
+        --color-text-faint: hsl(25deg 9% 49%);
+        --color-border: hsl(34deg 24% 78%);
+        --color-border-strong: hsl(31deg 21% 64%);
+        --color-primary: hsl(346deg 58% 34%);
+        --color-primary-hover: hsl(346deg 64% 27%);
+        --color-primary-soft: hsl(347deg 35% 89%);
+        --color-on-primary: white;
+        --color-secondary: hsl(145deg 37% 30%);
+        --color-success: hsl(145deg 37% 30%);
+        --color-warning: hsl(40deg 66% 38%);
+        --color-warning-soft: hsl(42deg 56% 83%);
+        --color-tertiary: var(--color-warning);
+        --color-focus: hsl(346deg 65% 44%);
+        --color-overlay: hsl(24deg 25% 10% / 60%);
+        --shadow-sm: 0 1px 2px hsl(24deg 25% 15% / 7%);
+        --shadow-md: 0 8px 24px hsl(24deg 25% 15% / 9%);
+        --shadow-lg: 0 18px 48px hsl(24deg 25% 15% / 14%);
+        --focus-ring: 0 0 0 3px hsl(346deg 65% 44% / 26%);
+        color-scheme: light;
+    }
+
+    body[data-palette="notebook"].dark-theme {
+        --color-canvas: hsl(25deg 18% 9%);
+        --color-surface: hsl(27deg 16% 12%);
+        --color-surface-subtle: hsl(28deg 14% 15%);
+        --color-surface-strong: hsl(28deg 13% 20%);
+        --color-text: hsl(39deg 34% 90%);
+        --color-text-muted: hsl(35deg 16% 70%);
+        --color-text-faint: hsl(31deg 11% 55%);
+        --color-border: hsl(28deg 13% 24%);
+        --color-border-strong: hsl(29deg 13% 35%);
+        --color-primary: hsl(345deg 64% 68%);
+        --color-primary-hover: hsl(345deg 70% 76%);
+        --color-primary-soft: hsl(345deg 31% 23%);
+        --color-on-primary: hsl(24deg 24% 10%);
+        --color-secondary: hsl(143deg 35% 59%);
+        --color-success: hsl(143deg 35% 59%);
+        --color-warning: hsl(42deg 73% 61%);
+        --color-warning-soft: hsl(39deg 31% 24%);
+        --color-tertiary: var(--color-warning);
+        --color-focus: hsl(345deg 64% 68%);
+        --color-overlay: hsl(24deg 35% 3% / 76%);
+        --shadow-sm: 0 1px 2px hsl(24deg 45% 2% / 27%);
+        --shadow-md: 0 8px 24px hsl(24deg 45% 2% / 31%);
+        --shadow-lg: 0 18px 48px hsl(24deg 45% 2% / 40%);
+        --focus-ring: 0 0 0 3px hsl(345deg 64% 68% / 30%);
+        color-scheme: dark;
+    }
+
+    /*
+     * Midnight Study
+     * A late-night desk in blue-gray and plum, lit by lavender and ember.
+     */
+    body[data-palette="midnight"].light-theme {
+        --color-canvas: hsl(230deg 24% 95%);
+        --color-surface: hsl(228deg 25% 98%);
+        --color-surface-subtle: hsl(229deg 20% 92%);
+        --color-surface-strong: hsl(228deg 16% 85%);
+        --color-text: hsl(230deg 24% 14%);
+        --color-text-muted: hsl(228deg 11% 39%);
+        --color-text-faint: hsl(226deg 9% 53%);
+        --color-border: hsl(228deg 17% 84%);
+        --color-border-strong: hsl(227deg 13% 70%);
+        --color-primary: hsl(265deg 58% 43%);
+        --color-primary-hover: hsl(265deg 65% 35%);
+        --color-primary-soft: hsl(265deg 48% 91%);
+        --color-on-primary: white;
+        --color-secondary: hsl(183deg 54% 32%);
+        --color-success: hsl(155deg 42% 34%);
+        --color-warning: hsl(19deg 72% 42%);
+        --color-warning-soft: hsl(22deg 73% 86%);
+        --color-tertiary: var(--color-warning);
+        --color-focus: hsl(265deg 70% 53%);
+        --color-overlay: hsl(230deg 30% 9% / 62%);
+        --shadow-sm: 0 1px 2px hsl(230deg 24% 14% / 6%);
+        --shadow-md: 0 8px 24px hsl(230deg 24% 14% / 9%);
+        --shadow-lg: 0 18px 48px hsl(230deg 24% 14% / 14%);
+        --focus-ring: 0 0 0 3px hsl(265deg 70% 53% / 27%);
+        color-scheme: light;
+    }
+
+    body[data-palette="midnight"].dark-theme {
+        --color-canvas: hsl(222deg 24% 9%);
+        --color-surface: hsl(224deg 20% 13%);
+        --color-surface-subtle: hsl(225deg 18% 16%);
+        --color-surface-strong: hsl(225deg 16% 21%);
+        --color-text: hsl(38deg 22% 91%);
+        --color-text-muted: hsl(220deg 11% 70%);
+        --color-text-faint: hsl(220deg 9% 56%);
+        --color-border: hsl(224deg 14% 25%);
+        --color-border-strong: hsl(224deg 12% 36%);
+        --color-primary: hsl(266deg 73% 75%);
+        --color-primary-hover: hsl(266deg 82% 82%);
+        --color-primary-soft: hsl(266deg 30% 23%);
+        --color-on-primary: hsl(225deg 28% 10%);
+        --color-secondary: hsl(180deg 48% 54%);
+        --color-success: hsl(155deg 45% 57%);
+        --color-warning: hsl(22deg 85% 62%);
+        --color-warning-soft: hsl(22deg 38% 23%);
+        --color-tertiary: var(--color-warning);
+        --color-focus: hsl(266deg 73% 75%);
+        --color-overlay: hsl(226deg 40% 3% / 78%);
+        --shadow-sm: 0 1px 2px hsl(226deg 50% 2% / 28%);
+        --shadow-md: 0 8px 24px hsl(226deg 50% 2% / 33%);
+        --shadow-lg: 0 18px 48px hsl(226deg 50% 2% / 42%);
+        --focus-ring: 0 0 0 3px hsl(266deg 73% 75% / 31%);
+        color-scheme: dark;
     }
 }

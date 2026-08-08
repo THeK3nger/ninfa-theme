@@ -40,6 +40,125 @@
         }
     }
 
+    /* Color palette picker */
+    .palette-picker {
+        position: relative;
+    }
+
+    .palette-picker > summary {
+        list-style: none;
+    }
+
+    .palette-picker > summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .palette-picker[open] > summary {
+        border-color: var(--color-border);
+        background: var(--color-surface);
+        color: var(--color-primary);
+    }
+
+    .palette-picker__menu {
+        position: absolute;
+        z-index: 20;
+        top: calc(100% + var(--space-3));
+        right: 0;
+        width: min(18rem, calc(100vw - (2 * var(--page-gutter))));
+        padding: var(--space-3);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-lg);
+        background: var(--color-surface);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .palette-picker__label {
+        display: block;
+        padding: var(--space-2) var(--space-3);
+        color: var(--color-text-faint);
+        font-size: var(--font-size-xs);
+        font-weight: var(--font-weight-semibold);
+        letter-spacing: var(--letter-spacing-wider);
+        text-transform: uppercase;
+    }
+
+    .palette-option {
+        width: 100%;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: var(--space-3);
+        align-items: center;
+        padding: var(--space-3);
+        border: 1px solid transparent;
+        border-radius: var(--radius-md);
+        background: transparent;
+        color: var(--color-text);
+        cursor: pointer;
+        text-align: left;
+    }
+
+    .palette-option:hover,
+    .palette-option[aria-pressed="true"] {
+        border-color: var(--color-border);
+        background: var(--color-surface-subtle);
+    }
+
+    .palette-option[aria-pressed="true"] {
+        box-shadow: inset 3px 0 0 var(--color-primary);
+    }
+
+    .palette-option strong,
+    .palette-option small {
+        display: block;
+    }
+
+    .palette-option strong {
+        font-size: var(--font-size-sm);
+    }
+
+    .palette-option small {
+        margin-top: var(--space-1);
+        color: var(--color-text-muted);
+        font-size: var(--font-size-xs);
+    }
+
+    .palette-option__swatches {
+        display: flex;
+    }
+
+    .palette-option__swatches i {
+        width: 0.85rem;
+        height: 1.75rem;
+        border: 2px solid var(--color-surface);
+        border-radius: var(--radius-pill);
+        margin-left: -0.25rem;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .palette-option__swatches i:first-child {
+        margin-left: 0;
+    }
+
+    .palette-option__swatches--arcade i:nth-child(1) { background: hsl(268deg 78% 48%); }
+    .palette-option__swatches--arcade i:nth-child(2) { background: hsl(185deg 74% 31%); }
+    .palette-option__swatches--arcade i:nth-child(3) { background: hsl(35deg 78% 39%); }
+    .palette-option__swatches--notebook i:nth-child(1) { background: hsl(346deg 58% 34%); }
+    .palette-option__swatches--notebook i:nth-child(2) { background: hsl(145deg 37% 30%); }
+    .palette-option__swatches--notebook i:nth-child(3) { background: hsl(40deg 66% 38%); }
+    .palette-option__swatches--midnight i:nth-child(1) { background: hsl(266deg 73% 75%); }
+    .palette-option__swatches--midnight i:nth-child(2) { background: hsl(180deg 48% 54%); }
+    .palette-option__swatches--midnight i:nth-child(3) { background: hsl(22deg 85% 62%); }
+
+    @media (width <= 420px) {
+        .palette-picker__menu {
+            position: fixed;
+            top: 4.5rem;
+            right: var(--page-gutter);
+            left: var(--page-gutter);
+            width: auto;
+        }
+    }
+
     /* Tag bullets */
 
     .tagbullet {
@@ -64,7 +183,7 @@
 
     .tagbullet .tag-val {
         background-color: var(--primary-color);
-        color: var(--white);
+        color: var(--color-on-primary);
         border-radius: 0 5px 5px 0;
         padding: 0.25em 0.5em;
         text-shadow: 0 1px 2px rgb(0 0 0 / 20%);
@@ -165,7 +284,7 @@
             text-decoration: none;
             border-radius: 4px;
             background-color: var(--primary-color);
-            color: var(--white);
+            color: var(--color-on-primary);
             transition: background-color 0.3s;
 
             &:hover {

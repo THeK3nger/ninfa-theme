@@ -1,0 +1,31 @@
+<details class="palette-picker" id="palette-picker">
+    <summary class="icon-button" aria-label="Choose color theme" title="Choose color theme">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="19" height="19">
+            <path d="M12 3a9 9 0 1 0 0 18h1.1a1.9 1.9 0 0 0 0-3.8h-1a1.6 1.6 0 0 1 0-3.2h2.7A6.2 6.2 0 0 0 21 7.8C21 5.1 17 3 12 3Z"></path>
+            <circle cx="7.5" cy="9" r=".8"></circle>
+            <circle cx="11" cy="6.8" r=".8"></circle>
+            <circle cx="15" cy="7.2" r=".8"></circle>
+        </svg>
+    </summary>
+    <div class="palette-picker__menu" role="group" aria-label="Color themes">
+        <span class="palette-picker__label">Color theme</span>
+        <button class="palette-option" type="button" data-palette="arcade" aria-pressed="true">
+            <span class="palette-option__swatches palette-option__swatches--arcade" aria-hidden="true">
+                <i></i><i></i><i></i>
+            </span>
+            <span><strong>Arcade Twilight</strong><small>Violet · teal · amber</small></span>
+        </button>
+        <button class="palette-option" type="button" data-palette="notebook" aria-pressed="false">
+            <span class="palette-option__swatches palette-option__swatches--notebook" aria-hidden="true">
+                <i></i><i></i><i></i>
+            </span>
+            <span><strong>TTRPG Notebook</strong><small>Burgundy · forest · brass</small></span>
+        </button>
+        <button class="palette-option" type="button" data-palette="midnight" aria-pressed="false">
+            <span class="palette-option__swatches palette-option__swatches--midnight" aria-hidden="true">
+                <i></i><i></i><i></i>
+            </span>
+            <span><strong>Midnight Study</strong><small>Lavender · teal · ember</small></span>
+        </button>
+    </div>
+</details>

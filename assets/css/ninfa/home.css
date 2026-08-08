@@ -97,7 +97,7 @@
         border: 1px solid var(--color-primary);
         border-radius: var(--radius-md);
         background: var(--color-primary);
-        color: white;
+        color: var(--color-on-primary);
         font-size: var(--font-size-sm);
         font-weight: var(--font-weight-semibold);
         transition: background-color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard), transform var(--duration-fast) var(--ease-standard);
@@ -106,7 +106,7 @@
     .home-button:hover {
         border-color: var(--color-primary-hover);
         background: var(--color-primary-hover);
-        color: white;
+        color: var(--color-on-primary);
         transform: translateY(-1px);
     }
 
@@ -607,6 +607,12 @@
         color: var(--color-text);
         font-size: var(--font-size-xl);
         cursor: pointer;
+    }
+
+    body[data-palette="midnight"].dark-theme .home-hero__media img,
+    body[data-palette="midnight"].dark-theme .topic-card__image img,
+    body[data-palette="midnight"].dark-theme .recent-article__image img {
+        filter: brightness(0.92) saturate(0.88) contrast(1.04);
     }
 
     @media (width <= 1180px) {

@@ -273,7 +273,7 @@
 
         thead {
             background-color: var(--color-primary);
-            color: var(--color-surface);
+            color: var(--color-on-primary);
             text-align: left;
             font-weight: var(--font-weight-bold);
         }
