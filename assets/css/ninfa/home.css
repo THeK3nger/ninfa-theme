@@ -89,25 +89,37 @@
     }
 
     .home-button {
+        --home-button-edge: color-mix(in srgb, var(--color-primary) 62%, var(--color-text));
+        --home-button-highlight: color-mix(in srgb, var(--color-on-primary) 42%, transparent);
+
         display: inline-flex;
         min-height: 2.5rem;
         align-items: center;
         justify-content: center;
         padding: var(--space-2) var(--space-4);
-        border: 1px solid var(--color-primary);
-        border-radius: var(--radius-md);
+        border: 1px solid var(--home-button-edge);
+        border-radius: var(--radius-sm);
         background: var(--color-primary);
+        box-shadow: 2px 2px 0 var(--home-button-edge);
         color: var(--color-on-primary);
         font-size: var(--font-size-sm);
         font-weight: var(--font-weight-semibold);
-        transition: background-color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard), transform var(--duration-fast) var(--ease-standard);
+        transform: translate(0);
+        transition: background-color var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard), transform 60ms linear;
     }
 
     .home-button:hover {
-        border-color: var(--color-primary-hover);
-        background: var(--color-primary-hover);
+        border-color: var(--home-button-edge);
+        background: var(--color-primary);
+        box-shadow: inset 1px 1px 0 var(--home-button-highlight), inset -1px -1px 0 var(--home-button-edge), 2px 2px 0 var(--home-button-edge);
         color: var(--color-on-primary);
-        transform: translateY(-1px);
+        transform: translate(0);
+    }
+
+    .home-button:active {
+        background: var(--color-primary-hover);
+        box-shadow: inset 2px 2px 0 var(--home-button-edge), inset -1px -1px 0 var(--home-button-highlight);
+        transform: translate(2px, 2px);
     }
 
     .home-hero__meta {
