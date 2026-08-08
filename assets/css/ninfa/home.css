@@ -393,6 +393,82 @@
         box-shadow: var(--shadow-sm);
     }
 
+    /* Pixel-panel frame: two crisp steps replace each rounded corner. */
+    .home-hero,
+    .topic-card,
+    .recent-articles,
+    .rail-card {
+        --panel-border: 2px;
+        --panel-cut: 4px;
+        --panel-step: 2px;
+        --panel-inner-cut: 2px;
+        --panel-inner-step: 2px;
+        --panel-frame: var(--color-border);
+
+        position: relative;
+        isolation: isolate;
+        border: var(--panel-border) solid transparent;
+        border-radius: 0;
+        background: var(--panel-frame);
+        box-shadow: none;
+        clip-path: polygon(
+            var(--panel-cut) 0,
+            calc(100% - var(--panel-cut)) 0,
+            calc(100% - var(--panel-cut)) var(--panel-step),
+            calc(100% - var(--panel-step)) var(--panel-step),
+            calc(100% - var(--panel-step)) var(--panel-cut),
+            100% var(--panel-cut),
+            100% calc(100% - var(--panel-cut)),
+            calc(100% - var(--panel-step)) calc(100% - var(--panel-cut)),
+            calc(100% - var(--panel-step)) calc(100% - var(--panel-step)),
+            calc(100% - var(--panel-cut)) calc(100% - var(--panel-step)),
+            calc(100% - var(--panel-cut)) 100%,
+            var(--panel-cut) 100%,
+            var(--panel-cut) calc(100% - var(--panel-step)),
+            var(--panel-step) calc(100% - var(--panel-step)),
+            var(--panel-step) calc(100% - var(--panel-cut)),
+            0 calc(100% - var(--panel-cut)),
+            0 var(--panel-cut),
+            var(--panel-step) var(--panel-cut),
+            var(--panel-step) var(--panel-step),
+            var(--panel-cut) var(--panel-step)
+        );
+    }
+
+    .home-hero::before,
+    .topic-card::before,
+    .recent-articles::before,
+    .rail-card::before {
+        position: absolute;
+        z-index: -1;
+        inset: var(--panel-border);
+        background: var(--color-surface);
+        clip-path: polygon(
+            var(--panel-inner-cut) 0,
+            calc(100% - var(--panel-inner-cut)) 0,
+            calc(100% - var(--panel-inner-cut)) var(--panel-inner-step),
+            calc(100% - var(--panel-inner-step)) var(--panel-inner-step),
+            calc(100% - var(--panel-inner-step)) var(--panel-inner-cut),
+            100% var(--panel-inner-cut),
+            100% calc(100% - var(--panel-inner-cut)),
+            calc(100% - var(--panel-inner-step)) calc(100% - var(--panel-inner-cut)),
+            calc(100% - var(--panel-inner-step)) calc(100% - var(--panel-inner-step)),
+            calc(100% - var(--panel-inner-cut)) calc(100% - var(--panel-inner-step)),
+            calc(100% - var(--panel-inner-cut)) 100%,
+            var(--panel-inner-cut) 100%,
+            var(--panel-inner-cut) calc(100% - var(--panel-inner-step)),
+            var(--panel-inner-step) calc(100% - var(--panel-inner-step)),
+            var(--panel-inner-step) calc(100% - var(--panel-inner-cut)),
+            0 calc(100% - var(--panel-inner-cut)),
+            0 var(--panel-inner-cut),
+            var(--panel-inner-step) var(--panel-inner-cut),
+            var(--panel-inner-step) var(--panel-inner-step),
+            var(--panel-inner-cut) var(--panel-inner-step)
+        );
+        content: "";
+        pointer-events: none;
+    }
+
     .rail-card > h2 {
         margin-bottom: var(--space-4);
     }
