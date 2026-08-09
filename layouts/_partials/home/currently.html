@@ -1,28 +1,31 @@
 {{- $currently := .Data -}}
-<section class="rail-card currently-card" aria-labelledby="currently-title">
-    <div class="rail-card__heading">
-        <h2 id="currently-title">Currently</h2>
-        {{- with $currently.updated }}<time datetime="{{ . }}">Updated {{ time.Format "Jan 2006" . }}</time>{{ end }}
-    </div>
-    <ul class="currently-list">
-        {{- range $currently.items }}
-        <li>
-            <span class="currently-item__icon currently-item__icon--{{ .accent }}{{ with .icon_image }} currently-item__icon--image{{ end }}" aria-hidden="true">
-                {{- with .icon_image }}
-                    <img src="{{ . | relURL }}" alt="" width="32" height="32">
-                {{- else }}
-                    {{ .icon }}
-                {{- end }}
-            </span>
-            <div class="currently-item__body">
-                <span class="currently-item__label">{{ .label }}</span>
-                <span class="currently-item__value">
-                    {{- if .url }}<a href="{{ .url }}">{{ .value }}</a>{{ else }}{{ .value }}{{ end -}}
+<div class="rail-card-wrap">
+    <section class="rail-card currently-card" aria-labelledby="currently-title">
+        <div class="rail-card__heading">
+            <h2 id="currently-title">Currently</h2>
+            {{- with $currently.updated }}<time datetime="{{ . }}">Updated {{ time.Format "Jan 2006" . }}</time>{{ end }}
+        </div>
+        <ul class="currently-list">
+            {{- range $currently.items }}
+            <li>
+                <span class="currently-item__icon currently-item__icon--{{ .accent }}{{ with .icon_image }} currently-item__icon--image{{ end }}" aria-hidden="true">
+                    {{- with .icon_image }}
+                        <img src="{{ . | relURL }}" alt="" width="32" height="32">
+                    {{- else }}
+                        {{ .icon }}
+                    {{- end }}
                 </span>
-                {{- with .detail }}<span class="currently-item__detail">{{ . }}</span>{{ end }}
-            </div>
-        </li>
-        {{- end }}
-    </ul>
-    <a class="rail-card__more" href="{{ $currently.url | relURL }}">Read the full /now update <span aria-hidden="true">→</span></a>
-</section>
+                <div class="currently-item__body">
+                    <span class="currently-item__label">{{ .label }}</span>
+                    <span class="currently-item__value">
+                        {{- if .url }}<a href="{{ .url }}">{{ .value }}</a>{{ else }}{{ .value }}{{ end -}}
+                    </span>
+                    {{- with .detail }}<span class="currently-item__detail">{{ . }}</span>{{ end }}
+                </div>
+            </li>
+            {{- end }}
+        </ul>
+        <a class="rail-card__more" href="{{ $currently.url | relURL }}">Read the full /now update <span aria-hidden="true">→</span></a>
+    </section>
+    <img class="rail-card__icon" src="images/icons/compass32.png" alt="" />
+</div>
