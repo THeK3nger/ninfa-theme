@@ -514,6 +514,18 @@
         z-index: 20;
     }
 
+    .rail-card--recent-notes {
+        --panel-frame: var(--color-secondary);
+    }
+
+    .rail-card--recent-notes::before {
+        background: color-mix(in srgb, var(--color-secondary) 7%, var(--color-surface));
+    }
+
+    .rail-card--recent-notes > h2 {
+        color: var(--color-secondary);
+    }
+
     /* Currently */
     .currently-list,
     .project-list {
