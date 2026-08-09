@@ -1,10 +1,100 @@
 {{ define "main" }}
-    <h1>{{ .Title }}</h1>
-    <div class="tagbullet">
-        {{- range .Data.Terms.ByCount -}}
-        <a href="{{ .Page.Permalink}}" type="button" class="tag">
-            <span class="tag-key">{{ .Page.Title }}</span><span class="tag-val">{{ .Count }}</span>
-        </a>
-        {{- end -}}
-    </div>
+{{- $terms := .Data.Terms.Alphabetical -}}
+{{- $popular := first 8 .Data.Terms.ByCount -}}
+{{- $icons := dict
+    "books" "📚"
+    "changelog" "💾"
+    "music" "🎵"
+    "tv series" "📺"
+    "videogames" "🎮"
+    "movies" "🎬"
+    "game design" "⚔️"
+    "personal" "📔"
+-}}
+
+<section class="tag-directory-page" data-tag-directory aria-labelledby="tag-directory-title">
+    <header class="tag-directory-header">
+        <h1 id="tag-directory-title">{{ .Title }}</h1>
+        <p>Browse {{ len .Data.Terms }} topics across the archive.</p>
+    </header>
+
+    <label class="tag-search" for="tag-search">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="m16 16 5 5"></path>
+        </svg>
+        <span class="visually-hidden">Filter tags</span>
+        <input id="tag-search" type="search" placeholder="Filter tags…" autocomplete="off" spellcheck="false" aria-controls="tag-results">
+        <kbd aria-hidden="true">/</kbd>
+    </label>
+
+    <section class="popular-tags" data-popular-tags aria-labelledby="popular-tags-title">
+        <h2 id="popular-tags-title">Popular tags</h2>
+        <ol class="popular-tags__list">
+            {{- range $popular }}
+            {{- $key := lower .Page.Title -}}
+            {{- $icon := index $icons $key -}}
+            <li data-popular-tag data-name="{{ $key }}">
+                <a class="popular-tag{{ if not $icon }} popular-tag--text-only{{ end }}" href="{{ .Page.RelPermalink }}">
+                    {{- with $icon }}
+                    <span class="popular-tag__icon" aria-hidden="true">{{ . }}</span>
+                    {{- end }}
+                    <span class="popular-tag__name">{{ .Page.Title }}</span>
+                    <span class="popular-tag__count">{{ .Count }}</span>
+                </a>
+            </li>
+            {{- end }}
+        </ol>
+    </section>
+
+    <section class="all-tags" aria-labelledby="all-tags-title">
+        <header class="all-tags__header">
+            <h2 id="all-tags-title">All tags <span>({{ len .Data.Terms }})</span></h2>
+            <div class="tag-sort" aria-label="Sort tags">
+                <button type="button" data-tag-sort="name" aria-pressed="true">
+                    <span aria-hidden="true">☷</span> By name
+                </button>
+                <button type="button" data-tag-sort="count" aria-pressed="false">
+                    <span aria-hidden="true">▥</span> By count
+                </button>
+            </div>
+        </header>
+
+        <p class="tag-results-status visually-hidden" aria-live="polite">
+            <span data-tag-result-count>{{ len .Data.Terms }}</span> <span data-tag-result-label>tags</span>
+        </p>
+
+        <div id="tag-results">
+            <div class="tag-groups" data-tag-groups>
+                {{- $currentLetter := "" -}}
+                {{- range $terms }}
+                    {{- $letter := upper (substr .Page.Title 0 1) -}}
+                    {{- if ne $letter $currentLetter }}
+                        {{- if ne $currentLetter "" }}</ul></section>{{ end }}
+                        <section class="tag-group" data-tag-group="{{ $letter }}">
+                            <h3><span>{{ $letter }}</span></h3>
+                            <ul role="list">
+                        {{- $currentLetter = $letter -}}
+                    {{- end }}
+                    <li data-tag-item data-name="{{ lower .Page.Title }}" data-count="{{ .Count }}" data-group="{{ $letter }}">
+                        <a class="tag-pill" href="{{ .Page.RelPermalink }}">
+                            <span>{{ .Page.Title }}</span>
+                            <span class="tag-pill__count">{{ .Count }}</span>
+                        </a>
+                    </li>
+                {{- end }}
+                {{- if ne $currentLetter "" }}</ul></section>{{ end }}
+            </div>
+            <ul class="tag-count-list" data-tag-count-list role="list" hidden></ul>
+        </div>
+
+        <div class="tag-empty" data-tag-empty hidden>
+            <p>No tags match that filter.</p>
+            <button type="button" data-tag-clear>Clear filter</button>
+        </div>
+    </section>
+</section>
+
+{{- $script := resources.Get "js/tags.js" | minify | fingerprint -}}
+<script src="{{ $script.RelPermalink }}" defer></script>
 {{ end }}
